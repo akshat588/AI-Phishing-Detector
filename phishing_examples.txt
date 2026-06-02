@@ -1,0 +1,23 @@
+Phishing Messages:
+
+Your account has been suspended.
+
+Verify your password immediately.
+
+Your bank account is locked.
+
+Click here to claim your reward.
+
+Send OTP to reactivate your account.
+
+Safe Messages:
+
+Meeting scheduled for tomorrow.
+
+Happy birthday!
+
+Project submission deadline is Friday.
+
+Let's have lunch together.
+
+Your order has been delivered.
