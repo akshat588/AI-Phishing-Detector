@@ -49,27 +49,27 @@ def analyze_email(email_text):
         "special offer"
     ]
 
-    # Credential Theft Detection
+    # Credential Theft
     for word in credential_words:
         if word in email_text:
             threat_dna["Credential Theft"] += 20
 
-    # Urgency Detection
+    # Urgency
     for word in urgency_words:
         if word in email_text:
             threat_dna["Urgency"] += 20
 
-    # Fear Tactics Detection
+    # Fear Tactics
     for word in fear_words:
         if word in email_text:
             threat_dna["Fear Tactics"] += 20
 
-    # Financial Fraud Detection
+    # Financial Fraud
     for word in financial_words:
         if word in email_text:
             threat_dna["Financial Fraud"] += 20
 
-    # Social Engineering Detection
+    # Social Engineering
     for word in social_words:
         if word in email_text:
             threat_dna["Social Engineering"] += 20
@@ -77,74 +77,67 @@ def analyze_email(email_text):
     return threat_dna
 
 
-# -------------------------
-# User Input
-# -------------------------
+def get_email_score(threat_dna):
 
-email = input("Paste suspicious email:\n")
+    score = min(sum(threat_dna.values()), 100)
 
-result = analyze_email(email)
+    return score
 
-# -------------------------
-# Calculate Overall Score
-# -------------------------
 
-overall_score = sum(result.values()) // len(result)
+def get_risk_level(score):
 
-# -------------------------
-# Risk Classification
-# -------------------------
+    if score >= 90:
+        return "🚨 CRITICAL"
 
-if overall_score >= 70:
-    risk_level = "🔴 HIGH RISK"
+    elif score >= 70:
+        return "🔴 HIGH"
 
-elif overall_score >= 40:
-    risk_level = "🟠 MEDIUM RISK"
+    elif score >= 40:
+        return "🟠 MEDIUM"
 
-else:
-    risk_level = "🟢 LOW RISK"
+    else:
+        return "🟢 LOW"
 
-# -------------------------
-# Display Results
-# -------------------------
 
-print("\n========== THREAT DNA ==========\n")
+# ==========================
+# TEST MODE
+# ==========================
 
-for threat, score in result.items():
+if __name__ == "__main__":
 
-    bars = "█" * (score // 10)
-    empty = "░" * (10 - (score // 10))
+    email = input("Paste suspicious email:\n\n")
 
-    print(f"{threat:<20} {bars}{empty} {score}%")
+    result = analyze_email(email)
 
-print("\n================================")
+    score = get_email_score(result)
 
-print(f"\nOverall Threat Score: {overall_score}%")
+    risk_level = get_risk_level(score)
 
-print(f"Risk Level: {risk_level}")
-print("\n========== AI SECURITY ANALYST ==========\n")
+    print("\n========== EMAIL ANALYZER ==========\n")
 
-if result["Credential Theft"] > 0:
-    print("• Credential harvesting indicators detected.")
+    for threat, value in result.items():
 
-if result["Urgency"] > 0:
-    print("• Urgency-based manipulation detected.")
+        bars = "█" * (value // 10)
+        empty = "░" * (10 - (value // 10))
 
-if result["Fear Tactics"] > 0:
-    print("• Fear tactics detected.")
+        print(f"{threat:<20} {bars}{empty} {value}%")
 
-if result["Financial Fraud"] > 0:
-    print("• Financial fraud indicators detected.")
+    print("\nOverall Score:", score)
+    print("Risk Level:", risk_level)
 
-if result["Social Engineering"] > 0:
-    print("• Social engineering patterns detected.")
+    print("\n========== AI SECURITY ANALYST ==========\n")
 
-print("\nRecommendation:")
+    if result["Credential Theft"] > 0:
+        print("• Credential harvesting indicators detected.")
 
-if overall_score >= 70:
-    print("⚠ Do NOT interact with this email.")
-    print("⚠ Quarantine immediately.")
-elif overall_score >= 40:
-    print("⚠ Verify sender before taking action.")
-else:
-    print("✓ Low risk email.")
+    if result["Urgency"] > 0:
+        print("• Urgency manipulation detected.")
+
+    if result["Fear Tactics"] > 0:
+        print("• Fear tactics detected.")
+
+    if result["Financial Fraud"] > 0:
+        print("• Financial fraud indicators detected.")
+
+    if result["Social Engineering"] > 0:
+        print("• Social engineering indicators detected.")

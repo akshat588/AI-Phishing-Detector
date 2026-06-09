@@ -3,7 +3,6 @@ def analyze_sender(sender):
     sender = sender.lower()
 
     risk_score = 0
-
     findings = []
 
     free_email_domains = [
@@ -21,7 +20,7 @@ def analyze_sender(sender):
         "login"
     ]
 
-    # Extract domain
+    # Extract Domain
 
     if "@" in sender:
         domain = sender.split("@")[1]
@@ -31,7 +30,7 @@ def analyze_sender(sender):
     # Free Email Abuse
 
     for free_domain in free_email_domains:
-        if free_domain == domain:
+        if domain == free_domain:
             risk_score += 30
             findings.append("Free email provider used")
 
@@ -54,37 +53,53 @@ def analyze_sender(sender):
     for keyword in suspicious_keywords:
         if keyword in domain:
             risk_score += 10
-            findings.append(f"Suspicious keyword: {keyword}")
+            findings.append(
+                f"Suspicious keyword: {keyword}"
+            )
 
     risk_score = min(risk_score, 100)
 
-    if risk_score >= 90:
-        risk_level = "🚨 CRITICAL"
-    elif risk_score >= 70:
-        risk_level = "🔴 HIGH"
-    elif risk_score >= 40:
-        risk_level = "🟠 MEDIUM"
+    return risk_score, findings
+
+
+def get_sender_risk_level(score):
+
+    if score >= 90:
+        return "🚨 CRITICAL"
+
+    elif score >= 70:
+        return "🔴 HIGH"
+
+    elif score >= 40:
+        return "🟠 MEDIUM"
+
     else:
-        risk_level = "🟢 LOW"
-
-    return risk_score, risk_level, findings
+        return "🟢 LOW"
 
 
-sender = input("Enter sender email:\n\n")
+# ==========================
+# TEST MODE
+# ==========================
 
-score, risk_level, findings = analyze_sender(sender)
+if __name__ == "__main__":
 
-print("\n" + "=" * 50)
-print("       SENDER INTELLIGENCE REPORT")
-print("=" * 50)
+    sender = input("Enter sender email:\n\n")
 
-print(f"\nRisk Score: {score}%")
-print(f"Risk Level: {risk_level}")
+    score, findings = analyze_sender(sender)
 
-print("\nFindings:\n")
+    risk_level = get_sender_risk_level(score)
 
-if findings:
-    for item in findings:
-        print("•", item)
-else:
-    print("✓ No suspicious indicators found.")
+    print("\n" + "=" * 50)
+    print("SENDER INTELLIGENCE REPORT")
+    print("=" * 50)
+
+    print(f"\nRisk Score: {score}%")
+    print(f"Risk Level: {risk_level}")
+
+    print("\nFindings:\n")
+
+    if findings:
+        for item in findings:
+            print("•", item)
+    else:
+        print("✓ No suspicious indicators found.")
