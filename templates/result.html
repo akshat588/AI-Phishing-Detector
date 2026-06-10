@@ -3,6 +3,8 @@
 <head>
     <title>PhishEye AI Dashboard</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
 
         *{
@@ -63,6 +65,7 @@
             background:#111827;
             padding:25px;
             border-radius:15px;
+            box-shadow:0 0 10px rgba(0,255,136,0.1);
         }
 
         .card h3{
@@ -120,6 +123,12 @@
             text-decoration:none;
             font-weight:bold;
             margin-top:20px;
+        }
+
+        canvas{
+            background:white;
+            border-radius:10px;
+            padding:10px;
         }
 
     </style>
@@ -269,6 +278,14 @@
 
     <div class="section">
 
+        <h2>📊 Threat Analytics</h2>
+
+        <canvas id="threatChart"></canvas>
+
+    </div>
+
+    <div class="section">
+
         <h2>URL Findings</h2>
 
         <ul>
@@ -300,6 +317,50 @@
     </a>
 
 </div>
+
+<script>
+
+const ctx = document.getElementById('threatChart');
+
+new Chart(ctx, {
+    type: 'bar',
+
+    data: {
+
+        labels: [
+            'Email Score',
+            'URL Score',
+            'Sender Score',
+            'ML Confidence'
+        ],
+
+        datasets: [{
+            label: 'Threat Metrics',
+
+            data: [
+                {{ email_score }},
+                {{ url_score }},
+                {{ sender_score }},
+                {{ ml_confidence }}
+            ]
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+
+        scales: {
+
+            y: {
+                beginAtZero: true,
+                max: 100
+            }
+        }
+    }
+});
+
+</script>
 
 </body>
 </html>
