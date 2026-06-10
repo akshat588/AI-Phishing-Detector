@@ -68,7 +68,7 @@
             background:#111827;
             padding:25px;
             border-radius:12px;
-            box-shadow:0 0 10px rgba(0,255,136,0.08);
+            box-shadow:0 0 15px rgba(0,255,136,0.08);
         }
 
         .card h3{
@@ -96,8 +96,8 @@
         }
 
         .section h2{
-            margin-bottom:15px;
             color:#00ff88;
+            margin-bottom:20px;
         }
 
         ul{
@@ -121,28 +121,28 @@
 
         .verdict{
             font-size:24px;
-            margin-top:10px;
             font-weight:bold;
         }
 
         .progress-container{
-            margin-top:15px;
+            margin-bottom:20px;
         }
 
         .progress-title{
             margin-bottom:8px;
+            font-size:16px;
         }
 
         .progress-bar{
             width:100%;
+            height:18px;
             background:#1f2937;
             border-radius:20px;
             overflow:hidden;
-            height:18px;
         }
 
         .progress-fill{
-            height:18px;
+            height:100%;
             background:#00ff88;
         }
 
@@ -152,145 +152,200 @@
 
 <body>
 
-    <div class="sidebar">
+<div class="sidebar">
 
-        <div class="logo">
-            🛡️ PhishEye AI
-        </div>
+    <div class="logo">
+        🛡️ PhishEye AI
+    </div>
 
-        <div class="menu-item">Dashboard</div>
-        <div class="menu-item">Email Analyzer</div>
-        <div class="menu-item">URL Analyzer</div>
-        <div class="menu-item">Sender Analyzer</div>
-        <div class="menu-item">Threat DNA</div>
-        <div class="menu-item">AI Analyst</div>
+    <div class="menu-item">Dashboard</div>
+    <div class="menu-item">Email Analyzer</div>
+    <div class="menu-item">URL Analyzer</div>
+    <div class="menu-item">Sender Analyzer</div>
+    <div class="menu-item">Threat DNA</div>
+    <div class="menu-item">AI Analyst</div>
+
+</div>
+
+<div class="content">
+
+    <div class="header">
+
+        <h1>Threat Analysis Dashboard</h1>
+
+        <p>AI-Powered Phishing Detection Report</p>
 
     </div>
 
-    <div class="content">
+    <div class="cards">
 
-        <div class="header">
-            <h1>Threat Analysis Dashboard</h1>
-            <p>AI-Powered Phishing Detection Report</p>
-        </div>
+        <div class="card">
 
-        <div class="cards">
+            <h3>Threat Score</h3>
 
-            <div class="card">
-                <h3>Threat Score</h3>
-                <div class="score">
-                    {{ final_score }}%
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>ML Confidence</h3>
-                <div class="score">
-                    {{ ml_confidence }}%
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Severity</h3>
-                <div class="severity">
-                    {{ severity }}
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>ML Verdict</h3>
-                <div class="verdict">
-                    {{ ml_verdict }}
-                </div>
+            <div class="score">
+                {{ final_score }}%
             </div>
 
         </div>
 
-        <div class="section">
+        <div class="card">
 
-            <h2>Threat Components</h2>
+            <h3>ML Confidence</h3>
 
-            <div class="progress-container">
-
-                <div class="progress-title">
-                    Email Score ({{ email_score }})
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-fill"
-                         style="width: {{ email_score }}%;">
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="progress-container">
-
-                <div class="progress-title">
-                    URL Score ({{ url_score }})
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-fill"
-                         style="width: {{ url_score }}%;">
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="progress-container">
-
-                <div class="progress-title">
-                    Sender Score ({{ sender_score }})
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-fill"
-                         style="width: {{ sender_score }}%;">
-                    </div>
-                </div>
-
+            <div class="score">
+                {{ ml_confidence }}%
             </div>
 
         </div>
 
-        <div class="section">
+        <div class="card">
 
-            <h2>URL Findings</h2>
+            <h3>Severity</h3>
 
-            <ul>
-
-                {% for item in url_findings %}
-
-                <li>{{ item }}</li>
-
-                {% endfor %}
-
-            </ul>
+            <div class="severity">
+                {{ severity }}
+            </div>
 
         </div>
 
-        <div class="section">
+        <div class="card">
 
-            <h2>Sender Findings</h2>
+            <h3>ML Verdict</h3>
 
-            <ul>
-
-                {% for item in sender_findings %}
-
-                <li>{{ item }}</li>
-
-                {% endfor %}
-
-            </ul>
+            <div class="verdict">
+                {{ ml_verdict }}
+            </div>
 
         </div>
-
-        <a href="/" class="back-btn">
-            Analyze Another Email
-        </a>
 
     </div>
+
+    <!-- Threat Components -->
+
+    <div class="section">
+
+        <h2>Threat Components</h2>
+
+        <div class="progress-container">
+
+            <div class="progress-title">
+                Email Score ({{ email_score }})
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill"
+                     style="width: {{ email_score }}%;">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="progress-container">
+
+            <div class="progress-title">
+                URL Score ({{ url_score }})
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill"
+                     style="width: {{ url_score }}%;">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="progress-container">
+
+            <div class="progress-title">
+                Sender Score ({{ sender_score }})
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill"
+                     style="width: {{ sender_score }}%;">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Threat DNA -->
+
+    <div class="section">
+
+        <h2>Threat DNA Analysis</h2>
+
+        {% for threat, score in threat_dna.items() %}
+
+        <div class="progress-container">
+
+            <div class="progress-title">
+
+                {{ threat }}
+
+                ({{ score }}%)
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"
+                     style="width: {{ score }}%;">
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- URL Findings -->
+
+    <div class="section">
+
+        <h2>URL Findings</h2>
+
+        <ul>
+
+            {% for item in url_findings %}
+
+            <li>{{ item }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- Sender Findings -->
+
+    <div class="section">
+
+        <h2>Sender Findings</h2>
+
+        <ul>
+
+            {% for item in sender_findings %}
+
+            <li>{{ item }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <a href="/" class="back-btn">
+
+        Analyze Another Email
+
+    </a>
+
+</div>
 
 </body>
 

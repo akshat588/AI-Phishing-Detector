@@ -45,10 +45,10 @@ def analyze():
     # Email Analysis
     # ==========================
 
-    email_result = analyze_email(email)
+    threat_dna = analyze_email(email)
 
     email_score = get_email_score(
-        email_result
+        threat_dna
     )
 
     # ==========================
@@ -68,7 +68,7 @@ def analyze():
     )
 
     # ==========================
-    # REAL ML Prediction
+    # ML Prediction
     # ==========================
 
     email_vector = vectorizer.transform(
@@ -130,8 +130,9 @@ def analyze():
 
         ml_confidence=ml_confidence,
         ml_verdict=ml_verdict,
-
         severity=severity,
+
+        threat_dna=threat_dna,
 
         url_findings=url_findings,
         sender_findings=sender_findings
