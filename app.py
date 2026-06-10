@@ -30,7 +30,6 @@ vectorizer = joblib.load("vectorizer.pkl")
 
 @app.route("/")
 def home():
-
     return render_template("index.html")
 
 
@@ -41,35 +40,19 @@ def analyze():
     url = request.form.get("url")
     sender = request.form.get("sender")
 
-    # ==========================
-    # Email Analysis
-    # ==========================
-
     threat_dna = analyze_email(email)
 
     email_score = get_email_score(
         threat_dna
     )
 
-    # ==========================
-    # URL Analysis
-    # ==========================
-
     url_score, url_findings = analyze_url(
         url
     )
 
-    # ==========================
-    # Sender Analysis
-    # ==========================
-
     sender_score, sender_findings = analyze_sender(
         sender
     )
-
-    # ==========================
-    # ML Prediction
-    # ==========================
 
     email_vector = vectorizer.transform(
         [email]
@@ -93,20 +76,12 @@ def analyze():
     else:
         ml_verdict = "✓ SAFE MESSAGE"
 
-    # ==========================
-    # Final Threat Score
-    # ==========================
-
     final_score = calculate_threat_score(
         email_score,
         url_score,
         sender_score,
         ml_confidence
     )
-
-    # ==========================
-    # Severity
-    # ==========================
 
     if final_score >= 90:
         severity = "🚨 CRITICAL"
@@ -119,6 +94,52 @@ def analyze():
 
     else:
         severity = "🟢 LOW"
+
+    # ==========================
+    # AI Security Analyst
+    # ==========================
+
+    analyst_findings = []
+
+    if threat_dna["Credential Theft"] > 0:
+        analyst_findings.append(
+            "Credential theft indicators detected."
+        )
+
+    if threat_dna["Urgency"] > 0:
+        analyst_findings.append(
+            "Urgency manipulation detected."
+        )
+
+    if threat_dna["Fear Tactics"] > 0:
+        analyst_findings.append(
+            "Fear tactics detected."
+        )
+
+    if threat_dna["Financial Fraud"] > 0:
+        analyst_findings.append(
+            "Financial fraud language detected."
+        )
+
+    if threat_dna["Social Engineering"] > 0:
+        analyst_findings.append(
+            "Social engineering indicators detected."
+        )
+
+    if final_score >= 70:
+        analyst_summary = (
+            "This email appears to be a high-risk phishing attempt."
+        )
+
+    elif final_score >= 40:
+        analyst_summary = (
+            "This email contains multiple suspicious indicators."
+        )
+
+    else:
+        analyst_summary = (
+            "This email appears relatively safe."
+        )
 
     return render_template(
         "result.html",
@@ -133,6 +154,9 @@ def analyze():
         severity=severity,
 
         threat_dna=threat_dna,
+
+        analyst_summary=analyst_summary,
+        analyst_findings=analyst_findings,
 
         url_findings=url_findings,
         sender_findings=sender_findings
