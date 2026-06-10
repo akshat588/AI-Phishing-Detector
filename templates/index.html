@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>PhishEye AI</title>
+
+    <style>
+
+        body{
+            background:#0d1117;
+            color:white;
+            font-family:Arial, sans-serif;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:80%;
+            max-width:900px;
+            margin:auto;
+            margin-top:50px;
+        }
+
+        h1{
+            text-align:center;
+            color:#00ff88;
+        }
+
+        .subtitle{
+            text-align:center;
+            color:#b0b0b0;
+            margin-bottom:30px;
+        }
+
+        .card{
+            background:#161b22;
+            padding:25px;
+            border-radius:12px;
+        }
+
+        label{
+            display:block;
+            margin-top:15px;
+            margin-bottom:5px;
+            font-size:18px;
+        }
+
+        textarea,
+        input{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            background:#0d1117;
+            color:white;
+            box-sizing:border-box;
+            font-size:16px;
+        }
+
+        textarea{
+            height:200px;
+            resize:none;
+        }
+
+        button{
+            width:100%;
+            padding:15px;
+            margin-top:25px;
+            border:none;
+            border-radius:8px;
+            background:#00ff88;
+            color:black;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        button:hover{
+            opacity:0.9;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🛡️ PhishEye AI</h1>
+
+    <p class="subtitle">
+        AI-Powered Phishing & Social Engineering Detection System
+    </p>
+
+    <div class="card">
+
+        <form method="POST" action="/analyze">
+
+            <label>Email Content</label>
+
+            <textarea
+                name="email"
+                placeholder="Paste suspicious email here..."
+                required>
+            </textarea>
+
+            <label>URL</label>
+
+            <input
+                type="text"
+                name="url"
+                placeholder="https://example.com"
+                required>
+
+            <label>Sender Email</label>
+
+            <input
+                type="email"
+                name="sender"
+                placeholder="support@example.com"
+                required>
+
+            <button type="submit">
+                Analyze Threat
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
