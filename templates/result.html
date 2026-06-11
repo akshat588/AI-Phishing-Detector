@@ -131,6 +131,43 @@
             padding:10px;
         }
 
+        .gauge-container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .gauge{
+            width:160px;
+            height:160px;
+            border-radius:50%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .gauge-inner{
+            width:120px;
+            height:120px;
+            background:#111827;
+            border-radius:50%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+        }
+
+        .gauge-score{
+            color:#00ff88;
+            font-size:32px;
+            font-weight:bold;
+        }
+
+        .gauge-label{
+            font-size:14px;
+            color:#9ca3af;
+        }
+
     </style>
 
 </head>
@@ -162,9 +199,38 @@
     <div class="cards">
 
         <div class="card">
-            <h3>Threat Score</h3>
-            <div class="score">{{ final_score }}%</div>
+
+    <h3>Threat Score</h3>
+
+    <div class="gauge-container">
+
+        <div
+            class="gauge"
+            style="
+            background:
+            conic-gradient(
+                #00ff88 {{ final_score }}%,
+                #1f2937 0
+            );
+            ">
+
+            <div class="gauge-inner">
+
+                <div class="gauge-score">
+                    {{ final_score }}%
+                </div>
+
+                <div class="gauge-label">
+                    Threat Score
+                </div>
+
+            </div>
+
         </div>
+
+    </div>
+
+</div>
 
         <div class="card">
             <h3>ML Confidence</h3>

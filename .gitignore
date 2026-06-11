@@ -1,0 +1,8 @@
+.venv/
+.venv-1/
+.venv-2/
+
+dataset/models/datasets/
+
+__pycache__/
+*.pyc
