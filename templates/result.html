@@ -232,6 +232,22 @@
 
 </div>
 
+<div class="card">
+
+    <h3>Attack Types</h3>
+
+    <div style="
+        font-size:18px;
+        font-weight:bold;
+    ">
+
+        {% for attack in attack_types %}
+            <div>{{ attack }}</div>
+        {% endfor %}
+
+    </div>
+
+</div>
         <div class="card">
             <h3>ML Confidence</h3>
             <div class="score">{{ ml_confidence }}%</div>
@@ -252,6 +268,34 @@
         </div>
 
     </div>
+    <div class="section">
+
+    <h2>🇮🇳 UPI Scam Detection</h2>
+
+    <div class="progress-title">
+        UPI Scam Score ({{ upi_score }}%)
+    </div>
+
+    <div class="progress-bar">
+
+        <div
+            class="progress-fill"
+            style="width:{{ upi_score }}%;">
+        </div>
+
+    </div>
+
+    <ul>
+
+        {% for item in upi_findings %}
+
+        <li>{{ item }}</li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
 
     <div class="section">
 
