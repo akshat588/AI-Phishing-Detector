@@ -10,77 +10,105 @@ def analyze_email(email_text):
         "Social Engineering": 0
     }
 
-    credential_words = [
-        "password",
-        "otp",
-        "verify",
-        "login",
-        "credentials"
-    ]
+    # Credential Theft
+    credential_words = {
+        "password": 30,
+        "otp": 30,
+        "verify": 20,
+        "login": 20,
+        "credentials": 30
+    }
 
-    urgency_words = [
-        "urgent",
-        "immediately",
-        "today",
-        "now",
-        "asap"
-    ]
+# Urgency
+    urgency_words = {
+        "urgent": 30,
+        "immediately": 25,
+        "asap": 20,
+        "today": 10,
+        "now": 10
+    }
 
-    fear_words = [
-        "suspended",
-        "blocked",
-        "warning",
-        "terminated",
-        "legal action"
-    ]
+    fear_words = {
+        "suspended": 30,
+        "blocked": 25,
+        "warning": 15,
+        "terminated": 25,
+        "legal action": 35
+    }
 
-    financial_words = [
-        "bank",
-        "account",
-        "payment",
-        "transaction",
-        "credit card"
-    ]
+    financial_words = {
+        "payment": 20,
+        "transaction": 20,
+        "credit card": 30,
+        "debit card": 30,
+        "refund": 20,
+        "upi": 25,
+        "wallet": 20,
+        "money transfer": 30,
+        "banking": 20,
+        "bank account": 30
+    }
 
-    social_words = [
-        "click here",
-        "dear customer",
-        "claim reward",
-        "special offer"
-    ]
+    social_words = {
+        "click here": 30,
+        "claim reward": 35,
+        "special offer": 20,
+        "free gift": 30,
+        "winner": 25,
+        "congratulations": 15,
+        "limited offer": 25
+    }
 
     # Credential Theft
-    for word in credential_words:
+    for word, score in credential_words.items():
         if word in email_text:
-            threat_dna["Credential Theft"] += 20
+            threat_dna["Credential Theft"] += score
+            
 
     # Urgency
-    for word in urgency_words:
+    for word, score in urgency_words.items():
         if word in email_text:
-            threat_dna["Urgency"] += 20
-
+            threat_dna["Urgency"] += score
+            
     # Fear Tactics
-    for word in fear_words:
+    for word, score in fear_words.items():
         if word in email_text:
-            threat_dna["Fear Tactics"] += 20
+            threat_dna["Fear Tactics"] += score
 
     # Financial Fraud
-    for word in financial_words:
+    for word, score in financial_words.items():
         if word in email_text:
-            threat_dna["Financial Fraud"] += 20
+            threat_dna["Financial Fraud"] += score
 
     # Social Engineering
-    for word in social_words:
+    for word, score in social_words.items():
         if word in email_text:
-            threat_dna["Social Engineering"] += 20
+            threat_dna["Social Engineering"] += score
+            
+    for key in threat_dna:
+        
+            threat_dna[key] = min(threat_dna[key], 100)
+
+
 
     return threat_dna
 
 
 def get_email_score(threat_dna):
 
-    score = min(sum(threat_dna.values()), 100)
+    score = round(
+        (
+            threat_dna["Credential Theft"] * 0.35 +
+            threat_dna["Urgency"] * 0.20 +
+            threat_dna["Fear Tactics"] * 0.20 +
+            threat_dna["Financial Fraud"] * 0.15 +
+            threat_dna["Social Engineering"] * 0.10
+        ),
+        2
+    )
+    score = min(score * 1.8, 100)
 
+    score = min(score, 100)
     return score
 
 

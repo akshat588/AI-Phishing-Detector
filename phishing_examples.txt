@@ -21,3 +21,24 @@ Project submission deadline is Friday.
 Let's have lunch together.
 
 Your order has been delivered.
+
+
+Email
+
+URGENT!
+
+Your SBI account has been suspended.
+
+Verify your password immediately.
+
+Click here to restore access.
+
+Send OTP now.
+
+URL
+
+http://secure-bank-login123.com/verify-account
+
+Sender
+
+security-update@sbi-verification-support.com

@@ -1,3 +1,4 @@
+import time
 from engines.upi_detector import (
     analyze_upi
 )
@@ -35,6 +36,7 @@ def home():
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
+    start_time = time.time()
 
     email = request.form.get("email")
     url = request.form.get("url")
@@ -106,52 +108,37 @@ def analyze():
 
     final_score = round(
 
-        email_score * 0.35 +
+        email_score * 0.45 +
 
         url_score * 0.25 +
 
         sender_score * 0.15 +
 
-        ml_confidence * 0.25,
+        ml_confidence * 0.15,
 
         2
     )
 
-    # ==========================
-    # Severity
-    # ==========================
-
-    if final_score >= 90:
-        severity = "🚨 CRITICAL"
-
-    elif final_score >= 70:
-        severity = "🔴 HIGH"
-
-    elif final_score >= 40:
-        severity = "🟠 MEDIUM"
-
-    else:
-        severity = "🟢 LOW"
-
+    
     # ==========================
     # Attack Classification
     # ==========================
 
     attack_types = []
 
-    if threat_dna["Credential Theft"] > 0:
+    if threat_dna["Credential Theft"] > 30:
         attack_types.append("Credential Theft")
 
-    if threat_dna["Financial Fraud"] > 0:
+    if threat_dna["Financial Fraud"] > 30:
         attack_types.append("Financial Fraud")
 
-    if threat_dna["Social Engineering"] > 0:
+    if threat_dna["Social Engineering"] > 30:
         attack_types.append("Social Engineering")
 
-    if threat_dna["Fear Tactics"] > 0:
+    if threat_dna["Fear Tactics"] > 30:
         attack_types.append("Fear Tactics")
 
-    if threat_dna["Urgency"] > 0:
+    if threat_dna["Urgency"] > 30:
         attack_types.append("Urgency Manipulation")
 
     if len(attack_types) == 0:
@@ -165,28 +152,52 @@ def analyze():
 
     if threat_dna["Credential Theft"] > 0:
         analyst_findings.append(
-            "Credential theft indicators detected."
+            "🔐 Credential Theft"
         )
 
     if threat_dna["Urgency"] > 0:
         analyst_findings.append(
-            "Urgency manipulation detected."
+            "⏰ Urgency manipulation."
         )
 
     if threat_dna["Fear Tactics"] > 0:
         analyst_findings.append(
-            "Fear tactics detected."
+            "🚨 Fear tactics."
         )
 
     if threat_dna["Financial Fraud"] > 0:
         analyst_findings.append(
-            "Financial fraud language detected."
+            "💰 Financial fraud."
         )
 
     if threat_dna["Social Engineering"] > 0:
         analyst_findings.append(
-            "Social engineering indicators detected."
+            "🎭 Social engineering."
         )
+    # ==========================
+    # ML Boost
+    # ==========================
+
+    if prediction[0] == 1:
+        final_score += 20
+
+    final_score = min(final_score, 100)
+    
+    # ==========================
+    # Severity
+    # ==========================
+
+    if final_score >= 85:
+        severity = "🚨 CRITICAL"
+
+    elif final_score >= 65:
+        severity = "🔴 HIGH"
+
+    elif final_score >= 35:
+        severity = "🟠 MEDIUM"
+
+    else:
+        severity = "🟢 LOW"
 
     # ==========================
     # Analyst Summary
@@ -213,10 +224,19 @@ def analyze():
     # ==========================
     # Render Dashboard
     # ==========================
-
+    
+    indicators_found = len(attack_types)
+    
+    analysis_time = round(
+        time.time() - start_time,
+        2
+    )
     return render_template(
 
         "result.html",
+        indicators_found=indicators_found,
+        
+        analysis_time=analysis_time,
 
         final_score=final_score,
 
