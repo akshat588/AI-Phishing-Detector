@@ -1,137 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhishEye AI</title>
 
-    <style>
-
-        body{
-            background:#0d1117;
-            color:white;
-            font-family:Arial, sans-serif;
-            margin:0;
-            padding:0;
-        }
-
-        .container{
-            width:80%;
-            max-width:900px;
-            margin:auto;
-            margin-top:50px;
-        }
-
-        h1{
-            text-align:center;
-            color:#00ff88;
-        }
-
-        .subtitle{
-            text-align:center;
-            color:#b0b0b0;
-            margin-bottom:30px;
-        }
-
-        .card{
-            background:#161b22;
-            padding:25px;
-            border-radius:12px;
-        }
-
-        label{
-            display:block;
-            margin-top:15px;
-            margin-bottom:5px;
-            font-size:18px;
-        }
-
-        textarea,
-        input{
-            width:100%;
-            padding:12px;
-            border:none;
-            border-radius:8px;
-            background:#0d1117;
-            color:white;
-            box-sizing:border-box;
-            font-size:16px;
-        }
-
-        textarea{
-            height:200px;
-            resize:none;
-        }
-
-        button{
-            width:100%;
-            padding:15px;
-            margin-top:25px;
-            border:none;
-            border-radius:8px;
-            background:#00ff88;
-            color:black;
-            font-size:18px;
-            font-weight:bold;
-            cursor:pointer;
-        }
-
-        button:hover{
-            opacity:0.9;
-        }
-
-    </style>
-
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="background-glow"></div>
 
-    <h1>🛡️ PhishEye AI</h1>
+    <div class="container">
 
-    <p class="subtitle">
-        AI-Powered Phishing & Social Engineering Detection System
+        <div class="hero">
+<div class="hero-right">
+    <img src="{{ url_for('static', filename='ai_robot_shield.png') }}"
+        alt="AI Security Robot">
+</div>
+            <h1>🛡️ PhishEye AI</h1>
+
+            <p>
+                AI-Powered Phishing & Social Engineering Detection System
+            </p>
+
+        </div>
+
+        <div class="hero-section">
+
+
+    <div class="hero-left">
+
+    <h2>
+        AI-Powered Phishing Detection &
+        Threat Intelligence
+    </h2>
+
+    <p>
+        Detect phishing emails, malicious URLs
+        and social engineering attacks.
     </p>
 
-    <div class="card">
+    <!-- Add buttons here -->
+    <div class="hero-buttons">
 
-        <form method="POST" action="/analyze">
+        <button class="primary-btn">
+            Analyze Email Now
+        </button>
 
-            <label>Email Content</label>
+        <button class="secondary-btn">
+            Try URL Scanner
+        </button>
 
-            <textarea
-                name="email"
-                placeholder="Paste suspicious email here..."
-                required>
-            </textarea>
+    </div>
 
-            <label>URL</label>
+    <div class="stats">
 
-            <input
-                type="text"
-                name="url"
-                placeholder="https://example.com"
-                required>
+        <div class="stat-box">
+            <h3>10K+</h3>
+            <span>Emails Analyzed</span>
+        </div>
 
-            <label>Sender Email</label>
+        <div class="stat-box">
+            <h3>98.6%</h3>
+            <span>Detection Accuracy</span>
+        </div>
 
-            <input
-                type="email"
-                name="sender"
-                placeholder="support@example.com"
-                required>
+        <div class="stat-box">
+            <h3>50+</h3>
+            <span>Threat Indicators</span>
+        </div>
 
-            <button type="submit">
-                Analyze Threat
-            </button>
-
-        </form>
+        <div class="stat-box">
+            <h3>24/7</h3>
+            <span>Protection</span>
+        </div>
 
     </div>
 
 </div>
+    
+            <form action="/analyze" method="POST">
+
+                <div class="input-group">
+
+                    <label>Email Content</label>
+
+                    <textarea
+                        name="email"
+                        placeholder="Paste suspicious email here..."
+                        required></textarea>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Suspicious URL</label>
+
+                    <input
+                        type="text"
+                        name="url"
+                        placeholder="https://example.com"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Sender Email</label>
+
+                    <input
+                        type="email"
+                        name="sender"
+                        placeholder="support@example.com"
+                        required>
+
+                </div>
+
+                <button type="submit">
+                    Analyze Threat
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-box">
+                <h3>🤖 ML Detection</h3>
+                <p>Machine learning powered phishing analysis</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>🔗 URL Analyzer</h3>
+                <p>Detect suspicious and malicious links</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>📧 Sender Check</h3>
+                <p>Verify sender authenticity</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>💰 UPI Detection</h3>
+                <p>Identify financial fraud indicators</p>
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
-
 </html>
