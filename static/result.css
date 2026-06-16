@@ -25,11 +25,14 @@ html{
         }
 
         .logo{
-            font-size:32px;
-            font-weight:bold;
+            font-size:30px;
+            font-weight:800;
             color:#00ff88;
             margin-bottom:40px;
+
+            white-space:nowrap;
         }
+        
 
         .menu-item{
             display:block;
@@ -303,4 +306,34 @@ html{
     filter:
     drop-shadow(0 0 15px rgba(0,255,136,.4));
 }
+
+.feed-item{
+    background:#1a2332;
+    padding:15px;
+    margin-bottom:12px;
+    border-radius:10px;
+
+    border-left:4px solid #00ff88;
+
+    transition:.3s ease;
+}
+
+.feed-item:hover{
+    transform:translateX(5px);
+
+    box-shadow:
+        0 0 15px rgba(0,255,136,.15);
+}
+
+.analyst-avatar{
+    font-size:90px;
+    text-align:center;
+    margin-bottom:20px;
+
+    filter:
+        drop-shadow(0 0 15px rgba(0,255,136,.4));
+}
+
+
+
     </style>
