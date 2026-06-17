@@ -65,7 +65,7 @@
 
     <div class="cards">
 
-        <div class="card">
+        <div class="card gauge-card-main">
 
     <h3>Threat Score</h3>
 
@@ -129,39 +129,55 @@
 
 </div>
 
-<div class="card">
+<div class="card attack-card">
 
     <h3>Attack Types</h3>
 
     <div class="attack-list">
 
-        {% for attack in attack_types %}
+    {% for attack in attack_types %}
 
-            {% if attack == "Credential Theft" %}
-                🔐 Credential Theft<br>
+        {% if attack == "Credential Theft" %}
+            <div>🔐 Credential Theft</div>
 
-            {% elif attack == "Financial Fraud" %}
-                💳 Financial Fraud<br>
+        {% elif attack == "Financial Fraud" %}
+            <div>💳 Financial Fraud</div>
 
-            {% elif attack == "Fear Tactics" %}
-                😨 Fear Tactics<br>
+        {% elif attack == "Fear Tactics" %}
+            <div>😨 Fear Tactics</div>
 
-            {% elif attack == "Urgency Manipulation" %}
-                <span>⏰ Urgency Manipulation</span><br>
+        {% elif attack == "Urgency Manipulation" %}
+            <div>⏰ Urgency Manipulation</div>
 
-            {% elif attack == "Social Engineering" %}
-                🎭 Social Engineering<br>
+        {% elif attack == "Social Engineering" %}
+            <div>🎭 Social Engineering</div>
 
-            {% else %}
-                {{ attack }}<br>
-            {% endif %}
+        {% else %}
+            <div>🛡 {{ attack }}</div>
+        {% endif %}
 
-        {% endfor %}
+    {% endfor %}
 
+    <hr style="margin:15px 0;border-color:#1f2937;">
+
+    <div style="font-size:14px;color:#9ca3af;">
+        Threat Count
     </div>
 
+    <div style="
+    font-size:30px;
+    color:#00ff88;
+    font-weight:bold;
+    margin-top:5px;
+">
+    {{ attack_types|length }}
 </div>
-        <div class="card">
+
+</div> <!-- attack-list -->
+
+</div> <!-- attack card -->
+
+<div class="card">
             <h3>ML Confidence</h3>
             <div class="score">{{ ml_confidence }}%</div>
         </div>
@@ -218,7 +234,13 @@ text-shadow:0 0 15px rgba(255,77,77,.5);
     <h3>Indicators Found</h3>
 
     <div class="score">
-            {{ analyst_findings|length }}
+            {{ indicators_found }}
+    </div>
+
+    <div class="indicator-status">
+
+            {{ detection_status }}
+
     </div>
 
 </div>
@@ -555,13 +577,23 @@ text-shadow:0 0 15px rgba(255,77,77,.5);
 
     <div id="url-findings" class="section">
 
-        <h2>URL Findings</h2>
+        {% if url_findings %}
 
-        <ul>
+<ul>
 
-            {% for item in url_findings %}
-                <li>{{ item }}</li>
-            {% endfor %}
+    {% for item in url_findings %}
+        <li>{{ item }}</li>
+    {% endfor %}
+
+</ul>
+
+{% else %}
+
+<p class="safe-message">
+    ✅ No suspicious URLs detected
+</p>
+
+{% endif %}
 
         </ul>
 
@@ -569,7 +601,9 @@ text-shadow:0 0 15px rgba(255,77,77,.5);
 
     <div id="sender-findings" class="section">
 
-        <h2>Sender Findings</h2>
+    <h2>Sender Findings</h2>
+
+    {% if sender_findings %}
 
         <ul>
 
@@ -579,7 +613,15 @@ text-shadow:0 0 15px rgba(255,77,77,.5);
 
         </ul>
 
-    </div>
+    {% else %}
+
+        <p class="safe-message">
+            ✅ No suspicious sender indicators detected
+        </p>
+
+    {% endif %}
+
+</div>
 
     <div class="section">
 
@@ -611,16 +653,21 @@ text-shadow:0 0 15px rgba(255,77,77,.5);
 
 </div>
 
+    <div class="section action-section">
+
+    <h2>📄 Reports</h2>
+
     <a href="/download-report" class="btn">
         📄 Download Threat Report
     </a>
 
-<br><br>
+    <br><br>
 
     <a href="/" class="btn">
-        Run New Analysis
+        🔄 Run New Analysis
     </a>
 
+</div>
 </div>
 
 <script>

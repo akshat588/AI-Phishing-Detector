@@ -1,3 +1,4 @@
+import re
 import email
 import time
 from reportlab.pdfgen import canvas
@@ -51,12 +52,25 @@ def upi_analyzer():
     return render_template("upi_analyzer.html")
 @app.route("/analyze", methods=["POST"])
 def analyze():
+
+    
+    global latest_report
+    
     start_time = time.time()
     
     
     
     email = request.form.get("email_content") 
     url = request.form.get("url", "")
+
+    if not url and email:
+        urls = re.findall(
+        r'https?://[^\s]+',
+        email
+    )
+
+    if urls:
+        url = urls[0]
     sender = request.form.get("sender", "")
 
     # ==========================
@@ -92,12 +106,39 @@ def analyze():
     sender_score, sender_findings = analyze_sender(
         sender
     )
+    email_lower = email.lower()
+
+    # ==========================
+    # Brand Impersonation Detection
+    # ==========================
+
+    brands = [
+        "sbi",
+        "hdfc",
+        "icici",
+        "axis",
+        "paytm",
+        "amazon",
+        "google",
+        "microsoft"
+    ]
+
+    for brand in brands:
+
+        if brand in email_lower:
+
+            sender_findings.append(
+                f"⚠ Brand Impersonation Detected: {brand.upper()}"
+            )
+
+            sender_score += 20
 
     # ==========================
     # ML Prediction
     # ==========================
 
     if email and email.strip():
+        
 
         email_vector = vectorizer.transform(
             [email]
@@ -124,10 +165,8 @@ def analyze():
     else:
 
         prediction = [0]
-
         ml_confidence = 0
-
-        ml_verdict = "Not Applicable"
+        ml_verdict = "URL / Sender Analysis Only"
         
     # ==========================
     # Weighted Threat Score
@@ -208,7 +247,7 @@ def analyze():
     if prediction[0] == 1:
         final_score += 20
 
-    final_score = min(final_score, 100)
+    final_score = round(final_score, 2)
     
     # ==========================
     # Severity
@@ -252,13 +291,23 @@ def analyze():
     # Render Dashboard
     # ==========================
     
-    indicators_found = len(attack_types)
+    indicators_found = (
+
+    len(analyst_findings)
+
+    + len(url_findings)
+
+    + len(sender_findings)
+
+    + len(upi_findings)
+
+)
     
     analysis_time = round(
         time.time() - start_time,
         2
     )
-    global latest_report
+    
 
     latest_report = {
         "score": final_score,
@@ -267,11 +316,20 @@ def analyze():
         "summary": analyst_summary,
         "time": analysis_time
     }
+    if indicators_found >= 12:
+        detection_status = "🔴 HIGH ACTIVITY"
+
+    elif indicators_found >= 5:
+        detection_status = "🟡 SUSPICIOUS"
+
+    else:
+        detection_status = "🟢 NORMAL"
     return render_template(
 
         "result.html",
         indicators_found=indicators_found,
-        
+        detection_status=detection_status,
+
         analysis_time=analysis_time,
 
         final_score=final_score,
