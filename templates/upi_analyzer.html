@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>UPI Analyzer | PhishEye AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    <div class="container">
+
+        <div class="hero">
+            <div class="hero-buttons">
+
+    <button
+        class="secondary-btn"
+        onclick="location.href='/'">
+
+        ← Back to Home
+
+    </button>
+
+</div>
+
+            <h1>💰 UPI Analyzer</h1>
+
+            <p>
+                Detect financial fraud indicators,
+                suspicious UPI IDs and payment scams.
+            </p>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <form action="/analyze" method="POST">
+
+                <div class="input-group">
+
+                    <label>
+                        Enter Message Containing UPI Details
+                    </label>
+
+                    <textarea
+                        name="email_content"
+                        placeholder="Example: Send payment to security@upi immediately to unlock your account."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <input
+                    type="hidden"
+                    name="url"
+                    value=""
+                >
+
+                <input
+                    type="hidden"
+                    name="sender"
+                    value=""
+                >
+
+                <button type="submit">
+                    Analyze UPI Threat
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="analyzer-grid">
+
+            <div class="analyzer-card">
+
+                <h3>💸 Fraud Detection</h3>
+
+                <p>
+                    Identify financial scam patterns,
+                    payment fraud and phishing attempts.
+                </p>
+
+            </div>
+
+            <div class="analyzer-card">
+
+                <h3>🏦 UPI Intelligence</h3>
+
+                <p>
+                    Detect suspicious UPI references
+                    and payment requests.
+                </p>
+
+            </div>
+
+            <div class="analyzer-card">
+
+                <h3>🛡 Financial Security</h3>
+
+                <p>
+                    Analyze messages for indicators
+                    of banking and payment fraud.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sender Analyzer | PhishEye AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    <div class="container">
+
+        <div class="hero">
+            <div class="hero-buttons">
+
+    <button
+        class="secondary-btn"
+        onclick="location.href='/'">
+
+        ← Back to Home
+
+    </button>
+
+</div>
+
+            <h1>📨 Sender Analyzer</h1>
+
+            <p>
+                Verify sender reputation and detect
+                spoofing or impersonation attempts.
+            </p>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <form action="/analyze" method="POST">
+
+                <div class="input-group">
+
+                    <label>
+                        Enter Sender Email
+                    </label>
+
+                    <input
+                        type="email"
+                        name="sender"
+                        placeholder="security@amaz0n-support.com"
+                        required
+                    >
+
+                </div>
+
+                <!-- Required by existing analyze route -->
+
+                <input
+                    type="hidden"
+                    name="email_content"
+                    value=""
+                >
+
+                <input
+                    type="hidden"
+                    name="url"
+                    value=""
+                >
+
+                <button type="submit">
+                    Analyze Sender
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="analyzer-grid">
+
+            <div class="analyzer-card">
+
+                <h3>🎭 Spoof Detection</h3>
+
+                <p>
+                    Detect impersonation domains and
+                    deceptive sender addresses.
+                </p>
+
+            </div>
+
+            <div class="analyzer-card">
+
+                <h3>📧 Domain Analysis</h3>
+
+                <p>
+                    Identify risky domains and
+                    suspicious email providers.
+                </p>
+
+            </div>
+
+            <div class="analyzer-card">
+
+                <h3>🛡 Reputation Check</h3>
+
+                <p>
+                    Analyze sender trust indicators
+                    and phishing patterns.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

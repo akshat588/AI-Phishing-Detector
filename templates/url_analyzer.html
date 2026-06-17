@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>URL Analyzer | PhishEye AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    <div class="container">
+
+        <div class="hero">
+
+        <div class="hero-buttons">
+
+    <button
+        class="secondary-btn"
+        onclick="location.href='/'">
+
+        ← Back to Home
+
+    </button>
+
+</div>
+
+            <h1>🔗 URL Analyzer</h1>
+
+            <p>
+                Analyze suspicious URLs for phishing indicators using
+                AI-powered threat detection.
+            </p>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <form action="/analyze" method="POST">
+
+                <div class="input-group">
+
+                    <label>
+                        Enter URL
+                    </label>
+
+                    <input
+                        type="text"
+                        name="url"
+                        placeholder="https://secure-bank-login.com"
+                        required
+                    >
+
+                </div>
+
+                <!-- Required by existing /analyze route -->
+
+                <input
+                    type="hidden"
+                    name="email_content"
+                    value=""
+                >
+
+                <input
+                    type="hidden"
+                    name="sender"
+                    value=""
+                >
+
+                <button type="submit">
+                    Analyze URL
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="analyzer-grid">
+
+            <div class="analyzer-card">
+
+                <h3>
+                    🔍 URL Inspection
+                </h3>
+
+                <p>
+                    Detect suspicious domains, deceptive links,
+                    and phishing indicators.
+                </p>
+
+            </div>
+
+            <div class="analyzer-card">
+
+                <h3>
+                    ⚠ Risk Detection
+                </h3>
+
+                <p>
+                    Identify URLs containing phishing keywords,
+                    unusual patterns, and social engineering tactics.
+                </p>
+
+            </div>
+
+            <div class="analyzer-card">
+
+                <h3>
+                    🛡 Threat Intelligence
+                </h3>
+
+                <p>
+                    Generate a risk score and provide
+                    security recommendations instantly.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

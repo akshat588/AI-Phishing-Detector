@@ -1,3 +1,4 @@
+import email
 import time
 from engines.upi_detector import (
     analyze_upi
@@ -33,14 +34,27 @@ vectorizer = joblib.load("vectorizer.pkl")
 def home():
     return render_template("index.html")
 
-
+@app.route("/email-analyzer")
+def email_analyzer():
+    return render_template("email_analyzer.html")
+@app.route("/url-analyzer")
+def url_analyzer():
+    return render_template("url_analyzer.html")
+@app.route("/sender-analyzer")
+def sender_analyzer():
+    return render_template("sender_analyzer.html")
+@app.route("/upi-analyzer")
+def upi_analyzer():
+    return render_template("upi_analyzer.html")
 @app.route("/analyze", methods=["POST"])
 def analyze():
     start_time = time.time()
-
-    email = request.form.get("email")
-    url = request.form.get("url")
-    sender = request.form.get("sender")
+    
+    
+    
+    email = request.form.get("email_content") 
+    url = request.form.get("url", "")
+    sender = request.form.get("sender", "")
 
     # ==========================
     # Email Analysis
@@ -80,28 +94,38 @@ def analyze():
     # ML Prediction
     # ==========================
 
-    email_vector = vectorizer.transform(
-        [email]
-    )
+    if email and email.strip():
 
-    prediction = model.predict(
-        email_vector
-    )
+        email_vector = vectorizer.transform(
+            [email]
+        )
 
-    probability = model.predict_proba(
-        email_vector
-    )
+        prediction = model.predict(
+            email_vector
+        )
 
-    ml_confidence = round(
-        max(probability[0]) * 100,
-        2
-    )
+        probability = model.predict_proba(
+            email_vector
+        )
 
-    if prediction[0] == 1:
-        ml_verdict = "⚠ PHISHING DETECTED"
+        ml_confidence = round(
+            max(probability[0]) * 100,
+            2
+        )
+
+        if prediction[0] == 1:
+            ml_verdict = "⚠ PHISHING DETECTED"
+        else:
+            ml_verdict = "✓ SAFE MESSAGE"
+
     else:
-        ml_verdict = "✓ SAFE MESSAGE"
 
+        prediction = [0]
+
+        ml_confidence = 0
+
+        ml_verdict = "Not Applicable"
+        
     # ==========================
     # Weighted Threat Score
     # ==========================

@@ -17,7 +17,9 @@
         🛡️ PhishEye AI
     </div>
 
-    <a href="#dashboard" class="menu-item">Dashboard</a>
+    <a href="#" class="menu-item">
+        Dashboard
+    </a>
 
     <a href="#threat-components" class="menu-item">
         Email Analyzer
@@ -131,11 +133,7 @@
 
     <h3>Attack Types</h3>
 
-    <div
-    style="
-    font-size:18px;
-    line-height:2;
-    ">
+    <div class="attack-list">
 
         {% for attack in attack_types %}
 
@@ -584,7 +582,7 @@ text-shadow:0 0 15px rgba(255,77,77,.5);
     </div>
 
     <a href="/" class="btn">
-        Analyze Another Email
+        Run New Analysis
     </a>
 
 </div>
@@ -641,6 +639,28 @@ new Chart(ctx, {
 });
 
 </script>
+
+<script>
+
+const menuItems =
+document.querySelectorAll('.menu-item');
+
+menuItems.forEach(item => {
+
+    item.addEventListener('click', () => {
+
+        menuItems.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        item.classList.add('active');
+
+    });
+
+});
+
+</script>
+
 
 </body>
 </html>

@@ -18,19 +18,21 @@ html{
             position:fixed;
             left:0;
             top:0;
-            width:280px;
+            width:220px;
             height:100vh;
             background:#111827;
             padding:25px;
         }
 
         .logo{
-            font-size:30px;
-            font-weight:800;
+            font-size:28px;
+            font-weight:bold;
             color:#00ff88;
-            margin-bottom:40px;
-
-            white-space:nowrap;
+            margin-bottom:30px;
+            line-height:1.2;
+            text-shadow:
+                0 0 15px rgba(0,255,136,.25);
+            
         }
         
 
@@ -58,16 +60,19 @@ html{
         }
 
         .content{
-            margin-left:320px;
+            margin-left:240px;
             padding:40px;
         }
 
         .header h1{
             color:#00ff88;
+            font-size:48px;
+            font-weight:800;
             margin-bottom:10px;
         }
 
         .cards{
+            align-items:stretch;
             display:grid;
             grid-template-columns:
             repeat(auto-fit,minmax(250px,1fr));
@@ -77,8 +82,9 @@ html{
         }
 
         .card{
+            height:100%;
             background:#111827;
-            padding:25px;
+            padding:30px;
             border-radius:15px;
 
             border:1px solid rgba(0,255,136,0.1);
@@ -89,6 +95,12 @@ html{
             transition:0.3s ease;
         }
 
+        .card:hover{
+            transform:translateY(-5px);
+
+            box-shadow:
+            0 0 25px rgba(0,255,136,0.15);
+        }
         .card h3{
             color:#9ca3af;
             margin-bottom:15px;
@@ -96,7 +108,8 @@ html{
             text-transform:uppercase;
             letter-spacing:1px;
 
-            font-size:14px;
+            font-size:15px;
+            font-weight:700;
         }
         .card-danger{
             color:#ff4d4d;
@@ -167,8 +180,8 @@ html{
         }
 
         .gauge{
-            width:250px;
-            height:250px;
+            width:260px;
+            height:260px;
             border-radius:50%;
             display:flex;
             justify-content:center;
@@ -190,18 +203,15 @@ html{
 
         .gauge-score{
             color:#00ff88;
-            font-size:32px;
-            font-weight:bold;
+            font-size:42px;
+            font-weight:800;
         }
 
         .gauge-label{
             font-size:14px;
             color:#9ca3af;
         }
-.gauge-label{
-    font-size:14px;
-    color:#9ca3af;
-}
+
 
 /* =======================
    Threat DNA
@@ -333,7 +343,19 @@ html{
     filter:
         drop-shadow(0 0 15px rgba(0,255,136,.4));
 }
+.menu-item.active{
+    background:#00ff88;
+    color:black;
+    font-weight:bold;
 
-
+    box-shadow:
+    0 0 15px rgba(0,255,136,.4);
+}
+.attack-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    font-size:20px;
+}
 
     </style>

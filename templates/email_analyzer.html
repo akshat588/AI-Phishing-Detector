@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>PhishEye AI - Email Analyzer</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="container">
+
+    <div class="hero">
+        <div class="hero-buttons">
+
+    <button
+        class="secondary-btn"
+        onclick="location.href='/'">
+
+        ← Back to Home
+
+    </button>
+
+</div>
+        
+
+        <h1>📧 Email Analyzer</h1>
+
+        <p>
+            Analyze suspicious emails using
+            AI-powered phishing detection.
+        </p>
+
+    </div>
+
+</div>
+    <div class="dashboard-card">
+
+        <form action="/analyze" method="POST">
+
+            <div class="input-group">
+
+                <label>Email Content</label>
+
+                <textarea
+                    name="email_content"
+                    placeholder="Paste suspicious email here..."
+                    required>
+                </textarea>
+
+            </div>
+
+            <button type="submit">
+
+                Analyze Email
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
