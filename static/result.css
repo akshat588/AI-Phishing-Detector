@@ -358,4 +358,34 @@ html{
     font-size:20px;
 }
 
+/* ======================
+   Risk Timeline
+====================== */
+
+.timeline{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:20px;
+}
+
+.timeline-step{
+    background:#1a2332;
+
+    padding:15px 20px;
+
+    border-radius:12px;
+
+    border-left:4px solid #00ff88;
+
+    transition:.3s ease;
+}
+
+.timeline-step:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 15px rgba(0,255,136,.2);
+}
+
     </style>

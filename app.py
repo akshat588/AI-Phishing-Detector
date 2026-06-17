@@ -1,10 +1,12 @@
 import email
 import time
+from reportlab.pdfgen import canvas
+import io
 from engines.upi_detector import (
     analyze_upi
 )
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 import joblib
 
 from engines.email_analyzer import (
@@ -21,6 +23,7 @@ from engines.sender_analyzer import (
 )
 
 app = Flask(__name__)
+latest_report = {}
 
 # ==========================
 # Load ML Model
@@ -255,6 +258,15 @@ def analyze():
         time.time() - start_time,
         2
     )
+    global latest_report
+
+    latest_report = {
+        "score": final_score,
+        "severity": severity,
+        "verdict": ml_verdict,
+        "summary": analyst_summary,
+        "time": analysis_time
+    }
     return render_template(
 
         "result.html",
@@ -292,6 +304,68 @@ def analyze():
 
         sender_findings=sender_findings
 
+    )
+    
+@app.route("/download-report")
+def download_report():
+
+    buffer = io.BytesIO()
+
+    pdf = canvas.Canvas(buffer)
+
+    pdf.setTitle("PhishEye AI Report")
+
+    pdf.drawString(
+        100,
+        800,
+        "PhishEye AI Security Report"
+    )
+
+    pdf.drawString(
+        100,
+        760,
+        f"Threat Score: {latest_report.get('score')}"
+    )
+
+    pdf.drawString(
+        100,
+        730,
+        f"Severity: {latest_report.get('severity')}"
+    )
+
+    pdf.drawString(
+        100,
+        700,
+        f"ML Verdict: {latest_report.get('verdict')}"
+    )
+
+    pdf.drawString(
+        100,
+        670,
+        f"Analysis Time: {latest_report.get('time')} sec"
+    )
+
+    pdf.drawString(
+        100,
+        640,
+        "AI Analyst Summary:"
+    )
+
+    pdf.drawString(
+        100,
+        610,
+        latest_report.get("summary", "")
+    )
+
+    pdf.save()
+
+    buffer.seek(0)
+
+    return send_file(
+        buffer,
+        as_attachment=True,
+        download_name="PhishEye_Report.pdf",
+        mimetype="application/pdf"
     )
 
 
