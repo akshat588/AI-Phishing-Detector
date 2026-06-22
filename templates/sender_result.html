@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Sender Analysis Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='result.css') }}">
+
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="content">
+
+    <div class="header">
+
+        <h1>👤 Sender Intelligence Report</h1>
+
+        <p>AI-Powered Sender Reputation Analysis</p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Sender Address</h3>
+
+            <p>{{ sender }}</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Risk Score</h3>
+
+            <div class="score">
+                {{ score }}/100
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Risk Level</h3>
+
+            <div class="card-danger">
+                {{ severity }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🎯 Sender Risk Meter</h2>
+
+        <div class="gauge-container">
+
+            <div class="gauge"
+                 style="background:
+                 conic-gradient(
+                 #00ff88 {{ score * 3.6 }}deg,
+                 #1f2937 0deg);">
+
+                <div class="gauge-inner">
+
+                    <div class="gauge-score">
+                        {{ score }}
+                    </div>
+
+                    <div class="gauge-label">
+                        Risk Score
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🔍 Detection Findings</h2>
+
+        {% if findings %}
+
+            {% for item in findings %}
+
+                <div class="feed-item">
+                    ⚠ {{ item }}
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="safe-message">
+                ✓ No suspicious indicators found.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <div class="section">
+
+        <h2>🤖 AI Security Analyst</h2>
+
+        <div class="analyst-card">
+
+            <div class="analyst-avatar">
+                🛡️
+            </div>
+
+            <h3>Assessment</h3>
+
+            {% if score >= 70 %}
+
+                <p>
+                    High probability of sender spoofing or
+                    brand impersonation.
+                </p>
+
+            {% elif score >= 40 %}
+
+                <p>
+                    Several suspicious sender indicators detected.
+                </p>
+
+            {% else %}
+
+                <p>
+                    Sender appears relatively trustworthy.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="section action-section">
+
+        <a href="/sender-analyzer"
+           class="btn">
+            Analyze Another Sender
+        </a>
+
+        <a href="/"
+           class="btn">
+            Back To Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

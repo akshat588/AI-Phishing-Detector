@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>URL Analysis Result | PhishEye AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='result.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="content">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>
+            🔗 URL Intelligence Report
+        </h1>
+
+        <p>
+            AI-Powered URL Threat Analysis
+        </p>
+
+    </div>
+
+    <!-- TOP CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Analyzed URL</h3>
+
+            <p style="word-break: break-all;">
+                {{ url }}
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Threat Score</h3>
+
+            <div class="score">
+                {{ score }}/100
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Risk Level</h3>
+
+            <div class="card-danger">
+                {{ severity }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- THREAT GAUGE -->
+
+    <div class="section">
+
+        <h2>
+            🎯 URL Risk Meter
+        </h2>
+
+        <div class="gauge-container">
+
+            <div
+                class="gauge"
+                style="
+                background:
+                conic-gradient(
+                #00ff88 {{ score * 3.6 }}deg,
+                #1f2937 0deg
+                );
+                "
+            >
+
+                <div class="gauge-inner">
+
+                    <div class="gauge-score">
+                        {{ score }}
+                    </div>
+
+                    <div class="gauge-label">
+                        Threat Score
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- URL FINDINGS -->
+
+    <div class="section">
+
+        <h2>
+            🔍 Threat Intelligence Findings
+        </h2>
+
+        {% if findings %}
+
+            {% for item in findings %}
+
+                <div class="feed-item">
+                    ⚠ {{ item }}
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="safe-message">
+                ✓ No suspicious indicators detected.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <!-- AI ANALYST -->
+
+    <div class="section">
+
+        <h2>
+            🤖 AI Security Analyst
+        </h2>
+
+        <div class="analyst-grid">
+
+            <div class="analyst-card">
+
+                <div class="analyst-avatar">
+                    🛡️
+                </div>
+
+                <h3>
+                    Threat Assessment
+                </h3>
+
+                {% if score >= 80 %}
+
+                    <p>
+                        This URL is highly suspicious and contains
+                        multiple phishing indicators. Avoid opening
+                        this link.
+                    </p>
+
+                {% elif score >= 50 %}
+
+                    <p>
+                        This URL shows several warning signs.
+                        Verify authenticity before visiting.
+                    </p>
+
+                {% elif score >= 20 %}
+
+                    <p>
+                        Some suspicious indicators were found.
+                        Exercise caution.
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        No major phishing indicators detected.
+                        URL appears relatively safe.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+            <div class="analyst-card">
+
+                <h3>
+                    Recommended Actions
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Verify the domain manually.
+                    </li>
+
+                    <li>
+                        Avoid entering credentials.
+                    </li>
+
+                    <li>
+                        Check HTTPS certificate validity.
+                    </li>
+
+                    <li>
+                        Use official websites whenever possible.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- URL ANALYSIS TIMELINE -->
+
+    <div class="section">
+
+        <h2>
+            📈 Analysis Timeline
+        </h2>
+
+        <div class="timeline">
+
+            <div class="timeline-step">
+                URL Submitted
+            </div>
+
+            <div class="timeline-step">
+                Threat Intelligence Scan
+            </div>
+
+            <div class="timeline-step">
+                Phishing Keyword Detection
+            </div>
+
+            <div class="timeline-step">
+                Risk Score Generated
+            </div>
+
+            <div class="timeline-step">
+                Final Verdict Produced
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ACTIONS -->
+
+    <div class="section action-section">
+
+        <h2>
+            🚀 Next Actions
+        </h2>
+
+        <br>
+
+        <a
+            href="/url-analyzer"
+            class="btn"
+        >
+            Analyze Another URL
+        </a>
+
+        <a
+            href="/"
+            class="btn"
+        >
+            Back To Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

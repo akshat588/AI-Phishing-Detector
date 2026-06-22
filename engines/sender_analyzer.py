@@ -1,65 +1,109 @@
 def analyze_sender(sender):
 
-    sender = sender.lower()
+    sender = sender.lower().strip()
 
     risk_score = 0
     findings = []
-
-    free_email_domains = [
-        "gmail.com",
-        "yahoo.com",
-        "outlook.com",
-        "hotmail.com"
-    ]
-
-    suspicious_keywords = [
-        "security",
-        "verify",
-        "update",
-        "support",
-        "login"
-    ]
-
-    # Extract Domain
 
     if "@" in sender:
         domain = sender.split("@")[1]
     else:
         domain = sender
 
-    # Free Email Abuse
+    # Free Email Providers
 
-    for free_domain in free_email_domains:
-        if domain == free_domain:
-            risk_score += 30
-            findings.append("Free email provider used")
+    free_email_domains = ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com"]
 
-    # Brand Impersonation
+    if domain in free_email_domains:
+        risk_score += 20
+        findings.append("Free email provider used")
 
-    if "amaz0n" in domain:
-        risk_score += 40
-        findings.append("Possible Amazon impersonation")
+    # Disposable Email Providers
 
-    if "paypa1" in domain:
-        risk_score += 40
-        findings.append("Possible PayPal impersonation")
+    disposable_domains = [
+        "mailinator.com",
+        "10minutemail.com",
+        "guerrillamail.com",
+        "tempmail.com",
+        "yopmail.com",
+    ]
 
-    if "go0gle" in domain:
-        risk_score += 40
-        findings.append("Possible Google impersonation")
+    if domain in disposable_domains:
+        risk_score += 35
+        findings.append("Disposable email provider detected")
+
+    sender_text = sender.replace("@", "-")
+
+    # Brand Detection
+
+    brands = [
+        "amazon",
+        "google",
+        "paypal",
+        "microsoft",
+        "facebook",
+        "instagram",
+        "netflix",
+        "sbi",
+        "hdfc",
+        "icici",
+        "paytm",
+    ]
+
+    for brand in brands:
+
+        if brand in sender_text:
+
+            risk_score += 15
+
+            findings.append(f"Brand reference detected: {brand.upper()}")
+
+    # Typosquatting Detection
+
+    typo_patterns = {"amaz0n": "Amazon", "go0gle": "Google", "paypa1": "PayPal"}
+
+    for typo, brand in typo_patterns.items():
+
+        if typo in sender_text:
+
+            risk_score += 40
+
+            findings.append(f"Possible {brand} typosquatting")
 
     # Suspicious Keywords
 
+    suspicious_keywords = [
+        "security",
+        "verify",
+        "login",
+        "update",
+        "support",
+        "alert",
+        "reset",
+        "unlock",
+    ]
+
     for keyword in suspicious_keywords:
-        if keyword in domain:
+
+        if keyword in sender_text:
+
             risk_score += 10
-            findings.append(
-                f"Suspicious keyword: {keyword}"
-            )
 
-    risk_score = min(risk_score, 100)
+            findings.append(f"Suspicious keyword detected: {keyword}")
 
-    return risk_score, findings
+    # Suspicious TLD Detection
+
+    suspicious_tlds = [".xyz", ".top", ".click", ".tk", ".cf", ".ml", ".gq"]
+
+    for tld in suspicious_tlds:
+
+        if domain.endswith(tld):
+
+            risk_score += 25
+
+            findings.append(f"Suspicious TLD detected: {tld}")
+
+    return min(risk_score, 100), findings
 
 
 def get_sender_risk_level(score):
@@ -75,31 +119,3 @@ def get_sender_risk_level(score):
 
     else:
         return "🟢 LOW"
-
-
-# ==========================
-# TEST MODE
-# ==========================
-
-if __name__ == "__main__":
-
-    sender = input("Enter sender email:\n\n")
-
-    score, findings = analyze_sender(sender)
-
-    risk_level = get_sender_risk_level(score)
-
-    print("\n" + "=" * 50)
-    print("SENDER INTELLIGENCE REPORT")
-    print("=" * 50)
-
-    print(f"\nRisk Score: {score}%")
-    print(f"Risk Level: {risk_level}")
-
-    print("\nFindings:\n")
-
-    if findings:
-        for item in findings:
-            print("•", item)
-    else:
-        print("✓ No suspicious indicators found.")

@@ -2,131 +2,100 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sender Analyzer | PhishEye AI</title>
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
-
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <div class="background-glow"></div>
+<div class="background-glow"></div>
 
-    <div class="container">
+<div class="container">
 
-        <div class="hero">
-            <div class="hero-buttons">
+    <div class="hero">
 
-    <button
-        class="secondary-btn"
-        onclick="location.href='/'">
+        <div class="hero-buttons">
 
-        ← Back to Home
+            <button class="secondary-btn"
+                    onclick="location.href='/'">
+                ← Back to Home
+            </button>
 
-    </button>
+        </div>
 
-</div>
+        <h1>👤 Sender Analyzer</h1>
 
-            <h1>📨 Sender Analyzer</h1>
+        <p>
+            Analyze sender email addresses for spoofing,
+            impersonation and phishing indicators.
+        </p>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <form action="/analyze-sender" method="POST">
+
+            <div class="input-group">
+
+                <label>Sender Email Address</label>
+
+                <input
+                    type="email"
+                    name="sender"
+                    placeholder="security@amaz0n-support.com"
+                    required>
+
+            </div>
+
+            <button type="submit">
+                Analyze Sender
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="analyzer-grid">
+
+        <div class="analyzer-card">
+
+            <h3>🎭 Spoof Detection</h3>
 
             <p>
-                Verify sender reputation and detect
-                spoofing or impersonation attempts.
+                Detect fake domains and impersonation attempts.
             </p>
 
         </div>
 
-        <div class="dashboard-card">
+        <div class="analyzer-card">
 
-            <form action="/analyze" method="POST">
+            <h3>🏦 Brand Protection</h3>
 
-                <div class="input-group">
-
-                    <label>
-                        Enter Sender Email
-                    </label>
-
-                    <input
-                        type="email"
-                        name="sender"
-                        placeholder="security@amaz0n-support.com"
-                        required
-                    >
-
-                </div>
-
-                <!-- Required by existing analyze route -->
-
-                <input
-                    type="hidden"
-                    name="email_content"
-                    value=""
-                >
-
-                <input
-                    type="hidden"
-                    name="url"
-                    value=""
-                >
-
-                <button type="submit">
-                    Analyze Sender
-                </button>
-
-            </form>
+            <p>
+                Identify misuse of trusted brands and services.
+            </p>
 
         </div>
 
-        <div class="analyzer-grid">
+        <div class="analyzer-card">
 
-            <div class="analyzer-card">
+            <h3>🛡 Threat Intelligence</h3>
 
-                <h3>🎭 Spoof Detection</h3>
-
-                <p>
-                    Detect impersonation domains and
-                    deceptive sender addresses.
-                </p>
-
-            </div>
-
-            <div class="analyzer-card">
-
-                <h3>📧 Domain Analysis</h3>
-
-                <p>
-                    Identify risky domains and
-                    suspicious email providers.
-                </p>
-
-            </div>
-
-            <div class="analyzer-card">
-
-                <h3>🛡 Reputation Check</h3>
-
-                <p>
-                    Analyze sender trust indicators
-                    and phishing patterns.
-                </p>
-
-            </div>
+            <p>
+                Generate a sender trust score instantly.
+            </p>
 
         </div>
 
     </div>
 
-</body>
+</div>
 
+</body>
 </html>
