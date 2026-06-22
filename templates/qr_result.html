@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>QR Analysis Result</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="hero">
+
+    <h1>📷 QR Analysis Result</h1>
+
+    <p>
+        AI-Powered QR Threat Analysis
+    </p>
+
+</div>
+
+{% if success %}
+
+    <div class="section">
+
+        <h2>🔍 Decoded Content</h2>
+
+        <p style="
+            word-break: break-word;
+            font-size:18px;
+            color:#d1d5db;
+        ">
+            {{ qr_data }}
+        </p>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🎯 Threat Score</h2>
+
+        <h1 style="
+            color:#00ff88;
+            font-size:60px;
+        ">
+            {{ final_score }}/100
+        </h1>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🚨 Severity</h2>
+
+        <h3>{{ severity }}</h3>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🧬 Threat Types</h2>
+
+        <ul>
+
+            {% for attack in attack_types %}
+                <li>{{ attack }}</li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>📋 Findings</h2>
+
+        <ul>
+
+            {% for item in url_findings %}
+                <li>{{ item }}</li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🤖 AI Analyst Summary</h2>
+
+        <p>
+            {{ analyst_summary }}
+        </p>
+
+    </div>
+
+    <div class="section">
+
+        <h2>⏱ Analysis Time</h2>
+
+        <p>
+            {{ analysis_time }} seconds
+        </p>
+
+    </div>
+
+{% else %}
+
+    <div class="section">
+
+        <h2 style="color:red;">
+            {{ error }}
+        </h2>
+
+    </div>
+
+{% endif %}
+
+<br>
+
+<a href="/qr-analyzer" class="btn">
+    Analyze Another QR
+</a>
+
+<a href="/" class="btn">
+    Back To Home
+</a>
+
+
+</div>
+
+</body>
+
+</html>

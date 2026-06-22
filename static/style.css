@@ -394,11 +394,30 @@ button:hover{
 .analyzer-grid{
     display:grid;
     grid-template-columns:
-    repeat(auto-fit,minmax(300px,1fr));
+    repeat(3,1fr);
 
-    gap:25px;
+    gap:30px;
 
     margin-top:40px;
+}
+@media(max-width:1200px){
+
+    .analyzer-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .analyzer-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
 }
 
 .analyzer-card{
@@ -424,13 +443,13 @@ button:hover{
 
 .analyzer-card h3{
     color:#00ff88;
-
+    min-height:70px;
     margin-bottom:15px;
 }
 
 .analyzer-card p{
     color:#a5b4c3;
-
+    min-height:110px
     margin-bottom:20px;
 }
 
@@ -478,6 +497,19 @@ button:hover{
     flex-direction:column;
     justify-content:space-between;
     min-height:220px;
+}
+
+.analyzer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.analyzer-card{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:320px;
 }
 /* ==========================
    SECTION TITLES
@@ -539,4 +571,21 @@ button:hover{
     font-size:1.6rem;
 
     font-weight:700;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 24px;
+    margin:10px;
+    background:#00ff88;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(0,255,136,.4);
 }
