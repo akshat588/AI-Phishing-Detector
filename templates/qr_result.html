@@ -1,138 +1,287 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
 
-<title>QR Analysis Result</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
+    <title>QR Intelligence Report | TrustLens AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='result.css') }}">
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="background-glow"></div>
 
-<div class="hero">
+<div class="content">
 
-    <h1>📷 QR Analysis Result</h1>
+    <div class="header">
 
-    <p>
-        AI-Powered QR Threat Analysis
-    </p>
+        <h1>📷 QR Intelligence Report</h1>
 
-</div>
+        <p>AI-Powered QR Threat Analysis</p>
 
-{% if success %}
+    </div>
+
+    {% if success %}
+
+    <!-- ========================= -->
+    <!-- TOP CARDS -->
+    <!-- ========================= -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>QR Type</h3>
+
+            <div class="score">
+
+                {{ qr_type }}
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Threat Score</h3>
+
+            <div class="score">
+
+                {{ final_score }}/100
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>AI Confidence</h3>
+
+            <div class="score">
+
+                {{ confidence }}%
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- QR CONTENT -->
+    <!-- ========================= -->
 
     <div class="section">
 
-        <h2>🔍 Decoded Content</h2>
+        <h2>📄 Decoded QR Content</h2>
 
-        <p style="
-            word-break: break-word;
-            font-size:18px;
-            color:#d1d5db;
-        ">
+        <p style="word-break: break-word;">
+
             {{ qr_data }}
+
         </p>
 
     </div>
 
+    <!-- ========================= -->
+    <!-- RISK -->
+    <!-- ========================= -->
+
     <div class="section">
 
-        <h2>🎯 Threat Score</h2>
+        <h2>🚨 Risk Level</h2>
 
-        <h1 style="
-            color:#00ff88;
-            font-size:60px;
-        ">
-            {{ final_score }}/100
-        </h1>
+        <h3>
+
+            {{ severity }}
+
+        </h3>
 
     </div>
 
+    <!-- ========================= -->
+    <!-- THREAT DNA -->
+    <!-- ========================= -->
+
     <div class="section">
 
-        <h2>🚨 Severity</h2>
+        <h2>🧬 Threat DNA</h2>
 
-        <h3>{{ severity }}</h3>
+        {% for key,value in threat_dna.items() %}
+
+        <div class="stat-row">
+
+            <span>
+
+                {{ key }}
+
+            </span>
+
+            <strong>
+
+                {{ value }}%
+
+            </strong>
+
+        </div>
+
+        {% endfor %}
 
     </div>
 
+    <!-- ========================= -->
+    <!-- ATTACK TYPES -->
+    <!-- ========================= -->
+
     <div class="section">
 
-        <h2>🧬 Threat Types</h2>
+        <h2>⚔ Attack Classification</h2>
 
         <ul>
 
-            {% for attack in attack_types %}
-                <li>{{ attack }}</li>
-            {% endfor %}
+        {% for attack in attack_types %}
+
+            <li>
+
+                {{ attack }}
+
+            </li>
+
+        {% endfor %}
 
         </ul>
 
     </div>
 
+    <!-- ========================= -->
+    <!-- FINDINGS -->
+    <!-- ========================= -->
+
     <div class="section">
 
-        <h2>📋 Findings</h2>
+        <h2>🔍 Threat Findings</h2>
 
-        <ul>
+        {% if findings %}
 
-            {% for item in url_findings %}
-                <li>{{ item }}</li>
+            {% for item in findings %}
+
+            <div class="feed-item">
+
+                ⚠ {{ item }}
+
+            </div>
+
             {% endfor %}
 
-        </ul>
+        {% else %}
+
+            <div class="safe-message">
+
+                No suspicious findings detected.
+
+            </div>
+
+        {% endif %}
 
     </div>
 
+    <!-- ========================= -->
+    <!-- AI ANALYST -->
+    <!-- ========================= -->
+
     <div class="section">
 
-        <h2>🤖 AI Analyst Summary</h2>
+        <h2>🤖 AI Security Analyst</h2>
 
         <p>
+
             {{ analyst_summary }}
+
         </p>
 
     </div>
+
+    <!-- ========================= -->
+    <!-- RECOMMENDATIONS -->
+    <!-- ========================= -->
+
+    <div class="section">
+
+        <h2>💡 Recommendations</h2>
+
+        <ul>
+
+        {% for recommendation in recommendations %}
+
+            <li>
+
+                {{ recommendation }}
+
+            </li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- ANALYSIS -->
+    <!-- ========================= -->
 
     <div class="section">
 
         <h2>⏱ Analysis Time</h2>
 
         <p>
+
             {{ analysis_time }} seconds
+
         </p>
 
     </div>
 
-{% else %}
+    {% else %}
 
     <div class="section">
 
-        <h2 style="color:red;">
+        <h2 style="color:#ef4444;">
+
             {{ error }}
+
         </h2>
 
     </div>
 
-{% endif %}
+    {% endif %}
 
-<br>
+    <div class="section action-section">
 
-<a href="/qr-analyzer" class="btn">
-    Analyze Another QR
-</a>
+        <a href="/qr-analyzer" class="btn">
 
-<a href="/" class="btn">
-    Back To Home
-</a>
+            Analyze Another QR
 
+        </a>
+
+        <a href="/dashboard" class="btn">
+
+            Dashboard
+
+        </a>
+
+    </div>
 
 </div>
 

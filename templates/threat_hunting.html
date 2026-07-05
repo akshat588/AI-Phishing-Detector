@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Threat Hunting Center</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎯 Threat Hunting Center</h1>
+
+    <div class="export-buttons">
+
+    <a href="/export-json"
+       class="analyzer-btn">
+
+       📁 Export JSON
+
+    </a>
+
+    <a href="/export-csv"
+       class="analyzer-btn">
+
+       📊 Export CSV
+
+    </a>
+
+</div>
+
+<br>
+
+    <form method="GET">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search threat type, severity..."
+        value="{{ search_query }}">
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+<br>
+
+    <div class="hunt-card">
+
+        <h2>Recent Threat Intelligence</h2>
+
+        {% if records %}
+
+            {% for record in records %}
+
+            <div class="hunt-record">
+
+                <h3>{{ record.type }}</h3>
+
+                <p>
+                    Severity:
+                    {{ record.severity }}
+                </p>
+
+                <p>
+                    Score:
+                    {{ record.score }}
+                </p>
+
+                <p>
+                    Threats:
+                    {{ record.threats }}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>
+                No threat intelligence available.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

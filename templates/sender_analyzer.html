@@ -2,100 +2,138 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sender Analyzer | PhishEye AI</title>
+<meta charset="UTF-8">
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sender Intelligence | TrustLens AI</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
 
-<div class="background-glow"></div>
+{% include "components/top_navbar.html" %}
 
-<div class="container">
+<section class="analyzer-page">
 
-    <div class="hero">
+<div class="analyzer-header">
 
-        <div class="hero-buttons">
+<span class="analyzer-badge">
 
-            <button class="secondary-btn"
-                    onclick="location.href='/'">
-                ← Back to Home
-            </button>
+AI POWERED DETECTION
 
-        </div>
+</span>
 
-        <h1>👤 Sender Analyzer</h1>
+<h1>📨 Sender Intelligence</h1>
 
-        <p>
-            Analyze sender email addresses for spoofing,
-            impersonation and phishing indicators.
-        </p>
+<p>
 
-    </div>
+Analyze email senders to detect
+spoofing, impersonation,
+fake domains and suspicious identities.
 
-    <div class="dashboard-card">
-
-        <form action="/analyze-sender" method="POST">
-
-            <div class="input-group">
-
-                <label>Sender Email Address</label>
-
-                <input
-                    type="email"
-                    name="sender"
-                    placeholder="security@amaz0n-support.com"
-                    required>
-
-            </div>
-
-            <button type="submit">
-                Analyze Sender
-            </button>
-
-        </form>
-
-    </div>
-
-    <div class="analyzer-grid">
-
-        <div class="analyzer-card">
-
-            <h3>🎭 Spoof Detection</h3>
-
-            <p>
-                Detect fake domains and impersonation attempts.
-            </p>
-
-        </div>
-
-        <div class="analyzer-card">
-
-            <h3>🏦 Brand Protection</h3>
-
-            <p>
-                Identify misuse of trusted brands and services.
-            </p>
-
-        </div>
-
-        <div class="analyzer-card">
-
-            <h3>🛡 Threat Intelligence</h3>
-
-            <p>
-                Generate a sender trust score instantly.
-            </p>
-
-        </div>
-
-    </div>
+</p>
 
 </div>
 
+<div class="analyzer-layout">
+
+<div class="input-card">
+
+<h2>
+
+Enter Sender Email
+
+</h2>
+
+<form action="/analyze-sender" method="POST">
+
+<textarea
+
+name="sender"
+
+rows="10"
+
+placeholder="example@domain.com"
+
+required></textarea>
+
+<button class="analyze-btn" type="submit">
+
+<i class="fa-solid fa-user-shield"></i>
+
+Analyze Sender
+
+</button>
+
+</form>
+
+</div>
+
+<div class="info-card">
+
+<h2>
+
+AI Detection Engine
+
+</h2>
+
+<div class="info-item">
+
+<i class="fa-solid fa-user-secret"></i>
+
+<div>
+
+<h4>Identity Verification</h4>
+
+<p>
+
+Spoof Detection<br>
+
+Domain Reputation<br>
+
+Brand Impersonation<br>
+
+Trust Score
+
+</p>
+
+</div>
+
+</div>
+
+<div class="info-item">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<div>
+
+<h4>Detection Accuracy</h4>
+
+<p>
+
+98.7% AI Confidence
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 </body>
+
 </html>

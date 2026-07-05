@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>WhatsApp Analysis | TrustLens AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='result.css') }}">
+
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="content">
+
+    <div class="header">
+
+        <h1>💬 WhatsApp Intelligence Report</h1>
+
+        <p>AI-Powered WhatsApp Scam Detection</p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Threat Score</h3>
+
+            <div class="score">
+
+                {{ final_score }}/100
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Digital Trust</h3>
+
+            <div class="score">
+
+                {{ digital_trust_score }}
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Risk Level</h3>
+
+            <div class="card-danger">
+
+                {{ digital_trust_level }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🧬 Threat DNA</h2>
+
+        {% for key,value in threat_dna.items() %}
+
+        <div class="stat-row">
+
+            <span>{{ key }}</span>
+
+            <strong>{{ value }}%</strong>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="section">
+
+        <h2>💬 WhatsApp Scam Categories</h2>
+
+        {% if source_findings %}
+
+            {% for item in source_findings %}
+
+            <div class="feed-item">
+
+                ✔ {{ item }}
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="safe-message">
+
+                No WhatsApp scam indicators detected.
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <div class="section">
+
+        <h2>🔗 URL Findings</h2>
+
+        {% for item in url_findings %}
+
+        <div class="feed-item">
+
+            {{ item }}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="section">
+
+        <h2>💳 UPI Findings</h2>
+
+        {% for item in upi_findings %}
+
+        <div class="feed-item">
+
+            {{ item }}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="section action-section">
+
+        <a href="/whatsapp-analyzer" class="btn">
+
+            Analyze Another WhatsApp Message
+
+        </a>
+
+        <a href="/dashboard" class="btn">
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

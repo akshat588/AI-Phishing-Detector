@@ -5,124 +5,153 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>UPI Analyzer | PhishEye AI</title>
+    <title>UPI Fraud Analyzer | TrustLens AI</title>
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='navbar.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
 <body>
 
-    <div class="background-glow"></div>
+{% include "components/top_navbar.html" %}
 
-    <div class="container">
+<section class="analyzer-page">
 
-        <div class="hero">
-            <div class="hero-buttons">
+    <div class="analyzer-header">
 
-    <button
-        class="secondary-btn"
-        onclick="location.href='/'">
+        <span class="analyzer-badge">
+            AI POWERED DETECTION
+        </span>
 
-        ← Back to Home
+        <h1>💳 UPI Fraud Analyzer</h1>
 
-    </button>
+        <p>
 
-</div>
+            Analyze UPI IDs, payment requests and transaction messages to detect
+            fake payment requests, impersonation, payment fraud and suspicious activity.
 
-            <h1>💰 UPI Analyzer</h1>
+        </p>
 
-            <p>
-                Detect financial fraud indicators,
-                suspicious UPI IDs and payment scams.
-            </p>
+    </div>
 
-        </div>
+    <div class="analyzer-layout">
 
-        <div class="dashboard-card">
+        <div class="input-card">
 
-            <form action="/analyze" method="POST">
+            <h2>
 
-                <div class="input-group">
+                Enter UPI ID or Payment Message
 
-                    <label>
-                        Enter Message Containing UPI Details
-                    </label>
+            </h2>
 
-                    <textarea
-                        name="email_content"
-                        placeholder="Example: Send payment to security@upi immediately to unlock your account."
-                        required
-                    ></textarea>
+            <form action="/analyze-upi" method="POST">
 
-                </div>
+                <textarea
 
-                <input
-                    type="hidden"
-                    name="url"
-                    value=""
-                >
+                    name="upi_content"
 
-                <input
-                    type="hidden"
-                    name="sender"
-                    value=""
-                >
+                    rows="14"
 
-                <button type="submit">
-                    Analyze UPI Threat
+                    placeholder="Paste a UPI ID or payment message..."
+
+                    required></textarea>
+
+                <button class="analyze-btn" type="submit">
+
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                    Analyze UPI
+
                 </button>
 
             </form>
 
         </div>
 
-        <div class="analyzer-grid">
+        <div class="info-card">
 
-            <div class="analyzer-card">
+            <h2>
 
-                <h3>💸 Fraud Detection</h3>
+                AI Detection Engine
 
-                <p>
-                    Identify financial scam patterns,
-                    payment fraud and phishing attempts.
-                </p>
+            </h2>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <div>
+
+                    <h4>Payment Verification</h4>
+
+                    <p>
+
+                        Detects suspicious payment requests and fake UPI handles.
+
+                    </p>
+
+                </div>
 
             </div>
 
-            <div class="analyzer-card">
+            <div class="info-item">
 
-                <h3>🏦 UPI Intelligence</h3>
+                <i class="fa-solid fa-triangle-exclamation"></i>
 
-                <p>
-                    Detect suspicious UPI references
-                    and payment requests.
-                </p>
+                <div>
+
+                    <h4>Threat Categories</h4>
+
+                    <p>
+
+                        Fake Collect Request<br>
+
+                        QR Payment Fraud<br>
+
+                        UPI Impersonation<br>
+
+                        Refund Scam<br>
+
+                        Payment Request Fraud
+
+                    </p>
+
+                </div>
 
             </div>
 
-            <div class="analyzer-card">
+            <div class="info-item">
 
-                <h3>🛡 Financial Security</h3>
+                <i class="fa-solid fa-chart-line"></i>
 
-                <p>
-                    Analyze messages for indicators
-                    of banking and payment fraud.
-                </p>
+                <div>
+
+                    <h4>Detection Accuracy</h4>
+
+                    <p>
+
+                        98.7% AI Confidence
+
+                    </p>
+
+                </div>
 
             </div>
 
         </div>
 
     </div>
+
+</section>
 
 </body>
 

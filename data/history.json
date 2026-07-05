@@ -1,0 +1,47 @@
+[
+    {
+        "timestamp": "03-07-2026 23:45",
+        "dataset_type": "EMAIL",
+        "records": 298,
+        "category": "ALL",
+        "format": "CSV",
+        "filename": "email_dataset_20260703_234504.csv",
+        "status": "Completed"
+    },
+    {
+        "timestamp": "03-07-2026 18:30",
+        "dataset_type": "EMAIL",
+        "records": 292,
+        "category": "ALL",
+        "format": "CSV",
+        "filename": "email_dataset_20260703_183029.csv",
+        "status": "Completed"
+    },
+    {
+        "timestamp": "03-07-2026 18:26",
+        "dataset_type": "EMAIL",
+        "records": 287,
+        "category": "ALL",
+        "format": "CSV",
+        "filename": "email_dataset_20260703_182601.csv",
+        "status": "Completed"
+    },
+    {
+        "timestamp": "03-07-2026 18:22",
+        "dataset_type": "URL",
+        "records": 63,
+        "category": "ALL",
+        "format": "CSV",
+        "filename": "url_dataset_20260703_182254.csv",
+        "status": "Completed"
+    },
+    {
+        "timestamp": "03-07-2026 00:11",
+        "dataset_type": "EMAIL",
+        "records": 90,
+        "category": "ALL",
+        "format": "CSV",
+        "filename": "email_dataset_20260703_001127.csv",
+        "status": "Completed"
+    }
+]

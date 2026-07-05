@@ -2,311 +2,717 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhishEye AI</title>
+
+    <title>TrustLens AI | Verify Before You Trust</title>
 
     <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+        href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='navbar.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='home.css') }}">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
 
-    <div class="background-glow"></div>
+<div class="background-glow"></div>
 
-    <div class="container">
+{% include "components/top_navbar.html" %}
 
-        <div class="hero">
-<div class="hero-right">
-    <img src="{{ url_for('static', filename='ai_robot_shield.png') }}"
-        alt="AI Security Robot">
-</div>
-            <h1>🛡️ PhishEye AI</h1>
+<div class="main-layout">
+
+<main class="main-content full-width">
+
+<div class="page-content">
+
+<div class="container">
+
+<!-- ===========================
+        HERO
+=========================== -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div class="hero-left fade-up">
+
+            <div class="hero-badge">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                AI Powered Cybersecurity Platform
+
+            </div>
+
+            <h1 class="hero-title">
+
+                Verify Before You <span>Trust.</span>
+
+            </h1>
+
+            <p class="hero-description">
+
+                TrustLens AI helps detect phishing emails, malicious URLs,
+                QR scams, fake job offers, UPI fraud, SMS attacks,
+                WhatsApp scams and sender impersonation using
+                AI-powered threat intelligence.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{{ url_for('scan_center') }}"
+                   class="btn btn-primary">
+
+                    <i class="fa-solid fa-shield"></i>
+
+                    Start Scanning
+
+                </a>
+
+                <a href="{{ url_for('dashboard') }}"
+                   class="btn btn-secondary">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    View Dashboard
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right fade-up">
+
+            <div class="hero-card">
+
+                <div class="icon-box">
+
+                    <i class="fa-solid fa-shield-virus"></i>
+
+                </div>
+
+                <h2 style="margin:30px 0 15px;">
+
+                    Digital Trust Intelligence
+
+                </h2>
+
+                <p class="section-description">
+
+                    Enterprise-grade AI engine capable of detecting
+                    phishing, impersonation, fraud and social
+                    engineering attacks in real time.
+
+                </p>
+
+                <div style="margin-top:35px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+
+                    <div>
+
+                        <h2 style="color:#5b7cff;">98.7%</h2>
+
+                        <span style="color:#9aa4b2;">Accuracy</span>
+
+                    </div>
+
+                    <div>
+
+                        <h2 style="color:#8d4dff;">8+</h2>
+
+                        <span style="color:#9aa4b2;">AI Modules</span>
+
+                    </div>
+
+                    <div>
+
+                        <h2 style="color:#24d6ff;">24/7</h2>
+
+                        <span style="color:#9aa4b2;">Protection</span>
+
+                    </div>
+
+                    <div>
+
+                        <h2 style="color:#22c55e;">AI</h2>
+
+                        <span style="color:#9aa4b2;">Threat Engine</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- TRUSTLENS AI MODULES -->
+<!-- ===================================== -->
+
+<section class="modules-section">
+
+    <div class="section-header">
+
+        <span class="section-badge">
+            AI SECURITY SUITE
+        </span>
+
+        <h2>
+            Security Analysis Modules
+        </h2>
+
+        <p>
+            Enterprise-grade AI engines designed to verify every digital interaction before you trust it.
+        </p>
+
+    </div>
+
+    <div class="modules-grid">
+
+        <a href="{{ url_for('email_analyzer_page') }}" class="module-card">
+
+            <div class="module-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+
+            <span class="module-tag">
+                Email Security
+            </span>
+
+            <h3>Email Analyzer</h3>
 
             <p>
-                AI-Powered Phishing & Social Engineering Detection System
+                Detect phishing emails, spoofing, credential theft and social engineering.
+            </p>
+
+            <div class="module-footer">
+
+                <span>AI Detection</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </div>
+
+        </a>
+
+        <a href="{{ url_for('url_analyzer_page') }}" class="module-card">
+
+            <div class="module-icon">
+                <i class="fas fa-link"></i>
+            </div>
+
+            <span class="module-tag">
+                Web Protection
+            </span>
+
+            <h3>URL Analyzer</h3>
+
+            <p>
+                Analyze suspicious websites, shortened URLs and malicious redirects.
+            </p>
+
+            <div class="module-footer">
+
+                <span>AI Detection</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </div>
+
+        </a>
+
+        <a href="{{ url_for('sms_analyzer_page') }}" class="module-card">
+
+            <div class="module-icon">
+                <i class="fas fa-comment"></i>
+            </div>
+
+            <span class="module-tag">
+                SMS Security
+            </span>
+
+            <h3>SMS Analyzer</h3>
+
+            <p>
+                Identify OTP fraud, banking scams and SMS phishing attacks.
+            </p>
+
+            <div class="module-footer">
+
+                <span>AI Detection</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </div>
+
+        </a>
+
+        <a href="{{ url_for('whatsapp_analyzer_page') }}" class="module-card">
+
+            <div class="module-icon">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+
+            <span class="module-tag">
+                Chat Protection
+            </span>
+
+            <h3>WhatsApp Analyzer</h3>
+
+            <p>
+                Detect fake offers, impersonation and social engineering messages.
+            </p>
+
+            <div class="module-footer">
+
+                <span>AI Detection</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </div>
+
+        </a>
+
+        <a href="{{ url_for('qr_analyzer_page') }}" class="module-card">
+
+            <div class="module-icon">
+                <i class="fas fa-qrcode"></i>
+            </div>
+
+            <span class="module-tag">
+                QR Security
+            </span>
+
+            <h3>QR Analyzer</h3>
+
+            <p>
+                Scan malicious QR codes before they redirect or steal information.
+            </p>
+
+            <div class="module-footer">
+
+                <span>AI Detection</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </div>
+
+        </a>
+
+        <a href="{{ url_for('upi_analyzer_page') }}" class="module-card">
+
+            <div class="module-icon">
+                <i class="fas fa-credit-card"></i>
+            </div>
+
+            <span class="module-tag">
+                Payment Security
+            </span>
+
+            <h3>UPI Analyzer</h3>
+
+            <p>
+                Verify suspicious UPI IDs and detect digital payment fraud.
+            </p>
+
+            <div class="module-footer">
+
+                <span>AI Detection</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </div>
+
+        </a>
+
+        <a href="{{ url_for('job_detector_page') }}" class="module-card">
+
+            <div class="module-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+
+            <span class="module-tag">
+                Recruitment Shield
+            </span>
+
+            <h3>Fake Job Detector</h3>
+
+            <p>
+                Detect fraudulent recruitment campaigns and fake hiring offers.
+            </p>
+
+            <div class="module-footer">
+
+                <span>AI Detection</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </div>
+
+        </a>
+
+        <a href="{{ url_for('sender_analyzer_page') }}" class="module-card">
+
+            <div class="module-icon">
+                <i class="fas fa-user-shield"></i>
+            </div>
+
+            <span class="module-tag">
+                Identity Protection
+            </span>
+
+            <h3>Sender Intelligence</h3>
+
+            <p>
+                Verify sender reputation and detect impersonation attempts.
+            </p>
+
+            <div class="module-footer">
+
+                <span>AI Detection</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+<!-- ===========================
+HOW TRUSTLENS WORKS
+=========================== -->
+
+<section class="workflow-section">
+
+    <div class="section-header">
+
+        <span class="section-badge">
+            SECURITY PIPELINE
+        </span>
+
+        <h2>
+            How TrustLens AI Works
+        </h2>
+
+        <p>
+            Every analysis passes through multiple AI engines before generating
+            the final Digital Trust Score.
+        </p>
+
+    </div>
+
+    <div class="workflow-grid">
+
+        <div class="workflow-card">
+
+            <div class="workflow-icon">
+                <i class="fas fa-upload"></i>
+            </div>
+
+            <h3>Submit Data</h3>
+
+            <p>
+                Paste Email, URL, QR Code, SMS,
+                WhatsApp message or UPI ID.
             </p>
 
         </div>
 
-<div class="hero-section">
+        <div class="workflow-arrow">
 
-    <!-- LEFT SIDE -->
+            <i class="fas fa-arrow-right"></i>
 
-    <div>
+        </div>
 
-        <h2 class="section-title-left">
-            🔍 Security Analysis Engines
-        </h2>
+        <div class="workflow-card">
 
-        <div class="analyzer-grid">
+            <div class="workflow-icon">
 
-            <div class="analyzer-card">
-
-                <h3>📧 Email Analyzer</h3>
-
-                <p>
-                    Detect phishing emails using
-                    AI-powered threat intelligence.
-                </p>
-
-                <a href="/email-analyzer" class="analyzer-btn">
-                    Open Analyzer
-                </a>
+                <i class="fas fa-brain"></i>
 
             </div>
 
-            <div class="analyzer-card">
+            <h3>AI Analysis</h3>
 
-                <h3>🔗 URL Analyzer</h3>
+            <p>
+                NLP, ML models and threat intelligence
+                inspect hundreds of security indicators.
+            </p>
 
-                <p>
-                    Scan suspicious URLs and
-                    detect malicious domains.
-                </p>
+        </div>
 
-                <a href="/url-analyzer" class="analyzer-btn">
-                    Open Analyzer
-                </a>
+        <div class="workflow-arrow">
 
-            </div>
+            <i class="fas fa-arrow-right"></i>
 
-            <div class="analyzer-card">
+        </div>
 
-                <h3>📨 Sender Analyzer</h3>
+        <div class="workflow-card">
 
-                <p>
-                    Verify sender reputation
-                    and spoofing indicators.
-                </p>
+            <div class="workflow-icon">
 
-                <a href="/sender-analyzer" class="analyzer-btn">
-                    Open Analyzer
-                </a>
+                <i class="fas fa-shield-virus"></i>
 
             </div>
 
-            <div class="analyzer-card">
+            <h3>Risk Detection</h3>
 
-    <h3>💰 UPI Analyzer</h3>
+            <p>
+                Phishing, spoofing, fraud,
+                malware and impersonation are detected.
+            </p>
 
-    <p>
-        Detect payment fraud,
-        suspicious UPI IDs and
-        financial scam attempts.
-    </p>
+        </div>
 
-    <a href="/upi-analyzer" class="analyzer-btn">
-        Open Analyzer
-    </a>
+        <div class="workflow-arrow">
 
-</div>
+            <i class="fas fa-arrow-right"></i>
 
-<div class="analyzer-card">
+        </div>
 
-    <h3>📷 QR Analyzer</h3>
+        <div class="workflow-card">
 
-    <p>
-        Analyze QR codes for phishing,
-        malicious links and scam patterns.
-    </p>
+            <div class="workflow-icon">
 
-    <a href="/qr-analyzer" class="analyzer-btn">
-        Open Analyzer
-    </a>
-
-</div>
-
-                
+                <i class="fas fa-file-shield"></i>
 
             </div>
+
+            <h3>Security Report</h3>
+
+            <p>
+                Receive AI explanation,
+                Digital Trust Score and recommendations.
+            </p>
 
         </div>
 
     </div>
 
-    <!-- RIGHT SIDE -->
+</section>
+<!-- ===========================
+TRUST METRICS
+=========================== -->
 
-    <div class="hero-left">
+<section class="stats-section">
+
+    <div class="section-header">
+
+        <span class="section-badge">
+
+            PLATFORM INSIGHTS
+
+        </span>
 
         <h2>
-            AI-Powered Phishing Detection &
-            Threat Intelligence
+
+            TrustLens AI At A Glance
+
         </h2>
 
         <p>
-            Analyze emails, URLs, senders,QR codes and payment scams
-            using AI-powered threat intelligence.
+
+            Monitor platform activity, AI detection performance and cybersecurity intelligence.
+
         </p>
 
-        <div class="hero-buttons">
-
-            <button
-                class="primary-btn"
-                onclick="document.querySelector('.analyzer-grid').scrollIntoView({behavior:'smooth'});">
-
-                Open Security Engines
-
-            </button>
-
-            <button
-                class="secondary-btn"
-                onclick="document.getElementById('features').scrollIntoView();">
-                
-
-                Explore Engines
-
-            </button>
-
-        </div>
-
-        <div class="stats">
-
-            <div class="stat-box">
-                <h3>10K+</h3>
-                <span>Emails Analyzed</span>
-            </div>
-
-            <div class="stat-box">
-                <h3>98.6%</h3>
-                <span>Detection Accuracy</span>
-            </div>
-
-            <div class="stat-box">
-                <h3>50+</h3>
-                <span>Threat Indicators</span>
-            </div>
-
-            <div class="stat-box">
-                <h3>24/7</h3>
-                <span>Protection</span>
-            </div>
-
-        </div>
-
     </div>
 
-</div>
+    <div class="stats-grid">
 
-<section class="soc-dashboard">
+        <div class="stat-card">
 
-    <h2 class="section-title">
-        📊 Security Operations Center
-    </h2>
+            <h2>{{ dashboard.total_scans }}</h2>
 
-    <div class="soc-grid">
+            <span>Total Scans</span>
 
-        <div class="soc-card">
-            <h3>📈 Total Scans</h3>
-            <span>12,847</span>
         </div>
 
-        <div class="soc-card">
-            <h3>🚨 Threats Detected</h3>
-            <span>3,412</span>
+        <div class="stat-card">
+
+            <h2>{{ dashboard.threats_detected }}</h2>
+
+            <span>Threats Detected</span>
+
         </div>
 
-        <div class="soc-card">
-            <h3>🛡 High Risk Alerts</h3>
-            <span>824</span>
+        <div class="stat-card">
+
+            <h2>{{ dashboard.safe_analyses }}</h2>
+
+            <span>Safe Analyses</span>
+
         </div>
 
-        <div class="soc-card">
-            <h3>✅ Safe Analyses</h3>
-            <span>9,435</span>
+        <div class="stat-card">
+
+            <h2>98.7%</h2>
+
+            <span>AI Accuracy</span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>24/7</h2>
+
+            <span>Live Monitoring</span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>8+</h2>
+
+            <span>Security Modules</span>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="threat-feed">
+<!-- ==========================================
+WHY TRUSTLENS AI
+========================================== -->
 
-    <h2 class="section-title">
-        🚨 Live Threat Activity
-    </h2>
+<section class="why-section">
 
-    <div class="feed-container">
+    <div class="metrics-header">
 
-        <div class="feed-item">
-            <span class="feed-time">08:42 PM</span>
-            <p>⚠ URL Analyzer detected typosquatting attempt</p>
-        </div>
+        <span class="section-subtitle">
 
-        <div class="feed-item">
-            <span class="feed-time">08:39 PM</span>
-            <p>⚠ Sender Analyzer detected disposable email</p>
-        </div>
+            ENTERPRISE SECURITY
 
-        <div class="feed-item">
-            <span class="feed-time">08:36 PM</span>
-            <p>⚠ QR Analyzer detected malicious redirect</p>
-        </div>
+        </span>
 
-        <div class="feed-item">
-            <span class="feed-time">08:33 PM</span>
-            <p>⚠ Email Analyzer detected credential theft pattern</p>
-        </div>
+        <h2>
+
+            Why Security Professionals Choose TrustLens AI
+
+        </h2>
+
+        <p>
+
+            Built with modern AI, threat intelligence and enterprise-grade design to simplify digital trust verification.
+
+        </p>
 
     </div>
 
-</section>
+    <div class="why-grid">
 
-<section class="ai-analyst">
+        <div class="why-card">
 
-    <h2 class="section-title">
-        🤖 AI Security Analyst
-    </h2>
+            <div class="why-icon">
+                🤖
+            </div>
 
-    <div class="analyst-card">
+            <h3>AI Detection Engine</h3>
 
-        <div class="analyst-header">
+            <p>
 
-            <div class="analyst-icon">
+                Machine Learning models detect phishing and fraud with intelligent risk scoring.
+
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <div class="why-icon">
                 🛡️
             </div>
 
-            <div>
-                <h3>Current Threat Assessment</h3>
-                <p>AI-generated security overview</p>
-            </div>
+            <h3>Multi-Layer Protection</h3>
+
+            <p>
+
+                Email, URLs, QR Codes, UPI, SMS, WhatsApp and Sender verification.
+
+            </p>
 
         </div>
 
-        <div class="analyst-grid">
+        <div class="why-card">
 
-            <div class="analyst-box">
-                <h4>Threat Level</h4>
-                <span class="medium-risk">🟠 MEDIUM</span>
+            <div class="why-icon">
+                ⚡
             </div>
 
-            <div class="analyst-box">
-                <h4>Most Common Threat</h4>
-                <span>Credential Theft</span>
-            </div>
+            <h3>Real-Time Analysis</h3>
 
-            <div class="analyst-box">
-                <h4>Most Targeted Brand</h4>
-                <span>Amazon</span>
-            </div>
+            <p>
 
-            <div class="analyst-box">
-                <h4>Most Suspicious TLD</h4>
-                <span>.xyz</span>
-            </div>
+                Security analysis is generated within seconds using intelligent automation.
+
+            </p>
 
         </div>
 
-        <div class="analyst-summary">
+        <div class="why-card">
 
-            <h4>Recommended Actions</h4>
+            <div class="why-icon">
+                📊
+            </div>
 
-            <ul>
-                <li>Enable multi-factor authentication.</li>
-                <li>Verify suspicious URLs before clicking.</li>
-                <li>Avoid login requests from unknown senders.</li>
-                <li>Review high-risk detections immediately.</li>
-            </ul>
+            <h3>Threat Intelligence</h3>
+
+            <p>
+
+                Actionable insights with AI recommendations and Digital Trust Scores.
+
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                📑
+            </div>
+
+            <h3>Professional Reports</h3>
+
+            <p>
+
+                Export PDF, CSV and JSON reports for documentation and investigation.
+
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                🔒
+            </div>
+
+            <h3>Privacy First</h3>
+
+            <p>
+
+                Designed to analyze threats while keeping user information protected.
+
+            </p>
 
         </div>
 
@@ -314,183 +720,104 @@
 
 </section>
 
+<!-- ===========================
+FOOTER
+=========================== -->
 
-<section class="intel-center">
+<footer class="footer">
 
-    <h2 class="section-title">
-        🌐 Threat Intelligence Center
-    </h2>
+    <h3>🛡 TrustLens AI</h3>
 
-    <div class="intel-grid">
+    <p>
 
-        <div class="intel-card">
+        Verify Before You Trust.
 
-            <h3>🎯 Top Threat Categories</h3>
-
-            <ul>
-                <li>Credential Theft</li>
-                <li>Financial Fraud</li>
-                <li>Social Engineering</li>
-                <li>Brand Abuse</li>
-            </ul>
-
-        </div>
-
-        <div class="intel-card">
-
-            <h3>🏢 Most Targeted Brands</h3>
-
-            <ul>
-                <li>Amazon</li>
-                <li>Google</li>
-                <li>PayPal</li>
-                <li>Microsoft</li>
-            </ul>
-
-        </div>
-
-        <div class="intel-card">
-
-            <h3>⚠ Threat Severity Distribution</h3>
-
-            <ul>
-                <li>🟢 LOW</li>
-                <li>🟠 MEDIUM</li>
-                <li>🔴 HIGH</li>
-                <li>🚨 CRITICAL</li>
-            </ul>
-
-        </div>
-
-    </div>
-
-</section>
-
-<h2 class="section-title">
-    🚀 Why Choose PhishEye AI
-</h2>
-
-<div id="features" class="feature-grid">
-
-    <div class="feature-box">
-
-        <h3>🤖 AI-Powered Detection</h3>
-
-        <p>
-            Machine learning driven phishing detection
-            with intelligent threat scoring.
-        </p>
-
-    </div>
-
-    <div class="feature-box">
-
-        <h3>⚡ Real-Time Analysis</h3>
-
-        <p>
-            Instantly analyze emails, URLs,
-            senders and financial scams.
-        </p>
-
-    </div>
-
-    <div class="feature-box">
-
-        <h3>🛡 Multi-Layer Security</h3>
-
-        <p>
-            Email, URL, Sender, QR and UPI
-            protection in one platform.
-            
-        </p>
-
-    </div>
-
-    <div class="feature-box">
-
-        <h3>📊 Threat Intelligence</h3>
-
-        <p>
-            Detailed threat insights and
-            actionable recommendations.
-        </p>
-
-    </div>
-
-</div>
-
-</a>
-
-
-        </div>
-
-    </div>
-
-<div id="loadingScreen">
-
-    <div class="loader-content">
-
-        <h2>🛡️ PhishEye AI</h2>
-
-    <p id="loadingText">
-        Initializing Scan...
     </p>
 
-        <div class="spinner"></div>
+    <p>
+
+        AI-Powered Digital Trust Intelligence Platform
+
+    </p>
+
+    <br>
+
+    <div class="hero-buttons"
+        style="justify-content:center;">
+
+        <a href="{{ url_for('home') }}"
+            class="secondary-btn">
+
+            Home
+
+        </a>
+
+        <a href="{{ url_for('dashboard') }}"
+            class="secondary-btn">
+
+            Dashboard
+
+        </a>
+
+        <a href="{{ url_for('scan_center') }}"
+            class="secondary-btn">
+
+            Scan Center
+
+        </a>
 
     </div>
 
+    <br>
+
+    <p>
+
+        © 2026 TrustLens AI. All Rights Reserved.
+
+    </p>
+
+</footer>
+
 </div>
 
+</div>
+
+</main>
 <script>
 
-const form = document.querySelector("form");
+document.querySelectorAll(".counter").forEach(counter=>{
 
-if(form){
+let target=+counter.dataset.target;
 
-    form.addEventListener("submit", function(e) {
+let count=0;
 
-        e.preventDefault();
+let speed=target/80;
 
-        document.getElementById("loadingScreen").style.display = "flex";
+function update(){
 
-        const loadingText =
-            document.getElementById("loadingText");
+count+=speed;
 
-        const steps = [
+if(count<target){
 
-            "📧 Parsing Email Content...",
-            "🔗 Scanning URLs...",
-            "📨 Verifying Sender...",
-            "🤖 Running ML Detection...",
-            "🛡️ Generating Threat Intelligence..."
+counter.innerText=Math.floor(count).toLocaleString();
 
-        ];
+requestAnimationFrame(update);
 
-        let i = 0;
+}else{
 
-        const interval = setInterval(() => {
-
-            if(i < steps.length){
-
-                loadingText.innerText = steps[i];
-                i++;
-
-            }
-
-        }, 500);
-
-        setTimeout(() => {
-
-            clearInterval(interval);
-            this.submit();
-
-        }, 3000);
-
-    });
+counter.innerText=target.toLocaleString();
 
 }
 
+}
+
+update();
+
+});
+
 </script>
+</div>
+
 </body>
+
 </html>

@@ -1,0 +1,298 @@
+{
+    "total_scans": 40,
+    "threats_detected": 28,
+    "high_risk_alerts": 18,
+    "safe_analyses": 12,
+    "top_threats": {
+        "Credential Theft": 18,
+        "Financial Fraud": 0,
+        "Social Engineering": 0,
+        "Fear Tactics": 0,
+        "Urgency": 4
+    },
+    "targeted_brands": {
+        "Amazon": 4,
+        "Google": 0,
+        "Microsoft": 1,
+        "PayPal": 0,
+        "SBI": 1,
+        "HDFC": 0,
+        "ICICI": 0,
+        "Axis": 0
+    },
+    "suspicious_tlds": {
+        ".xyz": 2,
+        ".top": 1,
+        ".click": 0,
+        ".shop": 0,
+        ".live": 0,
+        ".online": 0
+    },
+    "recent_activity": [
+        {
+            "time": "09:42 PM",
+            "message": "Email Analyzer detected \ud83d\udfe2 LOW"
+        },
+        {
+            "time": "04:21 PM",
+            "message": "Email Analyzer detected \ud83d\udfe2 LOW"
+        },
+        {
+            "time": "04:20 PM",
+            "message": "Email Analyzer detected \ud83d\udfe2 LOW"
+        },
+        {
+            "time": "11:24 PM",
+            "message": "QR Analyzer detected \ud83d\udfe0 MEDIUM"
+        },
+        {
+            "time": "11:24 PM",
+            "message": "Email Analyzer detected \ud83d\udfe2 LOW"
+        },
+        {
+            "time": "01:16 PM",
+            "message": "Email Analyzer detected \ud83d\udfe0 MEDIUM"
+        },
+        {
+            "time": "01:14 PM",
+            "message": "URL Analyzer detected \ud83d\udfe0 MEDIUM"
+        },
+        {
+            "time": "01:10 PM",
+            "message": "Email Analyzer detected \ud83d\udd34 HIGH"
+        },
+        {
+            "time": "10:04 PM",
+            "message": "URL Analyzer detected \ud83d\udfe0 MEDIUM"
+        },
+        {
+            "time": "06:33 PM",
+            "message": "URL Analyzer detected \ud83d\udfe0 MEDIUM"
+        }
+    ],
+    "hunting_data": [
+        {
+            "type": "Email",
+            "severity": "\ud83d\udfe2 LOW",
+            "score": 26.81,
+            "threats": [
+                "No Threat Detected"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udfe2 LOW",
+            "score": 26.81,
+            "threats": [
+                "No Threat Detected"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udfe2 LOW",
+            "score": 26.81,
+            "threats": [
+                "No Threat Detected"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udfe2 LOW",
+            "score": 28.44,
+            "threats": [
+                "No Threat Detected"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udfe0 MEDIUM",
+            "score": 38.01,
+            "threats": [
+                "General Phishing"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 78.75,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udd34 HIGH",
+            "score": 75.43,
+            "threats": [
+                "Credential Theft"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udfe2 LOW",
+            "score": 0.0,
+            "threats": [
+                "No Threat Detected"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udfe2 LOW",
+            "score": 0.0,
+            "threats": [
+                "No Threat Detected"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udfe2 LOW",
+            "score": 0.0,
+            "threats": [
+                "No Threat Detected"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udfe2 LOW",
+            "score": 26.81,
+            "threats": [
+                "No Threat Detected"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udea8 CRITICAL",
+            "score": 87.81,
+            "threats": [
+                "Credential Theft",
+                "Urgency"
+            ]
+        },
+        {
+            "type": "Email",
+            "severity": "\ud83d\udea8 CRITICAL",
+            "score": 87.81,
+            "threats": [
+                "Credential Theft",
+                "Urgency"
+            ]
+        }
+    ],
+    "trend_data": {
+        "scans": [
+            12,
+            18,
+            15,
+            22,
+            30,
+            27,
+            35
+        ],
+        "threats": [
+            4,
+            7,
+            6,
+            10,
+            12,
+            9,
+            15
+        ],
+        "alerts": [
+            1,
+            2,
+            2,
+            4,
+            5,
+            4,
+            6
+        ]
+    }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustLens AI Scan Center</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="scan-center-container">
+
+    <div class="scan-header">
+
+    <span class="scan-badge">
+        AI-Powered Digital Trust Intelligence Platform
+    </span>
+
+    <h1>🛡 TrustLens AI</h1>
+
+    <h2>TrustLens Scan Center</h2>
+
+    <p>
+        Verify Before You Trust.
+    </p>
+
+    <p class="scan-subtitle">
+        Analyze emails, URLs, SMS, WhatsApp messages, QR codes,
+        UPI requests and Job offers using AI-powered cybersecurity engines.
+    </p>
+
+</div>
+    <div class="scan-grid">
+
+        <a href="/email-analyzer" class="scan-card">
+
+    <div class="scan-icon">📧</div>
+
+    <h3>Email Analyzer</h3>
+
+    <p>
+        Detect phishing emails, credential theft,
+        business email compromise and social engineering attacks.
+    </p>
+
+    <span class="scan-tag">
+        Threat Intelligence
+    </span>
+
+</a>>
+
+        <a href="/url-analyzer" class="scan-card">
+
+    <div class="scan-icon">🌐</div>
+
+    <h3>URL Analyzer</h3>
+
+    <p>
+        Detect malicious URLs, phishing websites,
+        typosquatting and suspicious domains.
+    </p>
+
+    <span class="scan-tag">
+
+        Web Security
+
+    </span>
+
+</a>
+
+        <a href="/sms-analyzer" class="scan-card">
+            <div class="scan-icon">📱</div>
+            <h3>SMS Analyzer</h3>
+        </a>
+
+        <a href="/whatsapp-analyzer" class="scan-card">
+            <div class="scan-icon">💬</div>
+            <h3>WhatsApp Analyzer</h3>
+        </a>
+
+        <a href="/qr-analyzer" class="scan-card">
+            <div class="scan-icon">📷</div>
+            <h3>QR Analyzer</h3>
+        </a>
+
+        <a href="/upi-analyzer" class="scan-card">
+            <div class="scan-icon">💳</div>
+            <h3>UPI Analyzer</h3>
+        </a>
+
+        <a href="/job-detector" class="scan-card">
+            <div class="scan-icon">💼</div>
+            <h3>Fake Job Detector</h3>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

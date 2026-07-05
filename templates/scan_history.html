@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Scan History | TrustLens AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='scan_history.css') }}">
+
+</head>
+
+<body>
+
+<div class="history-page">
+
+    <div class="history-header">
+
+        <h1>📜 Scan History</h1>
+
+        <p>
+            Review every security scan performed by TrustLens AI.
+        </p>
+
+    </div>
+
+    <!-- Statistics -->
+
+    <div class="history-stats">
+
+        <div class="stat-card">
+
+            <div class="stat-value">{{ total_scans }}</div>
+
+            <div class="stat-label">Total Scans</div>
+
+        </div>
+
+        <div class="stat-card critical">
+
+            <div class="stat-value">{{ critical_count }}</div>
+
+            <div class="stat-label">Critical</div>
+
+        </div>
+
+        <div class="stat-card high">
+
+            <div class="stat-value">{{ high_count }}</div>
+
+            <div class="stat-label">High Risk</div>
+
+        </div>
+
+        <div class="stat-card safe">
+
+            <div class="stat-value">{{ safe_count }}</div>
+
+            <div class="stat-label">Safe</div>
+
+        </div>
+
+    </div>
+
+    <!-- Toolbar -->
+
+    <div class="history-toolbar">
+
+        <input
+            type="text"
+            id="historySearch"
+            placeholder="🔍 Search analyzer, risk or verdict..."
+            onkeyup="filterHistory()"
+        >
+
+        <select id="riskFilter" onchange="filterHistory()">
+
+            <option value="">All Risk Levels</option>
+            <option value="CRITICAL">Critical</option>
+            <option value="HIGH">High</option>
+            <option value="MEDIUM">Medium</option>
+            <option value="LOW">Low</option>
+
+        </select>
+
+    </div>
+
+    <!-- History -->
+
+    <div class="history-grid">
+
+        {% if history %}
+
+            {% for scan in history %}
+
+            <div class="history-card history-entry">
+
+                <div class="history-header-card">
+
+                    <h3>
+
+                        {{ scan.analyzer }}
+
+                    </h3>
+
+                    <span>
+
+                        {{ scan.timestamp }}
+
+                    </span>
+
+                </div>
+
+                <div class="history-body">
+
+                    <div class="history-item">
+
+                        <span>Threat Score</span>
+
+                        <strong>{{ scan.score }}</strong>
+
+                    </div>
+
+                    <div class="history-item">
+
+                        <span>Risk Level</span>
+
+                        <strong>{{ scan.risk }}</strong>
+
+                    </div>
+
+                    <div class="history-item">
+
+                        <span>AI Verdict</span>
+
+                        <strong>{{ scan.verdict }}</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="history-card empty-card">
+
+                <h2>No Scan History Available</h2>
+
+                <p>
+
+                    Your completed TrustLens AI scans will appear here.
+
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <div class="history-actions">
+
+        <a href="/dashboard" class="btn">
+
+            ← Back to Dashboard
+
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+function filterHistory() {
+
+    let search = document.getElementById("historySearch").value.toLowerCase();
+
+    let risk = document.getElementById("riskFilter").value.toLowerCase();
+
+    let cards = document.querySelectorAll(".history-entry");
+
+    cards.forEach(card => {
+
+        let text = card.innerText.toLowerCase();
+
+        let visible = true;
+
+        if (search && !text.includes(search))
+            visible = false;
+
+        if (risk && !text.includes(risk))
+            visible = false;
+
+        card.style.display = visible ? "block" : "none";
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>

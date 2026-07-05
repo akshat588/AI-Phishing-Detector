@@ -1,0 +1,506 @@
+dataset_type,category,label,risk,message,contains_url,contains_phone,contains_email,contains_upi,contains_money,contains_otp,contains_urgency,contains_kyc,contains_reward,contains_social_engineering,contains_qr,contains_job_keywords,contains_salary,contains_registration_fee,contains_bank_name,contains_deadline,contains_telegram,contains_apk_link,contains_crypto,contains_refund,contains_collect_request,trust_score,risk_level
+whatsapp,job_scam,job_scam,HIGH,"
+Congratulations!
+
+You have been selected as a Cyber Security Analyst at Infosys.
+
+Salary:
+₹25,000/month
+
+Pay registration fee of ₹2,999.
+
+Contact immediately.
+",0,0,0,0,1,0,1,0,0,1,0,1,1,1,0,0,0,0,0,0,0,55,MEDIUM
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Cashback waiting.
+
+Click below and approve payment request.
+
+https://upi-security-alert.in
+",1,0,0,1,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+whatsapp,legitimate,legitimate,SAFE,"
+Reminder:
+
+Your appointment is confirmed.
+
+Thank you.
+",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,SAFE
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Refund of ₹499 pending.
+
+Approve Collect Request in WhatsApp Pay.
+",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,80,SAFE
+whatsapp,investment_scam,investment_scam,CRITICAL,"
+Guaranteed crypto profit.
+
+Join VIP group.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,1,0,0,50,MEDIUM
+whatsapp,fake_customer_care,fake_customer_care,HIGH,"
+Welcome to HDFC Bank Customer Care.
+
+Share your account number and OTP
+to verify your account.
+",0,0,0,0,0,1,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,70,LOW
+whatsapp,investment_scam,investment_scam,CRITICAL,"
+Invest ₹500 today.
+
+Earn ₹10,000 every week.
+
+Limited Offer.
+
+https://secure-login-now.in
+",1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,60,LOW
+whatsapp,job_scam,job_scam,HIGH,"
+Immediate joining available.
+
+Company:
+Infosys
+
+Deposit security amount:
+
+₹999
+",0,0,0,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,85,SAFE
+whatsapp,fake_customer_care,fake_customer_care,HIGH,"
+Hello,
+
+This is official customer care.
+
+Please install our support application.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,lottery_scam,lottery_scam,CRITICAL,"
+Congratulations!
+
+You won ₹25,00,000.
+
+Claim now:
+
+https://account-safe.co
+",1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+whatsapp,apk_scam,apk_scam,CRITICAL,"
+Install this security update.
+
+Download APK:
+
+https://secure-login-now.in/update.apk
+",1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,75,LOW
+whatsapp,reward_scam,reward_scam,HIGH,"
+Festival Reward.
+
+Verify account now.
+
+https://account-safe.co
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+whatsapp,legitimate,legitimate,SAFE,"
+Dear Customer,
+
+Your account statement is ready.
+
+Visit:
+
+https://sbi.co.in
+",1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,75,LOW
+whatsapp,telegram_scam,telegram_scam,CRITICAL,"
+Join our Telegram VIP group.
+
+Daily income ₹10,000 guaranteed.
+
+https://t.me/vipgroup
+",1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,90,SAFE
+whatsapp,fake_customer_care,fake_customer_care,HIGH,"
+Welcome to State Bank of India Customer Care.
+
+Share your account number and OTP
+to verify your account.
+",0,0,0,0,0,1,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,70,LOW
+whatsapp,reward_scam,reward_scam,HIGH,"
+Congratulations!
+
+You received cashback of ₹5,000.
+
+Claim before expiry.
+
+https://secure-login-now.in
+",1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Cashback waiting.
+
+Click below and approve payment request.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,1,0,0,0,0,0,0,45,MEDIUM
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Refund of ₹1,500 pending.
+
+Approve Collect Request in Mobikwik.
+",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,80,SAFE
+whatsapp,investment_scam,investment_scam,CRITICAL,"
+Guaranteed crypto profit.
+
+Join VIP group.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,50,MEDIUM
+whatsapp,lottery_scam,lottery_scam,CRITICAL,"
+You are today's lucky winner.
+
+Verify immediately.
+
+https://kyc-update.live
+",1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,1,0,0,0,0,0,45,MEDIUM
+whatsapp,lottery_scam,lottery_scam,CRITICAL,"
+Congratulations!
+
+You won ₹25,00,000.
+
+Claim now:
+
+https://reward-center.xyz
+",1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Refund of ₹5,000 pending.
+
+Approve Collect Request in WhatsApp Pay.
+",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,80,SAFE
+whatsapp,fake_customer_care,fake_customer_care,HIGH,"
+Welcome to Punjab National Bank Customer Care.
+
+Share your account number and OTP
+to verify your account.
+",0,0,0,0,0,1,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,70,LOW
+whatsapp,apk_scam,apk_scam,CRITICAL,"
+Your banking application expired.
+
+Install latest APK.
+
+https://kyc-update.live
+",1,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,75,LOW
+whatsapp,investment_scam,investment_scam,CRITICAL,"
+Guaranteed crypto profit.
+
+Join VIP group.
+
+https://account-safe.co
+",1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,65,LOW
+whatsapp,apk_scam,apk_scam,CRITICAL,"
+Your banking application expired.
+
+Install latest APK.
+
+https://account-safe.co
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+whatsapp,legitimate,legitimate,SAFE,"
+Dear Customer,
+
+Your account statement is ready.
+
+Visit:
+
+https://axisbank.com
+",1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,75,LOW
+whatsapp,job_scam,job_scam,HIGH,"
+Congratulations!
+
+You have been selected as a Cloud Engineer at Reliance Jio.
+
+Salary:
+₹25 LPA
+
+Pay registration fee of ₹25,000.
+
+Contact immediately.
+",0,0,0,0,1,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,70,LOW
+whatsapp,job_scam,job_scam,HIGH,"
+Immediate joining available.
+
+Company:
+Reliance Jio
+
+Deposit security amount:
+
+₹2,999
+",0,0,0,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,85,SAFE
+whatsapp,lottery_scam,lottery_scam,CRITICAL,"
+Congratulations!
+
+You won ₹25,00,000.
+
+Claim now:
+
+https://secure-login-now.in
+",1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+whatsapp,job_scam,job_scam,HIGH,"
+Congratulations!
+
+You have been selected as a Software Engineer at Capgemini.
+
+Salary:
+₹8 LPA
+
+Pay registration fee of ₹999.
+
+Contact immediately.
+",0,0,0,0,1,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,70,LOW
+whatsapp,apk_scam,apk_scam,CRITICAL,"
+Install this security update.
+
+Download APK:
+
+https://upi-security-alert.in/update.apk
+",1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,60,LOW
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Cashback waiting.
+
+Click below and approve payment request.
+
+https://kyc-update.live
+",1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,investment_scam,investment_scam,CRITICAL,"
+Guaranteed crypto profit.
+
+Join VIP group.
+
+https://upi-security-alert.in
+",1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,50,MEDIUM
+whatsapp,job_scam,job_scam,HIGH,"
+Immediate joining available.
+
+Company:
+HCL
+
+Deposit security amount:
+
+₹999
+",0,0,0,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,85,SAFE
+whatsapp,investment_scam,investment_scam,CRITICAL,"
+Guaranteed crypto profit.
+
+Join VIP group.
+
+https://kyc-update.live
+",1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,80,SAFE
+whatsapp,reward_scam,reward_scam,HIGH,"
+Congratulations!
+
+You received cashback of ₹999.
+
+Claim before expiry.
+
+https://verify-bank-now.com
+",1,0,0,0,1,0,1,0,1,1,0,0,0,0,1,0,0,0,0,0,0,45,MEDIUM
+whatsapp,apk_scam,apk_scam,CRITICAL,"
+Install this security update.
+
+Download APK:
+
+https://kyc-update.live/update.apk
+",1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,75,LOW
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Refund of ₹999 pending.
+
+Approve Collect Request in Mobikwik.
+",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,80,SAFE
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Refund of ₹999 pending.
+
+Approve Collect Request in Google Pay.
+",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,80,SAFE
+whatsapp,reward_scam,reward_scam,HIGH,"
+Congratulations!
+
+You received cashback of ₹999.
+
+Claim before expiry.
+
+https://account-safe.co
+",1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,telegram_scam,telegram_scam,CRITICAL,"
+Exclusive investment signals.
+
+Join Telegram immediately.
+
+https://t.me/investment
+",1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,65,LOW
+whatsapp,investment_scam,investment_scam,CRITICAL,"
+Invest ₹500 today.
+
+Earn ₹10,000 every week.
+
+Limited Offer.
+
+https://wallet-verify.net
+",1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,60,LOW
+whatsapp,apk_scam,apk_scam,CRITICAL,"
+Install this security update.
+
+Download APK:
+
+https://wallet-verify.net/update.apk
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,60,LOW
+whatsapp,fake_customer_care,fake_customer_care,HIGH,"
+Your account has been blocked.
+
+Contact support immediately.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,job_scam,job_scam,HIGH,"
+Immediate joining available.
+
+Company:
+HCL
+
+Deposit security amount:
+
+₹1,500
+",0,0,0,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,85,SAFE
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Refund of ₹999 pending.
+
+Approve Collect Request in Paytm.
+",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,80,SAFE
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Refund of ₹999 pending.
+
+Approve Collect Request in WhatsApp Pay.
+",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,80,SAFE
+whatsapp,fake_customer_care,fake_customer_care,HIGH,"
+Your account has been blocked.
+
+Contact support immediately.
+
+https://upi-security-alert.in
+",1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,apk_scam,apk_scam,CRITICAL,"
+Your banking application expired.
+
+Install latest APK.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Refund of ₹499 pending.
+
+Approve Collect Request in Paytm.
+",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,80,SAFE
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Cashback waiting.
+
+Click below and approve payment request.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+whatsapp,lottery_scam,lottery_scam,CRITICAL,"
+You are today's lucky winner.
+
+Verify immediately.
+
+https://account-safe.co
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,0,0,0,45,MEDIUM
+whatsapp,lottery_scam,lottery_scam,CRITICAL,"
+You are today's lucky winner.
+
+Verify immediately.
+
+https://reward-center.xyz
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,0,0,0,45,MEDIUM
+whatsapp,apk_scam,apk_scam,CRITICAL,"
+Your banking application expired.
+
+Install latest APK.
+
+https://secure-login-now.in
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+whatsapp,reward_scam,reward_scam,HIGH,"
+Congratulations!
+
+You received cashback of ₹999.
+
+Claim before expiry.
+
+https://secure-login-now.in
+",1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,investment_scam,investment_scam,CRITICAL,"
+Invest ₹500 today.
+
+Earn ₹10,000 every week.
+
+Limited Offer.
+
+https://kyc-update.live
+",1,0,0,0,1,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,75,LOW
+whatsapp,lottery_scam,lottery_scam,CRITICAL,"
+You are today's lucky winner.
+
+Verify immediately.
+
+https://secure-login-now.in
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,0,0,0,45,MEDIUM
+whatsapp,reward_scam,reward_scam,HIGH,"
+Congratulations!
+
+You received cashback of ₹50,000.
+
+Claim before expiry.
+
+https://upi-security-alert.in
+",1,0,0,1,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+whatsapp,reward_scam,reward_scam,HIGH,"
+Congratulations!
+
+You received cashback of ₹10,000.
+
+Claim before expiry.
+
+https://secure-login-now.in
+",1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,job_scam,job_scam,HIGH,"
+Immediate joining available.
+
+Company:
+Wipro
+
+Deposit security amount:
+
+₹999
+",0,0,0,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,85,SAFE
+whatsapp,legitimate,legitimate,SAFE,"
+Dear Customer,
+
+Your account statement is ready.
+
+Visit:
+
+https://npci.org.in
+",1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+whatsapp,fake_customer_care,fake_customer_care,HIGH,"
+Your account has been blocked.
+
+Contact support immediately.
+
+https://account-safe.co
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,reward_scam,reward_scam,HIGH,"
+Festival Reward.
+
+Verify account now.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+whatsapp,upi_scam,upi_scam,CRITICAL,"
+Cashback waiting.
+
+Click below and approve payment request.
+
+https://reward-center.xyz
+",1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+whatsapp,reward_scam,reward_scam,HIGH,"
+Festival Reward.
+
+Verify account now.
+
+https://upi-security-alert.in
+",1,0,0,1,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM

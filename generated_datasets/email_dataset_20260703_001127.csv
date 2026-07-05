@@ -1,0 +1,787 @@
+dataset_type,category,label,risk,subject,message,contains_url,contains_phone,contains_email,contains_upi,contains_money,contains_otp,contains_urgency,contains_kyc,contains_reward,contains_social_engineering,contains_qr,contains_job_keywords,contains_salary,contains_registration_fee,contains_bank_name,contains_deadline,contains_telegram,contains_apk_link,contains_crypto,contains_refund,contains_collect_request,trust_score,risk_level
+email,crypto_scam,crypto_scam,CRITICAL,Double Your Investment,"
+Earn guaranteed returns.
+
+Invest today.
+
+Limited offer.
+
+https://kyc-update.live
+",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,75,LOW
+email,courier_scam,courier_scam,HIGH,Courier Address Verification,"
+Verify your address.
+
+https://account-safe.co
+
+Failure will return your parcel.
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,banking_phishing,phishing,HIGH,Immediate Verification Required,"
+Security Alert.
+
+We detected suspicious login attempts.
+
+Verify your account:
+
+https://account-safe.co
+
+Failure may result in permanent suspension.
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,legitimate,legitimate,SAFE,Welcome to HDFC Bank,"
+Dear Customer,
+
+Welcome to Kotak Mahindra Bank.
+
+Your account has been successfully activated.
+
+You can now access Internet Banking and Mobile Banking services.
+
+Thank you for choosing Union Bank of India.
+
+Regards,
+Customer Care
+ICICI Bank
+",0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,85,SAFE
+email,kyc_scam,kyc_scam,HIGH,PAN Verification Required,"
+Dear User,
+
+Your PAN verification is pending.
+
+Submit details immediately.
+
+https://reward-center.xyz
+",1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,refund_scam,refund_scam,HIGH,Refund Initiated,"
+Refund of ₹2,999 is waiting.
+
+Complete verification.
+
+https://account-safe.co
+",1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,75,LOW
+email,income_tax_scam,income_tax_scam,HIGH,Refund Pending,"
+Refund processing failed.
+
+Verify your bank account.
+
+https://kyc-update.live
+",1,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,1,0,60,LOW
+email,income_tax_scam,income_tax_scam,HIGH,Income Tax Refund Approved,"
+Congratulations.
+
+Your refund of ₹2,999 is ready.
+
+Claim immediately.
+
+https://account-safe.co
+",1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,60,LOW
+email,digilocker_scam,digilocker_scam,HIGH,Documents Locked,"
+Your government documents have been locked.
+
+Unlock immediately.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,legitimate,legitimate,SAFE,Monthly Account Statement,"
+Dear Customer,
+
+Your monthly account statement is ready.
+
+Please login using the official portal:
+
+https://uidai.gov.in
+
+Thank you.
+
+Axis Bank
+",1,0,0,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,75,LOW
+email,credential_theft,credential_theft,CRITICAL,Microsoft Login Alert,"
+Someone attempted to access your account.
+
+Verify ownership immediately.
+
+https://reward-center.xyz
+",1,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+email,credential_theft,credential_theft,CRITICAL,Password Expiring Today,"
+Your banking password expires today.
+
+Reset Password:
+
+https://upi-security-alert.in
+
+Failure to reset will lock your account.
+",1,0,0,1,0,0,1,0,0,1,0,0,0,0,1,1,0,0,0,0,0,60,LOW
+email,kyc_scam,kyc_scam,HIGH,Complete KYC Today,"
+Dear Customer,
+
+Your KYC has expired.
+
+Complete verification now.
+
+https://verify-bank-now.com
+
+Ignoring this notice will freeze
+your account.
+",1,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+email,reward_scam,reward_scam,HIGH,Congratulations! Reward Won,"
+You have won a cashback of
+₹50,000.
+
+Claim reward immediately.
+
+https://kyc-update.live
+",1,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,credential_theft,credential_theft,CRITICAL,Identity Verification Required,"
+We could not verify your identity.
+
+Confirm your login credentials now.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+email,crypto_scam,crypto_scam,CRITICAL,Double Your Investment,"
+Earn guaranteed returns.
+
+Invest today.
+
+Limited offer.
+
+https://reward-center.xyz
+",1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,60,LOW
+email,aadhaar_scam,aadhaar_scam,HIGH,Update Aadhaar Information,"
+Dear User,
+
+Update your Aadhaar details immediately.
+
+https://wallet-verify.net
+
+Failure may deactivate your Aadhaar.
+",1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,electricity_bill_scam,electricity_bill_scam,HIGH,Final Payment Reminder,"
+Immediate action required.
+
+Failure to pay today will disconnect
+your electricity connection.
+
+https://kyc-update.live
+",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,75,LOW
+email,lottery_scam,lottery_scam,CRITICAL,International Lottery Winner,"
+Claim your international prize.
+
+Verification Required.
+
+https://kyc-update.live
+",1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,reward_scam,reward_scam,HIGH,Exclusive Cashback,"
+Limited Time Offer.
+
+Claim cashback before it expires.
+
+https://reward-center.xyz
+",1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,60,LOW
+email,banking_phishing,phishing,HIGH,URGENT: Punjab National Bank Account Suspended,"
+Dear Customer,
+
+Your Punjab National Bank account has been
+temporarily suspended due to unusual activity.
+
+Verify immediately:
+
+https://kyc-update.live
+
+Failure to verify within 24 hours will
+permanently block your account.
+",1,0,0,0,1,0,1,1,0,1,0,0,0,0,1,1,0,0,0,0,0,60,LOW
+email,banking_phishing,phishing,HIGH,Net Banking Disabled,"
+Dear Customer,
+
+Net Banking has been disabled.
+
+Restore access immediately.
+
+https://account-safe.co
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+email,electricity_bill_scam,electricity_bill_scam,HIGH,Electricity Connection Will Be Disconnected,"
+Dear Consumer,
+
+Your electricity bill remains unpaid.
+
+Pay immediately.
+
+https://kyc-update.live
+",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,business_email_compromise,business_email_compromise,CRITICAL,Confidential Transfer,"
+I am in an important meeting.
+
+Transfer ₹999 immediately.
+
+Do not discuss this with anyone.
+
+CEO
+",0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85,SAFE
+email,lottery_scam,lottery_scam,CRITICAL,"You Won ₹25,00,000","
+Congratulations.
+
+You have won ₹25,00,000.
+
+Pay processing charges.
+
+https://account-safe.co
+",1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,digilocker_scam,digilocker_scam,HIGH,DigiLocker Verification Required,"
+Dear User,
+
+Your DigiLocker account needs verification.
+
+Complete verification now.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+email,crypto_scam,crypto_scam,CRITICAL,Bitcoin Giveaway,"
+Congratulations.
+
+Receive free Bitcoin.
+
+Register immediately.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,50,MEDIUM
+email,lottery_scam,lottery_scam,CRITICAL,International Lottery Winner,"
+Claim your international prize.
+
+Verification Required.
+
+https://reward-center.xyz
+",1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,credential_theft,credential_theft,CRITICAL,Password Expiring Today,"
+Your banking password expires today.
+
+Reset Password:
+
+https://account-safe.co
+
+Failure to reset will lock your account.
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,0,0,0,0,0,60,LOW
+email,employment_scam,employment_scam,HIGH,Immediate Hiring at Amazon India,"
+Congratulations.
+
+You have been shortlisted.
+
+Deposit ₹25,000 as registration fee.
+
+Interview tomorrow.
+",0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,85,SAFE
+email,refund_scam,refund_scam,HIGH,Bank Refund Failed,"
+Refund processing failed.
+
+Update account immediately.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,60,LOW
+email,courier_scam,courier_scam,HIGH,Parcel Delivery Failed,"
+Your parcel delivery failed.
+
+Reschedule delivery.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,electricity_bill_scam,electricity_bill_scam,HIGH,Electricity Connection Will Be Disconnected,"
+Dear Consumer,
+
+Your electricity bill remains unpaid.
+
+Pay immediately.
+
+https://secure-login-now.in
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,government_scam,government_scam,HIGH,Government Subsidy Approved,"
+Dear Citizen,
+
+Government subsidy has been approved.
+
+Claim benefits now.
+
+https://account-safe.co
+",1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,banking_phishing,phishing,HIGH,Debit Card Blocked,"
+Dear Customer,
+
+Your Debit Card has been blocked.
+
+Update your banking information now.
+
+https://wallet-verify.net
+
+Ignore this message and your account
+will remain inaccessible.
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+email,lottery_scam,lottery_scam,CRITICAL,"You Won ₹25,00,000","
+Congratulations.
+
+You have won ₹25,00,000.
+
+Pay processing charges.
+
+https://verify-bank-now.com
+",1,0,0,0,1,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+email,legitimate,legitimate,SAFE,Payment Confirmation,"
+Dear Customer,
+
+Your UPI payment via Freecharge of
+₹10,000 has been completed.
+
+Thank you.
+
+CRED
+",0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,SAFE
+email,electricity_bill_scam,electricity_bill_scam,HIGH,Final Payment Reminder,"
+Immediate action required.
+
+Failure to pay today will disconnect
+your electricity connection.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,0,0,0,0,0,60,LOW
+email,refund_scam,refund_scam,HIGH,Bank Refund Failed,"
+Refund processing failed.
+
+Update account immediately.
+
+https://secure-login-now.in
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,60,LOW
+email,banking_phishing,phishing,HIGH,Debit Card Blocked,"
+Dear Customer,
+
+Your Debit Card has been blocked.
+
+Update your banking information now.
+
+https://reward-center.xyz
+
+Ignore this message and your account
+will remain inaccessible.
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,1,0,0,0,0,0,0,45,MEDIUM
+email,government_scam,government_scam,HIGH,Government Subsidy Approved,"
+Dear Citizen,
+
+Government subsidy has been approved.
+
+Claim benefits now.
+
+https://kyc-update.live
+",1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,90,SAFE
+email,aadhaar_scam,aadhaar_scam,HIGH,Aadhaar KYC Failed,"
+Your Aadhaar verification failed.
+
+Complete KYC within 12 hours.
+
+https://kyc-update.live
+",1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,90,SAFE
+email,refund_scam,refund_scam,HIGH,Bank Refund Failed,"
+Refund processing failed.
+
+Update account immediately.
+
+https://reward-center.xyz
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,1,0,45,MEDIUM
+email,business_email_compromise,business_email_compromise,CRITICAL,URGENT Payment Required,"
+Dear Finance Team,
+
+Please transfer ₹499 to the new vendor account immediately.
+
+This payment is confidential.
+
+Regards,
+CEO
+",0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,70,LOW
+email,lottery_scam,lottery_scam,CRITICAL,"You Won ₹25,00,000","
+Congratulations.
+
+You have won ₹25,00,000.
+
+Pay processing charges.
+
+https://upi-security-alert.in
+",1,0,0,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,banking_phishing,phishing,HIGH,Customer Verification Pending,"
+Dear User,
+
+Your customer verification is incomplete.
+
+Complete verification immediately:
+
+https://reward-center.xyz
+
+Your account will otherwise be frozen.
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+email,government_scam,government_scam,HIGH,NPCI Verification Required,"
+NPCI requires immediate verification.
+
+Verify here:
+
+https://secure-login-now.in
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,lottery_scam,lottery_scam,CRITICAL,"You Won ₹25,00,000","
+Congratulations.
+
+You have won ₹25,00,000.
+
+Pay processing charges.
+
+https://reward-center.xyz
+",1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,aadhaar_scam,aadhaar_scam,HIGH,Aadhaar Suspension Notice,"
+Dear Citizen,
+
+Your Aadhaar has been temporarily suspended.
+
+Verify immediately.
+
+https://reward-center.xyz
+
+UIDAI Team
+",1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+email,income_tax_scam,income_tax_scam,HIGH,Income Tax Refund Approved,"
+Congratulations.
+
+Your refund of ₹10,000 is ready.
+
+Claim immediately.
+
+https://wallet-verify.net
+",1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,60,LOW
+email,lottery_scam,lottery_scam,CRITICAL,International Lottery Winner,"
+Claim your international prize.
+
+Verification Required.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+email,refund_scam,refund_scam,HIGH,Refund Initiated,"
+Refund of ₹25,000 is waiting.
+
+Complete verification.
+
+https://wallet-verify.net
+",1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,60,LOW
+email,kyc_scam,kyc_scam,HIGH,PAN Verification Required,"
+Dear User,
+
+Your PAN verification is pending.
+
+Submit details immediately.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,digilocker_scam,digilocker_scam,HIGH,Documents Locked,"
+Your government documents have been locked.
+
+Unlock immediately.
+
+https://kyc-update.live
+",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,refund_scam,refund_scam,HIGH,Bank Refund Failed,"
+Refund processing failed.
+
+Update account immediately.
+
+https://account-safe.co
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,60,LOW
+email,refund_scam,refund_scam,HIGH,Bank Refund Failed,"
+Refund processing failed.
+
+Update account immediately.
+
+https://kyc-update.live
+",1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,1,0,60,LOW
+email,crypto_scam,crypto_scam,CRITICAL,Double Your Investment,"
+Earn guaranteed returns.
+
+Invest today.
+
+Limited offer.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,60,LOW
+email,electricity_bill_scam,electricity_bill_scam,HIGH,Electricity Connection Will Be Disconnected,"
+Dear Consumer,
+
+Your electricity bill remains unpaid.
+
+Pay immediately.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,60,LOW
+email,electricity_bill_scam,electricity_bill_scam,HIGH,Final Payment Reminder,"
+Immediate action required.
+
+Failure to pay today will disconnect
+your electricity connection.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,60,LOW
+email,reward_scam,reward_scam,HIGH,Exclusive Cashback,"
+Limited Time Offer.
+
+Claim cashback before it expires.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,1,1,0,0,0,0,0,45,MEDIUM
+email,lottery_scam,lottery_scam,CRITICAL,International Lottery Winner,"
+Claim your international prize.
+
+Verification Required.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,1,0,0,0,0,0,0,45,MEDIUM
+email,courier_scam,courier_scam,HIGH,Package Held At Warehouse,"
+Your package has been held.
+
+Pay customs charges now.
+
+https://reward-center.xyz
+",1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,banking_phishing,phishing,HIGH,Immediate Verification Required,"
+Security Alert.
+
+We detected suspicious login attempts.
+
+Verify your account:
+
+https://upi-security-alert.in
+
+Failure may result in permanent suspension.
+",1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,digilocker_scam,digilocker_scam,HIGH,DigiLocker Verification Required,"
+Dear User,
+
+Your DigiLocker account needs verification.
+
+Complete verification now.
+
+https://secure-login-now.in
+",1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,electricity_bill_scam,electricity_bill_scam,HIGH,Electricity Connection Will Be Disconnected,"
+Dear Consumer,
+
+Your electricity bill remains unpaid.
+
+Pay immediately.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,reward_scam,reward_scam,HIGH,Exclusive Cashback,"
+Limited Time Offer.
+
+Claim cashback before it expires.
+
+https://account-safe.co
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,0,0,0,45,MEDIUM
+email,legitimate,legitimate,SAFE,Welcome to Union Bank of India,"
+Dear Customer,
+
+Welcome to Union Bank of India.
+
+Your account has been successfully activated.
+
+You can now access Internet Banking and Mobile Banking services.
+
+Thank you for choosing IDFC FIRST Bank.
+
+Regards,
+Customer Care
+ICICI Bank
+",0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,85,SAFE
+email,aadhaar_scam,aadhaar_scam,HIGH,Aadhaar KYC Failed,"
+Your Aadhaar verification failed.
+
+Complete KYC within 12 hours.
+
+https://wallet-verify.net
+",1,0,0,0,1,0,1,1,0,1,0,0,0,0,0,1,0,0,0,0,0,60,LOW
+email,crypto_scam,crypto_scam,CRITICAL,Double Your Investment,"
+Earn guaranteed returns.
+
+Invest today.
+
+Limited offer.
+
+https://verify-bank-now.com
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,0,0,0,0,0,60,LOW
+email,credential_theft,credential_theft,CRITICAL,Identity Verification Required,"
+We could not verify your identity.
+
+Confirm your login credentials now.
+
+https://wallet-verify.net
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,aadhaar_scam,aadhaar_scam,HIGH,Update Aadhaar Information,"
+Dear User,
+
+Update your Aadhaar details immediately.
+
+https://account-safe.co
+
+Failure may deactivate your Aadhaar.
+",1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,income_tax_scam,income_tax_scam,HIGH,Income Tax Refund Approved,"
+Congratulations.
+
+Your refund of ₹499 is ready.
+
+Claim immediately.
+
+https://account-safe.co
+",1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,60,LOW
+email,aadhaar_scam,aadhaar_scam,HIGH,Update Aadhaar Information,"
+Dear User,
+
+Update your Aadhaar details immediately.
+
+https://reward-center.xyz
+
+Failure may deactivate your Aadhaar.
+",1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,refund_scam,refund_scam,HIGH,Refund Initiated,"
+Refund of ₹499 is waiting.
+
+Complete verification.
+
+https://verify-bank-now.com
+",1,0,0,0,1,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,60,LOW
+email,banking_phishing,phishing,HIGH,Immediate Verification Required,"
+Security Alert.
+
+We detected suspicious login attempts.
+
+Verify your account:
+
+https://reward-center.xyz
+
+Failure may result in permanent suspension.
+",1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,45,MEDIUM
+email,business_email_compromise,business_email_compromise,CRITICAL,Confidential Transfer,"
+I am in an important meeting.
+
+Transfer ₹499 immediately.
+
+Do not discuss this with anyone.
+
+CEO
+",0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85,SAFE
+email,employment_scam,employment_scam,HIGH,Immediate Hiring at Tech Mahindra,"
+Congratulations.
+
+You have been shortlisted.
+
+Deposit ₹999 as registration fee.
+
+Interview tomorrow.
+",0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,85,SAFE
+email,employment_scam,employment_scam,HIGH,Immediate Hiring at Reliance Jio,"
+Congratulations.
+
+You have been shortlisted.
+
+Deposit ₹999 as registration fee.
+
+Interview tomorrow.
+",0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,85,SAFE
+email,kyc_scam,kyc_scam,HIGH,Complete KYC Today,"
+Dear Customer,
+
+Your KYC has expired.
+
+Complete verification now.
+
+https://upi-security-alert.in
+
+Ignoring this notice will freeze
+your account.
+",1,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,kyc_scam,kyc_scam,HIGH,PAN Verification Required,"
+Dear User,
+
+Your PAN verification is pending.
+
+Submit details immediately.
+
+https://secure-login-now.in
+",1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,courier_scam,courier_scam,HIGH,Parcel Delivery Failed,"
+Your parcel delivery failed.
+
+Reschedule delivery.
+
+https://account-safe.co
+",1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,75,LOW
+email,crypto_scam,crypto_scam,CRITICAL,Bitcoin Giveaway,"
+Congratulations.
+
+Receive free Bitcoin.
+
+Register immediately.
+
+https://upi-security-alert.in
+",1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,50,MEDIUM
+email,credential_theft,credential_theft,CRITICAL,Password Expiring Today,"
+Your banking password expires today.
+
+Reset Password:
+
+https://wallet-verify.net
+
+Failure to reset will lock your account.
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1,0,0,0,0,0,60,LOW
+email,income_tax_scam,income_tax_scam,HIGH,Refund Pending,"
+Refund processing failed.
+
+Verify your bank account.
+
+https://account-safe.co
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,60,LOW
+email,reward_scam,reward_scam,HIGH,Congratulations! Reward Won,"
+You have won a cashback of
+₹5,000.
+
+Claim reward immediately.
+
+https://verify-bank-now.com
+",1,0,0,0,1,0,1,0,1,1,0,0,0,0,1,0,0,0,0,0,0,45,MEDIUM
+email,reward_scam,reward_scam,HIGH,Congratulations! Reward Won,"
+You have won a cashback of
+₹999.
+
+Claim reward immediately.
+
+https://kyc-update.live
+",1,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,employment_scam,employment_scam,HIGH,Work From Home Opportunity,"
+Earn up to ₹18 LPA.
+
+Registration Fee:
+
+₹2,999
+
+Limited vacancies.
+",0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,85,SAFE
+email,income_tax_scam,income_tax_scam,HIGH,IT Department Notice,"
+A notice has been issued against your PAN.
+
+View immediately.
+
+https://upi-security-alert.in
+",1,0,0,1,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,60,LOW
+email,electricity_bill_scam,electricity_bill_scam,HIGH,Final Payment Reminder,"
+Immediate action required.
+
+Failure to pay today will disconnect
+your electricity connection.
+
+https://reward-center.xyz
+",1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,60,LOW
+email,electricity_bill_scam,electricity_bill_scam,HIGH,Final Payment Reminder,"
+Immediate action required.
+
+Failure to pay today will disconnect
+your electricity connection.
+
+https://secure-login-now.in
+",1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,60,LOW

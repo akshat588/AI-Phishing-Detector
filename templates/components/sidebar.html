@@ -1,0 +1,80 @@
+<aside class="sidebar glass">
+
+    <div class="logo-area">
+
+        <div class="logo-icon">
+            🛡
+        </div>
+
+        <div class="logo-text">
+            <h2>TrustLens AI</h2>
+            <span>Verify Before You Trust</span>
+        </div>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <a href="/dashboard"
+           class="{% if request.path == '/' %}active{% endif %}">
+            🏠 Dashboard
+        </a>
+
+        <a href="/scan-center"
+           class="{% if request.path == '/scan-center' %}active{% endif %}">
+            🎯 Scan Center
+        </a>
+
+        <a href="/email-analyzer"
+           class="{% if request.path == '/email-analyzer' %}active{% endif %}">
+            📧 Email Analyzer
+        </a>
+
+        <a href="/url-analyzer"
+           class="{% if request.path == '/url-analyzer' %}active{% endif %}">
+            🌐 URL Analyzer
+        </a>
+
+        <a href="/sms-analyzer"
+           class="{% if request.path == '/sms-analyzer' %}active{% endif %}">
+            📱 SMS Analyzer
+        </a>
+
+        <a href="/whatsapp-analyzer"
+           class="{% if request.path == '/whatsapp-analyzer' %}active{% endif %}">
+            💬 WhatsApp Analyzer
+        </a>
+
+        <a href="/qr-analyzer"
+           class="{% if request.path == '/qr-analyzer' %}active{% endif %}">
+            📷 QR Analyzer
+        </a>
+
+        <a href="/upi-analyzer"
+           class="{% if request.path == '/upi-analyzer' %}active{% endif %}">
+            💳 UPI Analyzer
+        </a>
+
+        <a href="/job-detector"
+           class="{% if request.path == '/job-detector' %}active{% endif %}">
+            💼 Fake Job Detector
+        </a>
+
+        <a href="/dataset-generator"
+           class="{% if request.path == '/dataset-generator' %}active{% endif %}">
+            🧠 Dataset Generator
+        </a>
+
+        <a href="/scan-history"
+           class="{% if request.path == '/scan-history' %}active{% endif %}">
+            📜 Scan History
+        </a>
+
+        <a href="/reports"
+           class="{% if request.path == '/reports' %}active{% endif %}">
+            📊 Reports
+        </a>
+
+    </nav>
+
+</aside>

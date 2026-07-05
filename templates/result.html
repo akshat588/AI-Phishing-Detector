@@ -45,15 +45,51 @@
 
 <div class="content">
 
-    <div class="topbar">
+    <section class="result-header">
 
     <div>
 
-        <h1>Analysis Overview</h1>
+        <span class="section-subtitle">
 
-        <p>AI-Powered Threat Intelligence Dashboard</p>
+            AI THREAT INTELLIGENCE
+
+        </span>
+
+        <h1>
+
+            Security Analysis Report
+
+        </h1>
+
+        <p>
+
+            AI-powered investigation of phishing indicators, attack techniques and digital trust.
+
+        </p>
 
     </div>
+
+    <div class="header-actions">
+
+        <a href="/download-report" class="primary-btn">
+
+            <i class="fas fa-file-pdf"></i>
+
+            Export Report
+
+        </a>
+
+        <a href="/" class="secondary-btn">
+
+            <i class="fas fa-rotate-left"></i>
+
+            New Scan
+
+        </a>
+
+    </div>
+
+</section>
 
     <div class="user-profile">
 
@@ -63,7 +99,45 @@
 
 </div>
 
-    <div class="cards">
+<div class="card digital-trust-card">
+
+    <h3>🛡 Digital Trust Score</h3>
+
+    <div class="trust-score-value">
+        {{ digital_trust_score }}
+    </div>
+
+    <div class="trust-level">
+
+        {% if digital_trust_score >= 85 %}
+
+            <span class="trust-badge trusted">
+                {{ digital_trust_level }}
+            </span>
+
+        {% elif digital_trust_score >= 65 %}
+
+            <span class="trust-badge mostly">
+                {{ digital_trust_level }}
+            </span>
+
+        {% elif digital_trust_score >= 45 %}
+
+            <span class="trust-badge caution">
+                {{ digital_trust_level }}
+            </span>
+
+        {% else %}
+
+            <span class="trust-badge danger">
+                {{ digital_trust_level }}
+            </span>
+
+        {% endif %}
+
+    </div>
+
+</div>
 
         <div class="card gauge-card-main">
 
@@ -427,6 +501,196 @@ text-shadow:0 0 15px rgba(255,77,77,.5);
 
 </div>
 
+<!-- ================================================= -->
+<!-- AI INTELLIGENCE REPORT -->
+<!-- ================================================= -->
+
+<div class="section">
+
+    <h2>
+        🧠 AI Intelligence Report
+    </h2>
+
+    <div class="analyst-grid">
+
+        <div class="analyst-card">
+
+            <h3>
+                Executive Summary
+            </h3>
+
+            <p>
+
+                {{ ai_intelligence.summary.executive_summary }}
+
+            </p>
+
+            <br>
+
+            <h3>
+
+                Final Verdict
+
+            </h3>
+
+            <h2 style="color:#4da3ff;">
+
+                {{ ai_intelligence.verdict }}
+
+            </h2>
+
+        </div>
+
+        <div class="analyst-card">
+
+            <h3>
+
+                Technical Summary
+
+            </h3>
+
+            <ul>
+
+                {% for item in ai_intelligence.summary.technical_summary %}
+
+                <li>
+
+                    {{ item }}
+
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- ATTACK CHAIN -->
+<!-- ================================================= -->
+
+<div class="section">
+
+    <h2>
+
+        🔗 Attack Chain Detection
+
+    </h2>
+
+    <div class="timeline">
+
+        {% for stage in ai_intelligence.attack_chain.chain %}
+
+        <div class="timeline-step">
+
+            <strong>
+
+                {{ stage.stage }}
+
+            </strong>
+
+            <br><br>
+
+            {{ stage.description }}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- AI CONFIDENCE -->
+<!-- ================================================= -->
+
+<div class="section">
+
+    <h2>
+
+        🎯 AI Confidence
+
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>
+
+                Overall Confidence
+
+            </h3>
+
+            <h1>
+
+                {{ ai_intelligence.confidence.confidence }}%
+
+            </h1>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+
+                Confidence Level
+
+            </h3>
+
+            <h2>
+
+                {{ ai_intelligence.confidence.level }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- MITRE -->
+<!-- ================================================= -->
+
+<div class="section">
+
+    <h2>
+
+        🛡 MITRE ATT&CK Mapping
+
+    </h2>
+
+    {% for item in ai_intelligence.mitre.mappings %}
+
+    <div class="feed-item">
+
+        <strong>
+
+            {{ item.indicator }}
+
+        </strong>
+
+        →
+
+        {{ item.technique }}
+
+        <br>
+
+        {{ item.description }}
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
 <div class="analyst-grid">
 
     <div class="analyst-card">
@@ -434,6 +698,30 @@ text-shadow:0 0 15px rgba(255,77,77,.5);
         <h3>Summary</h3>
 
         <p>{{ analyst_summary }}</p>
+
+        {% if source_findings %}
+
+<div class="mt-3">
+
+    <h4>SMS Intelligence</h4>
+
+    <ul>
+
+        {% for item in source_findings %}
+
+        <li>
+
+            ✔ {{ item }}
+
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+{% endif %}
 
         <br>
 

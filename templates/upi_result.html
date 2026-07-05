@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>UPI Intelligence Report | TrustLens AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='result.css') }}">
+
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="content">
+
+    <div class="header">
+
+        <h1>💳 UPI Intelligence Report</h1>
+
+        <p>AI-Powered UPI Fraud Detection</p>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- TOP CARDS -->
+    <!-- ========================= -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Threat Score</h3>
+
+            <div class="score">
+
+                {{ score }}/100
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Risk Level</h3>
+
+            <div class="card-danger">
+
+                {{ risk_level }}
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>AI Confidence</h3>
+
+            <div class="score">
+
+                {{ ai.confidence }}%
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- INPUT -->
+    <!-- ========================= -->
+
+    <div class="section">
+
+        <h2>📄 Analyzed Content</h2>
+
+        <p style="word-break: break-word;">
+
+            {{ text }}
+
+        </p>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- THREAT DNA -->
+    <!-- ========================= -->
+
+    <div class="section">
+
+        <h2>🧬 Threat DNA</h2>
+
+        {% for key,value in threat_dna.items() %}
+
+        <div class="stat-row">
+
+            <span>
+
+                {{ key }}
+
+            </span>
+
+            <strong>
+
+                {{ value }}%
+
+            </strong>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- FINDINGS -->
+    <!-- ========================= -->
+
+    <div class="section">
+
+        <h2>🔍 Security Findings</h2>
+
+        {% if findings %}
+
+            {% for item in findings %}
+
+            <div class="feed-item">
+
+                ⚠ {{ item }}
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="safe-message">
+
+                No suspicious UPI indicators detected.
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- AI REASONS -->
+    <!-- ========================= -->
+
+    <div class="section">
+
+        <h2>🤖 AI Security Analyst</h2>
+
+        <ul>
+
+        {% for reason in ai.reasons %}
+
+            <li>
+
+                ✔ {{ reason }}
+
+            </li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- RECOMMENDATIONS -->
+    <!-- ========================= -->
+
+    <div class="section">
+
+        <h2>💡 Recommendations</h2>
+
+        <ul>
+
+        {% for recommendation in ai.recommendations %}
+
+            <li>
+
+                {{ recommendation }}
+
+            </li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- ACTIONS -->
+    <!-- ========================= -->
+
+    <div class="section action-section">
+
+        <a href="/upi-analyzer" class="btn">
+
+            Analyze Another UPI Message
+
+        </a>
+
+        <a href="/dashboard" class="btn">
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

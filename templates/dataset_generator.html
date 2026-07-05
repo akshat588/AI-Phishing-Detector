@@ -1,0 +1,954 @@
+{% extends "base.html" %}
+
+{% block title %}
+AI Dataset Generator | TrustLens AI
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='dataset_generator.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dataset-page">
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section class="dataset-hero">
+
+        <div class="dataset-hero-left">
+
+            <span class="hero-badge">
+                AI-Assisted Cybersecurity Dataset Pipeline
+            </span>
+
+            <h1>
+                AI Dataset Generator
+            </h1>
+
+            <p>
+                Generate realistic Indian cybersecurity datasets for
+                Email, URL, SMS, WhatsApp, QR Code, UPI and Fake Job
+                detection models.
+            </p>
+
+        </div>
+
+        <div class="dataset-hero-right">
+
+            <div class="hero-icon">
+                🧠
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+DATASET OVERVIEW
+=========================== -->
+
+<section class="dataset-overview">
+
+    <div class="glass overview-card">
+
+        <div class="overview-icon">
+            📁
+        </div>
+
+        <div>
+
+            <h2>7</h2>
+
+            <span>Dataset Types</span>
+
+        </div>
+
+    </div>
+
+    <div class="glass overview-card">
+
+        <div class="overview-icon">
+            📊
+        </div>
+
+        <div>
+
+            <h2>
+                {% if generated %}
+                    {{ summary.records }}
+                {% else %}
+                    0
+                {% endif %}
+            </h2>
+
+            <span>Total Records</span>
+
+        </div>
+
+    </div>
+
+    <div class="glass overview-card">
+
+        <div class="overview-icon">
+            ⭐
+        </div>
+
+        <div>
+
+            <h2>
+
+{% if generated %}
+
+{{ quality }}%
+
+{% else %}
+
+--
+
+{% endif %}
+
+</h2>
+
+            <span>Dataset Quality</span>
+
+        </div>
+
+    </div>
+
+    <div class="glass overview-card">
+
+        <div class="overview-icon">
+            ⬇
+        </div>
+
+        <div>
+
+            <h2>3</h2>
+
+            <span>Export Formats</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         MAIN GRID
+    ========================== -->
+
+    <section class="dataset-grid">
+
+        <!-- LEFT PANEL -->
+
+        <div class="glass dataset-card">
+
+            <div class="card-header">
+
+    <div>
+
+        <h2>Dataset Configuration</h2>
+
+        <p>
+            Configure and generate AI-ready cybersecurity datasets.
+        </p>
+
+    </div>
+
+    <div class="config-badge">
+        AI Ready
+    </div>
+
+</div>
+
+            <form id="datasetForm"
+      action="/generate-dataset"
+      method="POST">
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Dataset Type</label>
+
+<select name="dataset_type">
+
+<option value="email">Email</option>
+<option value="url">URL</option>
+<option value="sms">SMS</option>
+<option value="whatsapp">WhatsApp</option>
+<option value="upi">UPI</option>
+<option value="qr">QR</option>
+<option value="job">Fake Job</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Threat Category</label>
+
+<select name="category">
+
+<option value="">All Categories</option>
+<option value="legitimate">Legitimate</option>
+<option value="banking_phishing">Banking Phishing</option>
+<option value="credential_theft">Credential Theft</option>
+<option value="kyc_scam">KYC Scam</option>
+<option value="aadhaar_scam">Aadhaar Scam</option>
+<option value="refund_scam">Refund Scam</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Brand</label>
+
+<select name="brand">
+
+<option>SBI</option>
+<option>HDFC</option>
+<option>ICICI</option>
+<option>Axis Bank</option>
+<option>PhonePe</option>
+<option>Google Pay</option>
+<option>Paytm</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Records</label>
+
+<input
+type="number"
+name="records"
+value="500"
+min="100"
+max="50000">
+
+</div>
+
+<div class="form-group full-width">
+
+<label>Export Format</label>
+
+<select name="export">
+
+<option value="csv">CSV</option>
+<option value="json">JSON</option>
+<option value="xlsx">Excel (.xlsx)</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="generation-info">
+
+<div class="info-chip">
+
+⚡ Estimated Time
+
+<strong>2-5 sec</strong>
+
+</div>
+
+<div class="info-chip">
+
+🧠 AI Templates
+
+<strong>Enabled</strong>
+
+</div>
+
+<div class="info-chip">
+
+📊 ML Ready
+
+<strong>Yes</strong>
+
+</div>
+
+</div>
+
+<button
+type="submit"
+class="primary-btn">
+
+🚀 Generate Dataset
+
+</button>
+
+</form>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+
+        <div class="glass dataset-status">
+
+    <div class="status-header">
+
+        <h2>Generation Pipeline</h2>
+
+        <span class="pipeline-live">
+            ● LIVE
+        </span>
+
+    </div>
+
+    <div class="pipeline">
+
+        <div class="pipeline-step active">
+
+            <div class="pipeline-icon">📂</div>
+
+            <div>
+
+                <h4>Dataset Configuration</h4>
+
+                <small>Input parameters validated</small>
+
+            </div>
+
+        </div>
+
+        <div class="pipeline-step active">
+
+            <div class="pipeline-icon">🤖</div>
+
+            <div>
+
+                <h4>AI Sample Generation</h4>
+
+                <small>Generating realistic records</small>
+
+            </div>
+
+        </div>
+
+        <div class="pipeline-step active">
+
+            <div class="pipeline-icon">🛡</div>
+
+            <div>
+
+                <h4>Threat Validation</h4>
+
+                <small>Checking quality & labels</small>
+
+            </div>
+
+        </div>
+
+        <div class="pipeline-step active">
+
+            <div class="pipeline-icon">📊</div>
+
+            <div>
+
+                <h4>Feature Extraction</h4>
+
+                <small>Preparing ML-ready dataset</small>
+
+            </div>
+
+        </div>
+
+        <div class="pipeline-step">
+
+            <div class="pipeline-icon">📦</div>
+
+            <div>
+
+                <h4>Export</h4>
+
+                <small>CSV / JSON / XLSX</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="quality-meter">
+
+        <div class="quality-title">
+
+            <span>Dataset Quality</span>
+
+            <strong>
+
+{% if generated %}
+
+{{ quality }}%
+
+{% else %}
+
+--
+
+{% endif %}
+
+</strong>
+
+        </div>
+
+        <div class="quality-bar">
+
+            <div class="quality-fill"></div>
+
+        </div>
+
+    </div>
+
+    <div class="quality-stats">
+
+        <div>
+
+            <h3>0%</h3>
+
+            <span>Duplicates</span>
+
+        </div>
+
+        <div>
+
+            <h3>100%</h3>
+
+            <span>Validated</span>
+
+        </div>
+
+        <div>
+
+            <h3>Balanced</h3>
+
+            <span>Classes</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% if generated %}
+
+<div class="glass success-card">
+
+    <h2>✅ Dataset Generated Successfully</h2>
+
+    <p>
+        Your AI-generated cybersecurity dataset has been created successfully.
+    </p>
+
+    <div class="summary-grid">
+
+        <div class="summary-box">
+            <h3>{{ summary.records }}</h3>
+            <span>Total Records</span>
+        </div>
+
+        <div class="summary-box">
+            <h3>{{ summary.columns }}</h3>
+            <span>Total Columns</span>
+        </div>
+
+        <div class="summary-box">
+            <h3>{{ result.dataset_file.split('/')[-1] }}</h3>
+            <span>Dataset File</span>
+        </div>
+
+    </div>
+
+    <br>
+
+    <a href="{{ url_for('download_dataset', filename=result.dataset_file) }}"
+       class="primary-btn">
+
+        ⬇ Download Dataset
+
+    </a>
+
+</div>
+
+<section class="analytics-grid">
+
+    <!-- Dataset Statistics -->
+
+    <div class="glass analytics-card">
+
+        <h3>📊 Dataset Statistics</h3>
+
+        <div class="stat-row">
+    <span>Total Records</span>
+    <strong>{{ summary.records }}</strong>
+</div>
+
+<div class="stat-row">
+    <span>Total Columns</span>
+    <strong>{{ summary.columns }}</strong>
+</div>
+
+<div class="stat-row">
+    <span>Dataset Type</span>
+    <strong>{{ request.form.get('dataset_type','Email')|upper }}</strong>
+</div>
+
+<div class="stat-row">
+    <span>Export Format</span>
+    <strong>{{ request.form.get('export','CSV')|upper }}</strong>
+</div>
+
+    </div>
+
+    <!-- Label Distribution -->
+
+    <div class="glass analytics-card">
+
+        <h3>🏷 Label Distribution</h3>
+
+        {% if summary.labels %}
+
+            {% for label,count in summary.labels.items() %}
+
+            <div class="stat-row">
+
+                <span>{{ label }}</span>
+
+                <strong>{{ count }}</strong>
+
+            </div>
+
+            {% endfor %}
+
+        <section class="analytics-grid">
+
+    <div class="glass analytics-card">
+
+        <h3>Label Distribution</h3>
+
+        <canvas id="labelChart"></canvas>
+
+    </div>
+
+    <div class="glass analytics-card">
+
+        <h3>Risk Distribution</h3>
+
+        <canvas id="riskChart"></canvas>
+
+    </div>
+
+</section>
+
+        {% endif %}
+
+    </div>
+
+    <!-- Risk Distribution -->
+
+    <div class="glass analytics-card">
+
+        <h3>⚠ Risk Distribution</h3>
+
+        {% if summary.risk_distribution %}
+
+            {% for risk,count in summary.risk_distribution.items() %}
+
+            <div class="stat-row">
+
+                <span>{{ risk }}</span>
+
+                <strong>{{ count }}</strong>
+
+            </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endif %}
+<!-- ==========================================
+DATASET PREVIEW
+========================================== -->
+
+<section class="glass preview-section">
+
+<div class="section-header">
+
+    <div>
+
+        <h2>Dataset Preview</h2>
+
+        <p>
+            Preview the first generated records before exporting.
+        </p>
+
+    </div>
+
+    <div class="table-tools">
+
+        <input
+            type="text"
+            id="previewSearch"
+            placeholder="Search preview...">
+
+    </div>
+
+</div>
+
+    <div class="preview-table">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+
+                    <th>Label</th>
+
+                    <th>Message</th>
+
+                    <th>Brand</th>
+
+                    <th>Trust Score</th>
+
+                    <th>Risk</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+{% if generated %}
+
+    {% for row in preview %}
+
+    <tr>
+
+        <td>{{ loop.index }}</td>
+
+        <td>{{ row.label }}</td>
+
+        <td>
+
+            {% if row.message %}
+                {{ row.message[:80] }}...
+            {% elif row.subject %}
+                {{ row.subject[:80] }}...
+            {% elif row.url %}
+                {{ row.url }}
+            {% elif row.content %}
+                {{ row.content[:80] }}...
+            {% else %}
+                -
+            {% endif %}
+
+        </td>
+
+        <td>
+
+            {% if row.brand %}
+                {{ row.brand }}
+            {% else %}
+                -
+            {% endif %}
+
+        </td>
+
+        <td>
+
+            {% if row.trust_score %}
+                {{ row.trust_score }}
+            {% else %}
+                -
+            {% endif %}
+
+        </td>
+
+        <td>
+
+            <span class="risk">
+
+                {% if row.risk_level %}
+                    {{ row.risk_level }}
+                {% elif row.risk %}
+                    {{ row.risk }}
+                {% else %}
+                    UNKNOWN
+                {% endif %}
+
+            </span>
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+{% else %}
+
+<tr>
+
+    <td colspan="6">
+
+        <div style="padding:40px;text-align:center;">
+
+            No dataset generated yet.
+
+            <br><br>
+
+            Click
+
+            <strong>Generate Dataset</strong>
+
+            to preview your generated records.
+
+        </div>
+
+    </td>
+
+</tr>
+
+{% endif %}
+
+</tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+GENERATION HISTORY
+========================================== -->
+
+<section class="glass preview-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>Generation History</h2>
+
+            <p>
+                Recently generated datasets.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="preview-table">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+
+                    <th>Dataset</th>
+
+                    <th>Records</th>
+
+                    <th>Category</th>
+
+                    <th>Format</th>
+
+                    <th>Status</th>
+
+                    <th>File</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% if history %}
+
+                {% for item in history %}
+
+                <tr>
+
+                    <td>{{ item.timestamp }}</td>
+
+                    <td>{{ item.dataset_type }}</td>
+
+                    <td>{{ item.records }}</td>
+
+                    <td>{{ item.category }}</td>
+
+                    <td>{{ item.format }}</td>
+
+                    <td>
+
+                        <span class="risk low">
+
+                            {{ item.status }}
+
+                        </span>
+
+                    </td>
+
+                    <td>{{ item.filename }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            {% else %}
+
+                <tr>
+
+                    <td colspan="7">
+
+                        <div style="padding:35px;text-align:center;">
+
+                            No datasets generated yet.
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            {% endif %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+AI INFORMATION
+========================================== -->
+
+<section class="dataset-info-grid">
+
+    <div class="glass info-card">
+
+        <h3>
+            🤖 AI Generation
+        </h3>
+
+        <p>
+
+            Generates realistic Indian
+            cybersecurity datasets using
+            template-based intelligence.
+
+        </p>
+
+    </div>
+
+    <div class="glass info-card">
+
+        <h3>
+            🛡 Validation
+        </h3>
+
+        <p>
+
+            Removes duplicates,
+            validates labels,
+            balances datasets
+            automatically.
+
+        </p>
+
+    </div>
+
+    <div class="glass info-card">
+
+        <h3>
+            📊 Feature Extraction
+        </h3>
+
+        <p>
+
+            Automatically generates
+            ML-ready features compatible
+            with TrustLens AI.
+
+        </p>
+
+    </div>
+
+    <div class="glass info-card">
+
+        <h3>
+            📦 Export
+        </h3>
+
+        <p>
+
+            Export datasets as
+            CSV,
+            JSON
+            or Excel.
+
+        </p>
+
+    </div>
+
+</section>
+
+{% if generated %}
+
+<script>
+
+const labelData = {{ summary.labels | tojson }};
+const riskData = {{ summary.risk_distribution | tojson }};
+
+new Chart(document.getElementById("labelChart"), {
+    type: "pie",
+    data: {
+        labels: Object.keys(labelData),
+        datasets: [{
+            data: Object.values(labelData)
+        }]
+    }
+});
+
+new Chart(document.getElementById("riskChart"), {
+    type: "doughnut",
+    data: {
+        labels: Object.keys(riskData),
+        datasets: [{
+            data: Object.values(riskData)
+        }]
+    }
+});
+
+</script>
+
+{% endif %}
+
+{% endblock %}

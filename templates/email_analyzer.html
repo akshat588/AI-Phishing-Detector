@@ -1,72 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-    <title>PhishEye AI - Email Analyzer</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Email Analyzer | TrustLens AI</title>
 
     <link rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}">
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='navbar.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
 <body>
 
-<div class="background-glow"></div>
+{% include "components/top_navbar.html" %}
 
-<div class="container">
+<section class="analyzer-page">
 
-    <div class="hero">
-        <div class="hero-buttons">
+    <div class="workspace-header">
 
-    <button
-        class="secondary-btn"
-        onclick="location.href='/'">
+    <div>
 
-        ← Back to Home
+        <span class="analyzer-badge">
 
-    </button>
+            AI POWERED EMAIL SECURITY
 
-</div>
-        
+        </span>
 
-        <h1>📧 Email Analyzer</h1>
+        <h1>
+
+            📧 Email Analyzer
+
+        </h1>
 
         <p>
-            Analyze suspicious emails using
-            AI-powered phishing detection.
+
+            Detect phishing emails, spoofing attacks, credential theft,
+            business email compromise and social engineering using
+            TrustLens AI.
+
         </p>
 
     </div>
 
-</div>
-    <div class="dashboard-card">
+    <div class="workspace-status">
 
-        <form action="/analyze" method="POST">
+        <div class="status-card">
 
-            <div class="input-group">
+            <h2>98.7%</h2>
 
-                <label>Email Content</label>
+            <span>AI Accuracy</span>
 
-                <textarea
-                    name="email_content"
-                    placeholder="Paste suspicious email here..."
-                    required>
-                </textarea>
+        </div>
 
-            </div>
+        <div class="status-card">
 
-            <button type="submit">
+            <h2>LIVE</h2>
 
-                Analyze Email
+            <span>Detection Engine</span>
 
-            </button>
-
-        </form>
+        </div>
 
     </div>
 
 </div>
 
+    <div class="analyzer-layout">
+
+        <div class="input-card">
+
+            <h2>
+
+                Paste Email Content
+
+            </h2>
+
+            <form action="/scan-email" method="POST">
+
+                <textarea
+
+                    name="email_content"
+
+                    rows="15"
+
+                    placeholder="Paste the complete email here..."
+
+                    required></textarea>
+
+                <button
+                    class="analyze-btn"
+                    type="submit">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Analyze Email
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="info-card">
+
+    <h2>AI Detection Engine</h2>
+
+    <div class="info-item">
+
+        <i class="fa-solid fa-brain"></i>
+
+        <div>
+
+            <h4>Machine Learning</h4>
+
+            <p>NLP + Pattern Recognition</p>
+
+        </div>
+
+    </div>
+
+    <div class="info-item">
+
+        <i class="fa-solid fa-shield-virus"></i>
+
+        <div>
+
+            <h4>Threat Coverage</h4>
+
+            <p>
+                Phishing<br>
+                Spoofing<br>
+                Credential Theft<br>
+                Malware Delivery<br>
+                Business Email Compromise
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="info-item">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <div>
+
+            <h4>Analysis</h4>
+
+            <p>Real-time AI Security Report</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
 </body>
+
 </html>

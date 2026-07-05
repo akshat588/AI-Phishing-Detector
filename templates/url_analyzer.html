@@ -3,136 +3,124 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>URL Analyzer | PhishEye AI</title>
+<title>URL Analyzer | TrustLens AI</title>
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
 <body>
 
-    <div class="background-glow"></div>
+{% include "components/top_navbar.html" %}
 
-    <div class="container">
+<section class="analyzer-page">
 
-        <div class="hero">
+<div class="analyzer-header">
 
-        <div class="hero-buttons">
+<span class="analyzer-badge">
 
-    <button
-        class="secondary-btn"
-        onclick="location.href='/'">
+AI POWERED DETECTION
 
-        ← Back to Home
+</span>
 
-    </button>
+<h1>🌐 URL Analyzer</h1>
+
+<p>
+
+Analyze suspicious URLs for phishing,
+fake login pages, malware delivery,
+redirect chains and malicious websites.
+
+</p>
 
 </div>
 
-            <h1>🔗 URL Analyzer</h1>
+<div class="analyzer-layout">
 
-            <p>
-                Analyze suspicious URLs for phishing indicators using
-                AI-powered threat detection.
-            </p>
+<div class="input-card">
 
-        </div>
+<h2>Enter URL</h2>
 
-        <div class="dashboard-card">
+<form action="/analyze-url" method="POST">
 
-            <form action="/analyze-url" method="POST">
+<textarea
 
-                <div class="input-group">
+name="url"
 
-                    <label>
-                        Enter URL
-                    </label>
+rows="10"
 
-                    <input
-                        type="text"
-                        name="url"
-                        placeholder="https://secure-bank-login.com"
-                        required
-                    >
+placeholder="https://example.com"
 
-                </div>
+required></textarea>
 
-                <!-- Required by existing /analyze route -->
+<button class="analyze-btn" type="submit">
 
-                <input
-                    type="hidden"
-                    name="email_content"
-                    value=""
-                >
+<i class="fa-solid fa-link"></i>
 
-                <input
-                    type="hidden"
-                    name="sender"
-                    value=""
-                >
+Analyze URL
 
-                <button type="submit">
-                    Analyze URL
-                </button>
+</button>
 
-            </form>
+</form>
 
-        </div>
+</div>
 
-        <div class="analyzer-grid">
+<div class="info-card">
 
-            <div class="analyzer-card">
+<h2>AI Detection Engine</h2>
 
-                <h3>
-                    🔍 URL Inspection
-                </h3>
+<div class="info-item">
 
-                <p>
-                    Detect suspicious domains, deceptive links,
-                    and phishing indicators.
-                </p>
+<i class="fa-solid fa-globe"></i>
 
-            </div>
+<div>
 
-            <div class="analyzer-card">
+<h4>Website Inspection</h4>
 
-                <h3>
-                    ⚠ Risk Detection
-                </h3>
+<p>
 
-                <p>
-                    Identify URLs containing phishing keywords,
-                    unusual patterns, and social engineering tactics.
-                </p>
+URL Reputation<br>
 
-            </div>
+Domain Analysis<br>
 
-            <div class="analyzer-card">
+SSL Validation<br>
 
-                <h3>
-                    🛡 Threat Intelligence
-                </h3>
+Redirect Detection
 
-                <p>
-                    Generate a risk score and provide
-                    security recommendations instantly.
-                </p>
+</p>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+<div class="info-item">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<div>
+
+<h4>Detection Accuracy</h4>
+
+<p>98.7% AI Confidence</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 </body>
 

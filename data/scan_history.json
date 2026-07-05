@@ -1,0 +1,77 @@
+[
+    {
+        "timestamp": "2026-07-01 19:33:25",
+        "analyzer": "Email Analyzer",
+        "score": 75.43,
+        "risk": "\ud83d\udd34 HIGH",
+        "verdict": "\u26a0 PHISHING DETECTED"
+    },
+    {
+        "timestamp": "2026-07-01 19:36:16",
+        "analyzer": "Email Analyzer",
+        "score": 75.43,
+        "risk": "\ud83d\udd34 HIGH",
+        "verdict": "\u26a0 PHISHING DETECTED"
+    },
+    {
+        "timestamp": "2026-07-01 20:19:52",
+        "analyzer": "Email Analyzer",
+        "score": 75.43,
+        "risk": "\ud83d\udd34 HIGH",
+        "verdict": "\u26a0 PHISHING DETECTED"
+    },
+    {
+        "timestamp": "2026-07-01 20:21:49",
+        "analyzer": "Email Analyzer",
+        "score": 75.43,
+        "risk": "\ud83d\udd34 HIGH",
+        "verdict": "\u26a0 PHISHING DETECTED"
+    },
+    {
+        "timestamp": "2026-07-01 20:24:27",
+        "analyzer": "Email Analyzer",
+        "score": 75.43,
+        "risk": "\ud83d\udd34 HIGH",
+        "verdict": "\u26a0 PHISHING DETECTED"
+    },
+    {
+        "timestamp": "2026-07-02 12:23:50",
+        "analyzer": "Email Analyzer",
+        "score": 75.43,
+        "risk": "\ud83d\udd34 HIGH",
+        "verdict": "\u26a0 PHISHING DETECTED"
+    },
+    {
+        "timestamp": "2026-07-04 13:10:34",
+        "analyzer": "Email Analyzer",
+        "score": 78.75,
+        "risk": "\ud83d\udd34 HIGH",
+        "verdict": "\u26a0 PHISHING DETECTED"
+    },
+    {
+        "timestamp": "2026-07-04 13:16:07",
+        "analyzer": "Email Analyzer",
+        "score": 38.01,
+        "risk": "\ud83d\udfe0 MEDIUM",
+        "verdict": "\u26a0 PHISHING DETECTED"
+    },
+    {
+        "timestamp": "2026-07-04 23:24:00",
+        "analyzer": "Email Analyzer",
+        "score": 28.44,
+        "risk": "\ud83d\udfe2 LOW",
+        "verdict": "\u26a0 PHISHING DETECTED"
+    },
+    {
+        "timestamp": "2026-07-05 15:41:04",
+        "analyzer": "SMS Analyzer",
+        "score": 0.0,
+        "risk": "\ud83d\udfe2 LOW",
+        "verdict": "\ud83d\udfe2 LOW"
+    },
+    {
+        "timestamp": "2026-07-05 16:21:04",
+        "analyzer": "Email Analyzer",
+        "score": 26.81,
+        "risk": "\ud83d\udfe2 LOW",
+        "verdict": 

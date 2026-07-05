@@ -1,0 +1,57 @@
+<nav class="main-navbar">
+
+    <div class="nav-left">
+
+        <a href="{{ url_for('home') }}" class="logo">
+
+            🛡 <span>TrustLens AI</span>
+
+        </a>
+
+    </div>
+
+    <div class="nav-center">
+
+        <a href="{{ url_for('home') }}">Home</a>
+
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+
+        <a href="{{ url_for('scan_center') }}">Scan Center</a>
+
+        <a href="{{ url_for('scan_history') }}">History</a>
+
+        <a href="{{ url_for('threat_hunting') }}">Threat Intelligence</a>
+
+        <a href="{{ url_for('download_report') }}">Reports</a>
+
+        <a href="#">About</a>
+
+    </div>
+
+    <div class="nav-right">
+
+        <input
+            type="text"
+            placeholder="Search..."
+            id="dashboardSearch"
+        >
+
+        <button class="icon-btn">🔔</button>
+
+        <button class="icon-btn">🌙</button>
+
+        <div class="profile">
+
+            <div class="avatar">
+                AI
+            </div>
+
+            <span>
+                Security Admin
+            </span>
+
+        </div>
+
+    </div>
+
+</nav>

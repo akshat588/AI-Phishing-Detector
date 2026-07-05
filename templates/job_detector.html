@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Fake Job Detector | TrustLens AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+{% include "components/top_navbar.html" %}
+
+<section class="analyzer-page">
+
+    <div class="analyzer-header">
+
+        <span class="analyzer-badge">
+            AI POWERED DETECTION
+        </span>
+
+        <h1>💼 Fake Job Detector</h1>
+
+        <p>
+            Detect recruitment scams, fake HR messages,
+            advance-fee fraud, impersonation and suspicious
+            employment offers using TrustLens AI.
+        </p>
+
+    </div>
+
+    <div class="analyzer-layout">
+
+        <div class="input-card">
+
+            <h2>
+
+                Paste Job Offer
+
+            </h2>
+
+            <form action="/analyze-job" method="POST">
+
+                <textarea
+                    name="job_content"
+                    rows="14"
+                    placeholder="Paste the complete job offer here..."
+                    required></textarea>
+
+                <button
+                    class="analyze-btn"
+                    type="submit">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Analyze Job Offer
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="info-card">
+
+            <h2>
+
+                AI Detection Engine
+
+            </h2>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <div>
+
+                    <h4>Job Verification</h4>
+
+                    <p>
+
+                        Detects suspicious hiring patterns
+                        and recruitment fraud.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <div>
+
+                    <h4>Threat Categories</h4>
+
+                    <p>
+
+                        Fake Recruiter<br>
+
+                        Advance Fee Scam<br>
+
+                        Identity Theft<br>
+
+                        Fake Offer Letter<br>
+
+                        HR Impersonation
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <div>
+
+                    <h4>Detection Accuracy</h4>
+
+                    <p>
+
+                        98.7% AI Confidence
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

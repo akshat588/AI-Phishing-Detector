@@ -1,55 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-    <title>QR Analyzer | PhishEye AI</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>QR Analyzer | TrustLens AI</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
 <body>
 
-<div class="container">
+{% include "components/top_navbar.html" %}
 
-    <h1>📷 QR Phishing Analyzer</h1>
+<section class="analyzer-page">
 
-    <p>
-        Upload a QR code image and let
-        PhishEye AI analyze the embedded URL
-        for phishing threats.
-    </p>
+    <div class="analyzer-header">
 
-    <form
-        action="/analyze-qr"
-        method="POST"
-        enctype="multipart/form-data"
-    >
+        <span class="analyzer-badge">
+            AI POWERED DETECTION
+        </span>
 
-        <input
-            type="file"
-            name="qr_image"
-            accept="image/*"
-            required
-        >
+        <h1>📷 QR Phishing Analyzer</h1>
 
-        <br><br>
+        <p>
+            Upload a QR code image and let TrustLens AI inspect
+            hidden URLs, phishing attempts, malicious redirects
+            and suspicious QR-based attacks.
+        </p>
 
-        <button type="submit">
-            Analyze QR Code
-        </button>
+    </div>
 
-    </form>
+    <div class="analyzer-layout">
 
-    <br>
+        <div class="input-card">
 
-    <a href="/">
-        ← Back to Home
-    </a>
+            <h2>
 
-</div>
+                Upload QR Code
+
+            </h2>
+
+            <form
+                action="/analyze-qr"
+                method="POST"
+                enctype="multipart/form-data">
+
+                <input
+                    class="file-upload"
+                    type="file"
+                    name="qr_image"
+                    accept="image/*"
+                    required>
+
+                <button
+                    class="analyze-btn"
+                    type="submit">
+
+                    <i class="fa-solid fa-qrcode"></i>
+
+                    Analyze QR Code
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="info-card">
+
+            <h2>
+
+                AI Detection Engine
+
+            </h2>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-qrcode"></i>
+
+                <div>
+
+                    <h4>QR Inspection</h4>
+
+                    <p>
+
+                        Extracts embedded URLs and scans
+                        them for phishing indicators.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <div>
+
+                    <h4>Threat Categories</h4>
+
+                    <p>
+
+                        Fake Payment QR<br>
+
+                        Phishing Website<br>
+
+                        Malicious Redirect<br>
+
+                        URL Shortener Abuse<br>
+
+                        Credential Theft
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <div>
+
+                    <h4>Detection Accuracy</h4>
+
+                    <p>
+
+                        98.7% AI Confidence
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 </body>
 

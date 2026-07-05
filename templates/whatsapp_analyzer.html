@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>WhatsApp Analyzer | TrustLens AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+{% include "components/top_navbar.html" %}
+
+<section class="analyzer-page">
+
+    <div class="analyzer-header">
+
+        <span class="analyzer-badge">
+            AI POWERED DETECTION
+        </span>
+
+        <h1>💬 WhatsApp Scam Analyzer</h1>
+
+        <p>
+            Detect phishing, fake job scams, investment fraud,
+            impersonation, malicious links and social engineering
+            attacks shared through WhatsApp.
+        </p>
+
+    </div>
+
+    <div class="analyzer-layout">
+
+        <div class="input-card">
+
+            <h2>Paste WhatsApp Message</h2>
+
+            <form action="/analyze-whatsapp" method="POST">
+
+                <textarea
+                    name="whatsapp_content"
+                    rows="14"
+                    placeholder="Paste the complete WhatsApp message here..."
+                    required></textarea>
+
+                <button
+                    class="analyze-btn"
+                    type="submit">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Analyze WhatsApp Message
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="info-card">
+
+            <h2>
+
+                AI Detection Engine
+
+            </h2>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <div>
+
+                    <h4>Machine Learning</h4>
+
+                    <p>
+
+                        Detects scam conversations using
+                        AI-powered behavioral analysis.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <div>
+
+                    <h4>Threat Categories</h4>
+
+                    <p>
+
+                        Fake Jobs<br>
+
+                        Investment Scam<br>
+
+                        Lottery Fraud<br>
+
+                        Phishing Links<br>
+
+                        Social Engineering
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <div>
+
+                    <h4>Detection Accuracy</h4>
+
+                    <p>
+
+                        98.7% AI Confidence
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

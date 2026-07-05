@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishEye AI</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='navbar.css') }}">
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    {% include "components/top_navbar.html" %}
+
+    <div class="main-layout">
+
+    <main class="main-content full-width">
+
+<!-- =========================
+    TOP NAVBAR
+========================= -->
+
+        <div class="page-content">
+        <div class="container">
+
+
+    <section class="dashboard-header">
+
+    <div class="dashboard-title">
+
+        <span class="section-subtitle">
+            SECURITY OPERATIONS CENTER
+        </span>
+
+        <h1>
+            Enterprise Security Dashboard
+        </h1>
+
+        <p>
+
+            Monitor cyber threats, analyze attack trends and gain AI-powered security intelligence from a unified dashboard.
+
+        </p>
+
+    </div>
+
+    <div class="dashboard-actions">
+
+        <a href="{{ url_for('scan_center') }}" class="primary-btn">
+
+            <i class="fas fa-shield-virus"></i>
+
+            New Scan
+
+        </a>
+
+        <a href="{{ url_for('scan_history') }}" class="secondary-btn">
+
+            <i class="fas fa-history"></i>
+
+            Scan History
+
+        </a>
+
+    </div>
+
+</section>
+
+<div class="dashboard-row">
+
+    <section class="intel-layout">
+
+    <!-- LEFT SIDE -->
+    <div class="intel-left">
+
+        <section class="threat-feed" id="threatActivitySection">
+
+            <div class="widget-header">
+
+    <div>
+
+        <span class="widget-badge">
+            LIVE
+        </span>
+
+        <h2>
+            Threat Activity
+        </h2>
+
+        <p>
+            Real-time security detections
+        </p>
+
+    </div>
+
+    <div class="live-indicator">
+
+        <span class="pulse"></span>
+
+        Monitoring
+
+    </div>
+
+</div>
+
+            <div class="feed-container">
+
+                {% for activity in dashboard.recent_activity %}
+
+                <div class="feed-item">
+
+    <div class="feed-left">
+
+        <div class="feed-status"></div>
+
+        <div>
+
+            <span class="feed-time">
+
+                {{ activity.time }}
+
+            </span>
+
+            <p>
+
+                {{ activity.message }}
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <span class="feed-badge">
+
+        Active
+
+    </span>
+
+</div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+<div class="intel-right">
+
+    <section class="ai-analyst" id="securityAdvisorSection">
+
+        <div class="analyst-card">
+
+            <div class="widget-header">
+
+                <div>
+
+                    <span class="widget-badge ai">AI</span>
+
+                    <h2>Security Advisor</h2>
+
+                    <p>AI-generated threat intelligence</p>
+
+                </div>
+
+                <div class="analyst-icon">
+                    🛡️
+                </div>
+
+            </div>
+
+            <div class="analyst-grid">
+
+                <div class="analyst-box">
+                    <h4>Threat Level</h4>
+                    <span class="medium-risk">{{ analyst.threat_level }}</span>
+                </div>
+
+                <div class="analyst-box">
+                    <h4>Most Common Threat</h4>
+                    <span>{{ analyst.top_threat }}</span>
+                </div>
+
+                <div class="analyst-box">
+                    <h4>Most Targeted Brand</h4>
+                    <span>{{ analyst.top_brand }}</span>
+                </div>
+
+                <div class="analyst-box">
+                    <h4>Most Suspicious TLD</h4>
+                    <span>{{ analyst.top_tld }}</span>
+                </div>
+
+            </div>
+
+            <div class="analyst-summary">
+
+                <h4>Recommended Actions</h4>
+
+                <ul>
+
+                    <li>Enable multi-factor authentication.</li>
+
+                    <li>Verify suspicious URLs before clicking.</li>
+
+                    <li>Avoid login requests from unknown senders.</li>
+
+                    <li>Review high-risk detections immediately.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</section>
+
+<!-- END OF FEED + AI ANALYST -->
+
+<!-- ==========================================
+EXECUTIVE SECURITY OVERVIEW
+========================================== -->
+
+<section class="executive-overview" id="overviewSection">
+
+
+    <div class="overview-header">
+
+    <div>
+
+        <span class="section-subtitle">
+            LIVE SECURITY METRICS
+        </span>
+
+        <h2>
+            Executive Security Overview
+        </h2>
+
+        <p>
+            Real-time overview of your organization's digital threat landscape.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="executive-grid">
+
+    <div class="executive-card">
+
+    <div class="executive-top">
+
+        <div class="executive-icon purple">
+            <i class="fas fa-brain"></i>
+        </div>
+
+        <span class="trend positive">
+            Stable
+        </span>
+
+    </div>
+
+    <h2>98.7%</h2>
+
+    <p>AI Detection Accuracy</p>
+
+</div>
+
+    <div class="executive-card">
+
+        <div class="executive-top">
+
+            <div class="executive-icon blue">
+                <i class="fas fa-chart-line"></i>
+            </div>
+
+            <span class="trend positive">
+                +12%
+            </span>
+
+        </div>
+
+        <h2>{{ dashboard.total_scans }}</h2>
+
+        <p>Total Analyses</p>
+
+    </div>
+
+    <div class="executive-card">
+
+        <div class="executive-top">
+
+            <div class="executive-icon red">
+                <i class="fas fa-triangle-exclamation"></i>
+            </div>
+
+            <span class="trend negative">
+                Active
+            </span>
+
+        </div>
+
+        <h2>{{ dashboard.threats_detected }}</h2>
+
+        <p>Threats Detected</p>
+
+    </div>
+
+    <div class="executive-card">
+
+        <div class="executive-top">
+
+            <div class="executive-icon orange">
+                <i class="fas fa-radiation"></i>
+            </div>
+
+            <span class="trend warning">
+                High
+            </span>
+
+        </div>
+
+        <h2>{{ dashboard.high_risk_alerts }}</h2>
+
+        <p>Critical Alerts</p>
+
+    </div>
+
+    <div class="executive-card">
+
+        <div class="executive-top">
+
+            <div class="executive-icon green">
+                <i class="fas fa-shield-check"></i>
+            </div>
+
+            <span class="trend success">
+                Secure
+            </span>
+
+        </div>
+
+        <h2>{{ dashboard.safe_analyses }}</h2>
+
+        <p>Safe Analyses</p>
+
+    </div>
+
+</div>
+
+        
+    </div>
+
+</section>
+
+<!-- ==========================================
+THREAT TREND + INTELLIGENCE HIGHLIGHTS
+========================================== -->
+
+<section class="analytics-grid">
+
+    <!-- LEFT -->
+
+    <div class="trend-card" id="analyticsSection">
+
+    <div class="trend-header">
+
+        <div>
+
+            <h2>📈 Threat Trend</h2>
+
+            <p>Weekly AI threat analytics</p>
+
+        </div>
+
+        <button class="trend-filter">
+
+            Last 7 Days
+
+        </button>
+
+    </div>
+
+    <div class="trend-chart">
+
+        <canvas id="trendChart"></canvas>
+
+    </div>
+
+    <div class="trend-footer">
+
+        <div class="trend-stat">
+
+            <span class="trend-up">
+                ▲ +38%
+            </span>
+
+            <small>
+                Compared to last week
+            </small>
+
+        </div>
+
+        <div class="trend-stat">
+
+            <strong>
+                Peak Detection
+            </strong>
+
+            <small>
+                Saturday · 14 Threats
+            </small>
+
+        </div>
+
+        <div class="trend-stat">
+
+            <strong>
+                AI Insight
+            </strong>
+
+            <small>
+                Credential Theft is dominating.
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <!-- RIGHT -->
+
+<div class="highlight-card">
+
+    <div class="card-header">
+
+        <div>
+
+            <h2>🧠 Threat Intelligence</h2>
+            <p>AI generated executive insights</p>
+
+        </div>
+
+    </div>
+
+    <div class="executive-list">
+
+        <!-- Card 1 -->
+
+        <div class="executive-item critical">
+
+            <div class="executive-icon">
+                🚨
+            </div>
+
+            <div class="executive-content">
+
+                <span class="executive-title">
+                    Highest Risk
+                </span>
+
+                <h3>{{ analyst.top_threat }}</h3>
+
+                <small>
+                    +38% compared to last week
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="executive-item warning">
+
+            <div class="executive-icon">
+                🌐
+            </div>
+
+            <div class="executive-content">
+
+                <span class="executive-title">
+                    Primary Attack Vector
+                </span>
+
+                <h3>Malicious URLs</h3>
+
+                <small>
+                    62% of detections
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="executive-item success">
+
+            <div class="executive-icon">
+                🤖
+            </div>
+
+            <div class="executive-content">
+
+                <span class="executive-title">
+                    AI Confidence
+                </span>
+
+                <h3>98.7%</h3>
+
+                <small>
+                    ML Engine Stable
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Card 4 -->
+
+        <div class="executive-item info">
+
+            <div class="executive-icon">
+                🛡️
+            </div>
+
+            <div class="executive-content">
+
+                <span class="executive-title">
+                    System Health
+                </span>
+
+                <h3>Protected</h3>
+
+                <small>
+                    All engines operational
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Card 5 -->
+
+        <div class="executive-item success">
+
+            <div class="executive-icon">
+                📈
+            </div>
+
+            <div class="executive-content">
+
+                <span class="executive-title">
+                    Weekly Trend
+                </span>
+
+                <h3>+18%</h3>
+
+                <small>
+                    Increase in detection accuracy
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<section class="intel-center" id="whyChooseSection">
+
+<h2 class="section-title">
+    🚀 Why Choose PhishEye AI
+</h2>
+
+<div id="features" class="feature-grid">
+
+    <div class="feature-box">
+
+        <h3>🤖 AI-Powered Detection</h3>
+
+        <p>
+            Machine learning driven phishing detection
+            with intelligent threat scoring.
+        </p>
+
+    </div>
+
+    <div class="feature-box">
+
+        <h3>⚡ Real-Time Analysis</h3>
+
+        <p>
+            Instantly analyze emails, URLs,
+            senders and financial scams.
+        </p>
+
+    </div>
+
+    <div class="feature-box">
+
+        <h3>🛡 Multi-Layer Security</h3>
+
+        <p>
+            Email, URL, Sender, QR and UPI
+            protection in one platform.
+            
+        </p>
+
+    </div>
+
+    <div class="feature-box">
+
+        <h3>📊 Threat Intelligence</h3>
+
+        <p>
+            Detailed threat insights and
+            actionable recommendations.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<div id="loadingScreen">
+
+    <div class="loader-content">
+
+        <h2>🛡️ PhishEye AI</h2>
+
+    <p id="loadingText">
+        Initializing Scan...
+    </p>
+
+        <div class="spinner"></div>
+
+    </div>
+
+</div>
+
+<script>
+
+const form = document.querySelector("form");
+
+if(form){
+
+    form.addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        document.getElementById("loadingScreen").style.display = "flex";
+
+        const loadingText =
+            document.getElementById("loadingText");
+
+        const steps = [
+
+            "📧 Parsing Email Content...",
+            "🔗 Scanning URLs...",
+            "📨 Verifying Sender...",
+            "🤖 Running ML Detection...",
+            "🛡️ Generating Threat Intelligence..."
+
+        ];
+
+        let i = 0;
+
+        const interval = setInterval(() => {
+
+            if(i < steps.length){
+
+                loadingText.innerText = steps[i];
+                i++;
+
+            }
+
+        }, 500);
+
+        setTimeout(() => {
+
+            clearInterval(interval);
+            this.submit();
+
+        }, 3000);
+
+    });
+
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const canvas = document.getElementById("trendChart");
+
+if (canvas) {
+
+    const ctx = canvas.getContext("2d");
+
+    const gradient = ctx.createLinearGradient(0,0,0,350);
+
+    gradient.addColorStop(0,"rgba(124,58,237,.45)");
+    gradient.addColorStop(.5,"rgba(124,58,237,.15)");
+    gradient.addColorStop(1,"rgba(124,58,237,0)");
+
+    new Chart(ctx,{
+
+        type:"line",
+
+        data:{
+
+            labels:[
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ],
+
+            datasets:[{
+
+                label:"Threats Detected",
+
+                data:[
+                    5,
+                    8,
+                    6,
+                    11,
+                    9,
+                    14,
+                    12
+                ],
+
+                borderColor:"#7C3AED",
+
+                backgroundColor:gradient,
+
+                borderWidth:4,
+
+                fill:true,
+
+                tension:.45,
+
+                cubicInterpolationMode:"monotone",
+
+                pointRadius:0,
+
+                pointHoverRadius:7,
+
+                pointHitRadius:18,
+
+                pointBackgroundColor:"#A855F7",
+
+                pointBorderColor:"#ffffff",
+
+                pointBorderWidth:2,
+
+                pointHoverBorderWidth:4,
+
+                pointHoverBorderColor:"#ffffff"
+
+            }]
+
+        },
+
+        options:{
+
+            responsive:true,
+
+            maintainAspectRatio:false,
+
+            interaction:{
+                intersect:false,
+                mode:"index"
+            },
+
+            plugins:{
+
+                legend:{
+                    display:false
+                },
+
+                tooltip:{
+
+                    backgroundColor:"#18181B",
+
+                    borderColor:"#7C3AED",
+
+                    borderWidth:1,
+
+                    padding:14,
+
+                    cornerRadius:12,
+
+                    displayColors:false,
+
+                    titleColor:"#ffffff",
+
+                    bodyColor:"#E5E7EB"
+
+                }
+
+            },
+
+            scales:{
+
+                x:{
+
+                    grid:{
+                        display:false,
+                        drawBorder:false
+                    },
+
+                    ticks:{
+                        color:"#9CA3AF",
+                        font:{
+                            size:13,
+                            weight:"600"
+                        }
+                    }
+
+                },
+
+                y:{
+
+                    beginAtZero:true,
+
+                    grid:{
+                        color:"rgba(255,255,255,.04)",
+                        drawBorder:false
+                    },
+
+                    ticks:{
+                        color:"#9CA3AF",
+                        stepSize:2
+                    }
+
+                }
+
+            },
+
+            animation:{
+
+                duration:1600,
+
+                easing:"easeOutQuart"
+
+            }
+
+        }
+
+    });
+
+}
+
+</script>
+
+        </div>
+    </div>  
+    </main>
+
+</div>
+</body>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchInput = document.getElementById("dashboardSearch");
+
+    if (!searchInput) return;
+
+    const sections = [
+
+        "heroSection",
+
+        "overviewSection",
+
+        "analyticsSection",
+
+        "threatActivitySection",
+
+        "securityAdvisorSection",
+
+        "whyChooseSection"
+
+    ];
+
+    searchInput.addEventListener("input", function () {
+
+        const keyword = this.value.trim().toLowerCase();
+
+        sections.forEach(function(id){
+
+            const section = document.getElementById(id);
+
+            if(!section) return;
+
+            if(keyword === ""){
+
+                section.style.display = "";
+
+                return;
+
+            }
+
+            const text = section.innerText.toLowerCase();
+
+            if(text.includes(keyword)){
+
+                section.style.display = "";
+
+            }else{
+
+                section.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+</html>

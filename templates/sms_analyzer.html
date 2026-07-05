@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SMS Scam Analyzer | TrustLens AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='navbar.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+{% include "components/top_navbar.html" %}
+
+{% set title = "SMS Scam Analyzer" %}
+{% set description = "Analyze SMS messages for phishing, OTP fraud, banking scams, malicious links and impersonation using TrustLens AI." %}
+{% set input_title = "Paste SMS Message" %}
+{% set form_action = "/analyze-sms" %}
+{% set button_text = "Analyze SMS" %}
+
+{% include "components/analyzer_layout.html" %}
+
+{% block analyzer_input %}
+
+<textarea
+
+    name="sms_content"
+
+    rows="14"
+
+    placeholder="Paste the complete SMS message here..."
+
+    required>
+
+</textarea>
+
+{% endblock %}
+
+</body>
+
+</html>

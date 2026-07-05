@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Scanning...</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="scan-container">
+
+    <div class="scan-card">
+
+        <h1>🛡 PHISHEYE AI</h1>
+
+        <h2>Threat Analysis In Progress</h2>
+        
+        <div class="scanner-line"></div>
+
+        <div class="progress-wrapper">
+
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+
+        </div>
+
+    <div class="scan-log">
+
+        <p id="log1"></p>
+        <p id="log2"></p>
+        <p id="log3"></p>
+        <p id="log4"></p>
+        <p id="log5"></p>
+        <p id="log6"></p>
+
+    </div>
+
+    </div>
+
+</div>
+
+<script>
+
+setTimeout(() => {
+    document.getElementById("log1").innerHTML =
+    "[22:35:01] ✓ Initializing Threat Engine...";
+}, 500);
+
+setTimeout(() => {
+    document.getElementById("log2").innerHTML =
+    "[22:35:02] ✓ Detection Modules Loaded";
+}, 1000);
+
+setTimeout(() => {
+    document.getElementById("log3").innerHTML =
+    "[22:35:03] ✓ Scanning Email Content";
+}, 1500);
+
+setTimeout(() => {
+    document.getElementById("log4").innerHTML =
+    "[22:35:04] ✓ Running ML Model";
+}, 2200);
+
+setTimeout(() => {
+    document.getElementById("log5").innerHTML =
+    "[22:35:05] ✓ Threat Intelligence Matched";
+}, 2900);
+
+setTimeout(() => {
+    document.getElementById("log6").innerHTML =
+    "[22:35:06] ✓ Security Report Generated";
+}, 3500);
+
+setTimeout(() => {
+
+    document.getElementById(
+        "hiddenForm"
+    ).submit();
+
+}, 4500);
+
+</script>
+
+<form id="hiddenForm"
+      action="/analyze"
+      method="POST"
+      style="display:none;">
+
+    <textarea name="email_content">
+        {{ email_content }}
+    </textarea>
+
+</form>
+
+</body>
+
+</html>

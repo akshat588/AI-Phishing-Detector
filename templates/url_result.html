@@ -151,88 +151,205 @@
 
     <div class="section">
 
-        <h2>
-            🤖 AI Security Analyst
-        </h2>
+    <h2>
+        🤖 AI Security Analyst
+    </h2>
 
-        <div class="analyst-grid">
+    <div class="analyst-grid">
 
-            <div class="analyst-card">
+        <div class="analyst-card">
 
-                <div class="analyst-avatar">
-                    🛡️
-                </div>
-
-                <h3>
-                    Threat Assessment
-                </h3>
-
-                {% if score >= 80 %}
-
-                    <p>
-                        This URL is highly suspicious and contains
-                        multiple phishing indicators. Avoid opening
-                        this link.
-                    </p>
-
-                {% elif score >= 50 %}
-
-                    <p>
-                        This URL shows several warning signs.
-                        Verify authenticity before visiting.
-                    </p>
-
-                {% elif score >= 20 %}
-
-                    <p>
-                        Some suspicious indicators were found.
-                        Exercise caution.
-                    </p>
-
-                {% else %}
-
-                    <p>
-                        No major phishing indicators detected.
-                        URL appears relatively safe.
-                    </p>
-
-                {% endif %}
-
+            <div class="analyst-avatar">
+                🛡️
             </div>
 
-            <div class="analyst-card">
+            <h3>
+                AI Confidence
+            </h3>
 
-                <h3>
-                    Recommended Actions
-                </h3>
+            <h1 style="color:#4da3ff">
 
-                <ul>
+                {{ url_ai.confidence }}%
 
-                    <li>
-                        Verify the domain manually.
-                    </li>
+            </h1>
 
-                    <li>
-                        Avoid entering credentials.
-                    </li>
+            <br>
 
-                    <li>
-                        Check HTTPS certificate validity.
-                    </li>
+            <h3>
+                Risk Factors
+            </h3>
 
-                    <li>
-                        Use official websites whenever possible.
-                    </li>
+            <ul>
 
-                </ul>
+                {% for item in url_ai.summary %}
 
-            </div>
+                <li>
+
+                    ✔ {{ item }}
+
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <div class="analyst-card">
+
+            <h3>
+
+                Recommended Actions
+
+            </h3>
+
+            <ul>
+
+                {% for action in url_ai.recommendations %}
+
+                <li>
+
+                    • {{ action }}
+
+                </li>
+
+                {% endfor %}
+
+            </ul>
 
         </div>
 
     </div>
 
+</div>
+
     <!-- URL ANALYSIS TIMELINE -->
+
+    <!-- ================================================= -->
+<!-- ADVANCED THREAT INTELLIGENCE -->
+<!-- ================================================= -->
+
+<div class="section">
+
+    <h2>
+        🧠 Advanced Threat Intelligence
+    </h2>
+
+    <div class="analyst-grid">
+
+        <div class="analyst-card">
+
+            <h3>Overall Threat Score</h3>
+
+            <h1 style="color:#ff4d4d">
+                {{ intelligence.overall_score }}/100
+            </h1>
+
+            <br>
+
+            <h3>Threat Level</h3>
+
+            <p>{{ intelligence.risk_level }}</p>
+
+            <br>
+
+            <h3>Domain Reputation</h3>
+
+            <p>{{ intelligence.reputation }}</p>
+
+        </div>
+
+        <div class="analyst-card">
+
+            <h3>Threat Intelligence Modules</h3>
+
+            <table style="width:100%;">
+
+                <tr>
+                    <td>URL Analysis</td>
+                    <td>{{ intelligence.url_score }}</td>
+                </tr>
+
+                <tr>
+                    <td>Fake Website</td>
+                    <td>{{ intelligence.fake_site_score }}</td>
+                </tr>
+
+                <tr>
+                    <td>Malware</td>
+                    <td>{{ intelligence.malware_score }}</td>
+                </tr>
+
+                <tr>
+                    <td>Domain</td>
+                    <td>{{ intelligence.domain_score }}</td>
+                </tr>
+
+                <tr>
+                    <td>SSL</td>
+                    <td>{{ intelligence.ssl_score }}</td>
+                </tr>
+
+                <tr>
+                    <td>Reputation</td>
+                    <td>{{ intelligence.reputation_score }}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- THREAT INTELLIGENCE FINDINGS -->
+<!-- ================================================= -->
+
+<div class="section">
+
+    <h2>
+        🚨 Advanced Findings
+    </h2>
+
+    {% if intelligence.findings %}
+
+        {% for item in intelligence.findings %}
+
+            <div class="feed-item">
+
+                ⚠ {{ item }}
+
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+</div>
+
+<!-- ================================================= -->
+<!-- AI RECOMMENDATIONS -->
+<!-- ================================================= -->
+
+<div class="section">
+
+    <h2>
+        ✅ AI Recommendations
+    </h2>
+
+    {% for item in intelligence.recommendations %}
+
+        <div class="feed-item">
+
+            ✔ {{ item }}
+
+        </div>
+
+    {% endfor %}
+
+</div>
 
     <div class="section">
 
